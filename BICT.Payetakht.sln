@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BICT.Payetakht", "BICTCar\BICT.Payetakht.csproj", "{EFDDB4C3-A02B-4979-8539-DF6771ADB244}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BICT.Payetakht", "BICT.Payetakht\BICT.Payetakht.csproj", "{EFDDB4C3-A02B-4979-8539-DF6771ADB244}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
