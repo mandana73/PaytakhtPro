@@ -26,6 +26,29 @@ Author URI: http://xpeedstudio.com
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir-Black-FD.eot');
+    src: url('../fonts/Vazir-Black-FD.eot?#iefix') format('embedded-opentype'),url('../fonts/Vazir-Black-FD.woff2') format('woff2'),url('../fonts/Vazir-Black-FD.woff') format('woff'),url('../fonts/Vazir-Black-FD.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir-Bold-FD.eot');
+    src: url('../fonts/Vazir-Bold-FD.eot?#iefix') format('embedded-opentype'),url('../fonts/Vazir-Bold-FD.woff2') format('woff2'),url('../fonts/Vazir-Bold-FD.woff') format('woff'),url('../fonts/Vazir-Bold-FD.ttf') format('truetype');
+    font-weight: bold;
+}
+
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir-Thin-FD.eot');
+    src: url('../fonts/Vazir-Thin-FD.eot?#iefix') format('embedded-opentype'),url('../fonts/Vazir-Thin-FD.woff2') format('woff2'),url('../fonts/Vazir-Thin-FD.woff') format('woff'),url('../fonts/Vazir-Thin-FD.ttf') format('truetype');
+    font-weight: 300;
+}
 html,
 body
 {
@@ -37,7 +60,7 @@ body
     margin-right: 0;
     font-weight: 400;
     width: 100%;
-    font-family: 'Raleway', sans-serif;
+    font-family: Vazir, sans-serif;
 }
 
 /*------------------------------------------------------------------*/
