@@ -195,8 +195,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuditController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\QandAController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,13 +227,20 @@
     <Content Include="Content\font.css" />
     <Content Include="Content\iconfont.css" />
     <Content Include="Content\images\about-img1.jpg" />
+    <Content Include="Content\images\cbrand-img1-old.png" />
     <Content Include="Content\images\cbrand-img1.png" />
-    <Content Include="Content\images\cbrand-img2.png" />
+    <Content Include="Content\images\cbrand-img2 .png" />
+    <Content Include="Content\images\cbrand-img2-old.png" />
+    <Content Include="Content\images\cbrand-img3-old.png" />
     <Content Include="Content\images\cbrand-img3.png" />
+    <Content Include="Content\images\cbrand-img4-old.png" />
     <Content Include="Content\images\cbrand-img4.png" />
+    <Content Include="Content\images\cbrand-img5-old.png" />
     <Content Include="Content\images\cbrand-img5.png" />
+    <Content Include="Content\images\cbrand-img6-old.png" />
     <Content Include="Content\images\cbrand-img6.png" />
     <Content Include="Content\images\footer-logo.png" />
+    <Content Include="Content\images\home-bg-old.jpg" />
     <Content Include="Content\images\home-bg.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\ltst-img-1.jpg" />
@@ -240,9 +249,17 @@
     <Content Include="Content\images\test-img1.jpg" />
     <Content Include="Content\images\test-img2.jpg" />
     <Content Include="Content\images\work-img1.jpg" />
+    <Content Include="Content\images\work-img10.jpg" />
+    <Content Include="Content\images\work-img11.jpg" />
+    <Content Include="Content\images\work-img12.jpg" />
     <Content Include="Content\images\work-img2.jpg" />
     <Content Include="Content\images\work-img3.jpg" />
     <Content Include="Content\images\work-img4.jpg" />
+    <Content Include="Content\images\work-img5.jpg" />
+    <Content Include="Content\images\work-img6.jpg" />
+    <Content Include="Content\images\work-img7.jpg" />
+    <Content Include="Content\images\work-img8.jpg" />
+    <Content Include="Content\images\work-img9.jpg" />
     <Content Include="Content\magnific-popup.css" />
     <Content Include="Content\panel.css" />
     <Content Include="Content\plugins.css" />
@@ -385,6 +402,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\AdminLayout.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\Audit\Index.cshtml" />
+    <Content Include="Views\QandA\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
