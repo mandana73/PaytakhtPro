@@ -537,7 +537,7 @@ Extra height css
 }
 
 .m-top-20 {
-    margin-top: 20px;
+    margin-top: 0 px;
 }
 
 .m-top-30 {
@@ -1029,10 +1029,10 @@ Home Section style
 ==================*/
 
 .home {
-    background: url(images/home-bg.jpg) no-repeat scroll center center;
+    background: url(images/home-bg.jpg) no-repeat scroll center ;
     background-size: contain;
-    position: relative;
-    padding-top:150px;
+    position: center;
+    padding-top: 150px;
     padding-bottom: 500px;
     width: 100%;
 }

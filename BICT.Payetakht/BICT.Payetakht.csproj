@@ -194,11 +194,14 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuditController.cs" />
+    <Compile Include="Controllers\ContanctUsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QandAController.cs" />
+    <Compile Include="Controllers\ReadsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -404,6 +407,9 @@
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\Audit\Index.cshtml" />
     <Content Include="Views\QandA\index.cshtml" />
+    <Content Include="Views\Reads\index.cshtml" />
+    <Content Include="Views\AboutUs\index.cshtml" />
+    <Content Include="Views\ContanctUs\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
