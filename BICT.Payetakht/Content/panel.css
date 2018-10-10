@@ -1,3 +1,23 @@
+@font-face {
+    font-family: 'Vazir';
+    src: url('fonts/Vazir-Black-FD.eot');
+    src: url('fonts/Vazir-Black-FD.eot?#iefix') format('embedded-opentype'),url('fonts/Vazir-Black-FD.woff2') format('woff2'),url('fonts/Vazir-Black-FD.woff') format('woff'),url('fonts/Vazir-Black-FD.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('fonts/Vazir-Bold-FD.eot');
+    src: url('fonts/Vazir-Bold-FD.eot?#iefix') format('embedded-opentype'),url('fonts/Vazir-Bold-FD.woff2') format('woff2'),url('fonts/Vazir-Bold-FD.woff') format('woff'),url('fonts/Vazir-Bold-FD.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('fonts/Vazir-Thin-FD.eot');
+    src: url('fonts/Vazir-Thin-FD.eot?#iefix') format('embedded-opentype'),url('fonts/Vazir-Thin-FD.woff2') format('woff2'),url('fonts/Vazir-Thin-FD.woff') format('woff'),url('fonts/Vazir-Thin-FD.ttf') format('truetype');
+    font-weight: 300;
+}
 
 /*!
  *   AdminLTE v2.3.0
@@ -11,9 +31,9 @@
  * -------------------------
  */
 html,
-body
-{
+body {
     min-height: 100%;
+    font-family: Vazir, sans-serif;
 }
 
 .layout-boxed html,
@@ -6785,16 +6805,8 @@ svg
     border-bottom-right-radius: 2px;
     border-bottom-left-radius: 0;
 }
-
-@font-face
-{
-    font-family: 'iransans-web';
-    src: url('../fonts/iransans/iransans-web.woff') format('woff'), url('/../fonts/iransans/iransans-web_bold.woff') format('woff'), url('/../fonts/iransans/iransans-web_light.woff') format('woff'), url('/../fonts/iransans/iransans-web_medium.woff') format('woff'), url('/../fonts/iransans/iransans-web_ultralight.woff') format('woff');
-}
-
-html, body, input
-{
-    font-family: iransans-web, Arial, Helvetica, sans-serif !important;
+html, body, input {
+    font-family: Vazir, sans-serif;
     font-size: 1em;
     font-weight: normal !important;
 }

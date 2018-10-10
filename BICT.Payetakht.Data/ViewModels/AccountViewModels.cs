@@ -66,20 +66,20 @@
 
     public class RegisterViewModel
     {
-        [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
+        [Required(ErrorMessage ="پست الکترونیک اجباری می باشد")]
+        [EmailAddress(ErrorMessage ="پست الکترونیکی معتبر نیست")]
+        [Display(Name = "پست الکترونیکی")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage ="رمز عبور اجباری می باشد")]
+        [StringLength(100, ErrorMessage = "حداقل طول رمزعبور {0} و حداکثر طول {2} کاراکتر میباشد", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "رمز عبور")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "تکرار رمز عبور")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "رمز عبود و تکرار رمز عبور با هم برابر نیستند")]
         public string ConfirmPassword { get; set; }
     }
 

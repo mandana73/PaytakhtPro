@@ -24,6 +24,30 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<IdentityUserRole>()
+                        .HasKey(r => new
+                        {
+                            r.UserId,
+                            r.RoleId
+                        }).ToTable("IdentityUserRole");
+
+            modelBuilder.Entity<IdentityUserLogin>()
+                        .HasKey(l => new
+                        {
+                            l.LoginProvider,
+                            l.ProviderKey,
+                            l.UserId
+                        }).ToTable("IdentityUserLogin");
+
+            modelBuilder.Entity<ApplicationUser>()
+                        .ToTable("IdentityUser");
+
+            modelBuilder.Entity<IdentityRole>()
+                        .ToTable("IdentityRole");
+
+            modelBuilder.Entity<IdentityUserClaim>()
+                        .ToTable("IdentityUserClaim");
+
             modelBuilder.Entity<CarManufacturer>()
                         .HasMany(x => x.CarModels)
                         .WithRequired(x => x.CarManufacturer)
