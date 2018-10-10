@@ -8,7 +8,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Dashboard/Home
+        
         public ActionResult Index()
         {
             return View();
