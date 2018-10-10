@@ -197,6 +197,7 @@
     <Compile Include="AppStart\RouteConfig.cs" />
     <Compile Include="AppStart\Startup.Auth.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CarManufactureController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\HomeController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -337,6 +338,7 @@
     <Content Include="ApplicationInsights.config" />
     <Content Include="Areas\Dashboard\Views\web.config" />
     <Content Include="Areas\Dashboard\Views\CarManufacture\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Home\index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.rtl.min.js" />
     <Content Include="Scripts\chart.js" />
