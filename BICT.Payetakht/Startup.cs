@@ -1,9 +1,9 @@
-﻿using Microsoft.Owin;
-using Owin;
+﻿[assembly: Microsoft.Owin.OwinStartup(typeof(BICT.Payetakht.Startup))]
 
-[assembly: OwinStartupAttribute(typeof(BICTCar.Startup))]
-namespace BICTCar
+namespace BICT.Payetakht
 {
+    using Owin;
+
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)

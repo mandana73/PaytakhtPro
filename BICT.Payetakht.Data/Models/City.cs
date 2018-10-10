@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace BICT.Payetakht.Data.Models
+﻿namespace BICT.Payetakht.Data.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class City
     {
         [Key]

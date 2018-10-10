@@ -15,7 +15,7 @@
     <RootNamespace>BICT.Payetakht</RootNamespace>
     <AssemblyName>BICT.Payetakht</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <MvcBuildViews>false</MvcBuildViews>
+    <MvcBuildViews>true</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <MvcBuildViews>true</MvcBuildViews>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <MvcBuildViews>true</MvcBuildViews>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -189,11 +191,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AppStart\BundleConfig.cs" />
+    <Compile Include="AppStart\FilterConfig.cs" />
+    <Compile Include="AppStart\IdentityConfig.cs" />
+    <Compile Include="AppStart\RouteConfig.cs" />
+    <Compile Include="AppStart\Startup.Auth.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuditController.cs" />
@@ -205,19 +207,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\Images\default-50x50.gif" />
-    <Content Include="Admin\Images\user1-128x128.jpg" />
-    <Content Include="Admin\Images\user6-128x128.jpg" />
-    <Content Include="Admin\Images\user7-128x128.jpg" />
-    <Content Include="Admin\Images\user8-128x128.jpg" />
-    <Content Include="Admin\Index.html" />
+    <Content Include="Content\AdminTemplate\Images\default-50x50.gif" />
+    <Content Include="Content\AdminTemplate\Images\user1-128x128.jpg" />
+    <Content Include="Content\AdminTemplate\Images\user6-128x128.jpg" />
+    <Content Include="Content\AdminTemplate\Images\user7-128x128.jpg" />
+    <Content Include="Content\AdminTemplate\Images\user8-128x128.jpg" />
+    <Content Include="Content\AdminTemplate\Index.html" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\bootsnav.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -277,29 +276,26 @@
     <Content Include="Content\slick\slick.min.js" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\bootstrapThemesCo-icon.svg" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\bootstrapThemesCo-icon.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="img\logowhite.png" />
-    <Content Include="img\logowhitemini.png" />
+    <Content Include="Content\images\logowhite.png" />
+    <Content Include="Content\images\logowhitemini.png" />
     <Content Include="Scripts\bootsnav.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="fonts\iransans\iransans-web.woff" />
-    <Content Include="fonts\iransans\iransans-web_bold.woff" />
-    <Content Include="fonts\iransans\iransans-web_light.woff" />
-    <Content Include="fonts\iransans\iransans-web_medium.woff" />
-    <Content Include="fonts\iransans\iransans-web_ultralight.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\iransans\iransans-web.woff" />
+    <Content Include="Content\fonts\iransans\iransans-web_bold.woff" />
+    <Content Include="Content\fonts\iransans\iransans-web_light.woff" />
+    <Content Include="Content\fonts\iransans\iransans-web_medium.woff" />
+    <Content Include="Content\fonts\iransans\iransans-web_ultralight.woff" />
     <Content Include="Content\slick\config.rb" />
     <Content Include="Content\slick\fonts\slick.eot" />
     <Content Include="Content\slick\fonts\slick.ttf" />
@@ -308,29 +304,29 @@
     <Content Include="Content\slick\slick-theme.scss" />
     <Content Include="Content\slick\slick.less" />
     <Content Include="Content\slick\slick.scss" />
-    <Content Include="fonts\bootstrapThemesCo-icon.eot" />
-    <Content Include="fonts\bootstrapThemesCo-icon.ttf" />
-    <Content Include="fonts\bootstrapThemesCo-icon.woff" />
-    <Content Include="fonts\Vazir-Black-FD.eot" />
-    <Content Include="fonts\Vazir-Black-FD.ttf" />
-    <Content Include="fonts\Vazir-Black-FD.woff" />
-    <Content Include="fonts\Vazir-Black-FD.woff2" />
-    <Content Include="fonts\Vazir-Bold-FD.eot" />
-    <Content Include="fonts\Vazir-Bold-FD.ttf" />
-    <Content Include="fonts\Vazir-Bold-FD.woff" />
-    <Content Include="fonts\Vazir-Bold-FD.woff2" />
-    <Content Include="fonts\Vazir-Light-FD.eot" />
-    <Content Include="fonts\Vazir-Light-FD.ttf" />
-    <Content Include="fonts\Vazir-Light-FD.woff" />
-    <Content Include="fonts\Vazir-Light-FD.woff2" />
-    <Content Include="fonts\Vazir-Medium-FD.eot" />
-    <Content Include="fonts\Vazir-Medium-FD.ttf" />
-    <Content Include="fonts\Vazir-Medium-FD.woff" />
-    <Content Include="fonts\Vazir-Medium-FD.woff2" />
-    <Content Include="fonts\Vazir-Thin-FD.eot" />
-    <Content Include="fonts\Vazir-Thin-FD.ttf" />
-    <Content Include="fonts\Vazir-Thin-FD.woff" />
-    <Content Include="fonts\Vazir-Thin-FD.woff2" />
+    <Content Include="Content\fonts\bootstrapThemesCo-icon.eot" />
+    <Content Include="Content\fonts\bootstrapThemesCo-icon.ttf" />
+    <Content Include="Content\fonts\bootstrapThemesCo-icon.woff" />
+    <Content Include="Content\fonts\Vazir-Black-FD.eot" />
+    <Content Include="Content\fonts\Vazir-Black-FD.ttf" />
+    <Content Include="Content\fonts\Vazir-Black-FD.woff" />
+    <Content Include="Content\fonts\Vazir-Black-FD.woff2" />
+    <Content Include="Content\fonts\Vazir-Bold-FD.eot" />
+    <Content Include="Content\fonts\Vazir-Bold-FD.ttf" />
+    <Content Include="Content\fonts\Vazir-Bold-FD.woff" />
+    <Content Include="Content\fonts\Vazir-Bold-FD.woff2" />
+    <Content Include="Content\fonts\Vazir-Light-FD.eot" />
+    <Content Include="Content\fonts\Vazir-Light-FD.ttf" />
+    <Content Include="Content\fonts\Vazir-Light-FD.woff" />
+    <Content Include="Content\fonts\Vazir-Light-FD.woff2" />
+    <Content Include="Content\fonts\Vazir-Medium-FD.eot" />
+    <Content Include="Content\fonts\Vazir-Medium-FD.ttf" />
+    <Content Include="Content\fonts\Vazir-Medium-FD.woff" />
+    <Content Include="Content\fonts\Vazir-Medium-FD.woff2" />
+    <Content Include="Content\fonts\Vazir-Thin-FD.eot" />
+    <Content Include="Content\fonts\Vazir-Thin-FD.ttf" />
+    <Content Include="Content\fonts\Vazir-Thin-FD.woff" />
+    <Content Include="Content\fonts\Vazir-Thin-FD.woff2" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.rtl.min.js" />
     <Content Include="Scripts\chart.js" />
@@ -359,23 +355,17 @@
     <Content Include="Scripts\plugins.js" />
     <Content Include="Scripts\prism.js" />
     <Content Include="Scripts\simple.datagrid.js" />
-    <Content Include="Admin\Articles.html" />
-    <Content Include="Admin\Products.html" />
-    <Content Include="Admin\Sales.html" />
-    <Content Include="Admin\Support.html" />
-    <Content Include="Admin\User.html" />
+    <Content Include="Content\AdminTemplate\Articles.html" />
+    <Content Include="Content\AdminTemplate\Products.html" />
+    <Content Include="Content\AdminTemplate\Sales.html" />
+    <Content Include="Content\AdminTemplate\Support.html" />
+    <Content Include="Content\AdminTemplate\User.html" />
     <Content Include="Scripts\vendor\bootstrap.js" />
     <Content Include="Scripts\vendor\bootstrap.min.js" />
     <Content Include="Scripts\vendor\jquery-1.11.2.min.js" />
     <Content Include="Scripts\vendor\modernizr-2.8.3-respond-1.4.2.min.js" />
     <Content Include="Scripts\vendor\npm.js" />
     <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -412,13 +402,16 @@
     <Content Include="Views\ContanctUs\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <ProjectReference Include="..\BICT.Payetakht.Data\BICT.Payetakht.Data.csproj">
+      <Project>{08EE6FC7-6326-44D1-956C-62137D3784EF}</Project>
+      <Name>BICT.Payetakht.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />

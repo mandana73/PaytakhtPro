@@ -1,10 +1,21 @@
-﻿using System.Data.Entity;
-using BICT.Payetakht.Data.Models;
-
-namespace BICT.Payetakht.Data
+﻿namespace BICT.Payetakht.Data
 {
-    public class BICTDbContext : DbContext
+    using System.Data.Entity;
+    using BICT.Payetakht.Data.Models;
+    using Microsoft.AspNet.Identity.EntityFramework;
+
+    public class BICTDbContext : IdentityDbContext<ApplicationUser>
     {
+        public BICTDbContext()
+            : base("DefaultConnection", throwIfV1Schema: false)
+        {
+        }
+
+        public static BICTDbContext Create()
+        {
+            return new BICTDbContext();
+        }
+
         public DbSet<CarManufacturer> CarManufacturers { get; set; }
         public DbSet<CarModel> CarModels { get; set; }
         public DbSet<CarYear> CarYears { get; set; }
@@ -30,7 +41,6 @@ namespace BICT.Payetakht.Data
                       .WithRequired(x => x.CarYear)
                       .HasForeignKey(x => x.CarYearID)
                       .WillCascadeOnDelete(false);
-
         }
     }
 }

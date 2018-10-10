@@ -1,15 +1,14 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using BICTCar.Models;
-
-namespace BICTCar.Controllers
+﻿namespace BICT.Payetakht.Controllers
 {
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Web;
+    using System.Web.Mvc;
+    using BICT.Payetakht.Data.ViewModels;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+    using Microsoft.Owin.Security;
+
     [Authorize]
     public class ManageController : Controller
     {
@@ -32,9 +31,9 @@ namespace BICTCar.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -333,7 +332,6 @@ namespace BICTCar.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -383,7 +381,5 @@ namespace BICTCar.Controllers
             RemovePhoneSuccess,
             Error
         }
-
-#endregion
     }
 }

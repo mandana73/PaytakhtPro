@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace BICTCar
+namespace BICT.Payetakht
 {
     public class FilterConfig
     {
