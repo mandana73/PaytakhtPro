@@ -339,6 +339,8 @@
     <Content Include="Areas\Dashboard\Views\web.config" />
     <Content Include="Areas\Dashboard\Views\CarManufacture\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\Home\index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\CarManufacture\Create.cshtml" />
+    <Content Include="Areas\Dashboard\Views\CarManufacture\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.rtl.min.js" />
     <Content Include="Scripts\chart.js" />
