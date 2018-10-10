@@ -327,6 +327,7 @@
     <Content Include="Content\fonts\Vazir-Thin-FD.ttf" />
     <Content Include="Content\fonts\Vazir-Thin-FD.woff" />
     <Content Include="Content\fonts\Vazir-Thin-FD.woff2" />
+    <Content Include="ApplicationInsights.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.rtl.min.js" />
     <Content Include="Scripts\chart.js" />
