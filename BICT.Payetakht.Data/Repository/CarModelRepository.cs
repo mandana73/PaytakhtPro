@@ -13,7 +13,8 @@ namespace BICT.Payetakht.Data.Repository
                .Select(x => new CarModelViewModel
                {
                    ID = x.ID,
-                   Title = x.Title
+                   Title = x.Title,
+                   CarManufactureTitle = x.CarManufacturer.Title
                })
                 .ToList();
         }
@@ -30,7 +31,11 @@ namespace BICT.Payetakht.Data.Repository
 
         public void Create(CarModelViewModel car)
         {
-            var item = new CarModels { Title = car.Title };
+            var item = new CarModels
+            {
+                Title = car.Title,
+                CarManufacturerID = car.CarManufacturerID
+            };
             db.CarModels.Add(item);
             db.SaveChanges();
         }
