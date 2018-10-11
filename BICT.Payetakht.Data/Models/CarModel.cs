@@ -3,9 +3,9 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class CarModel
+    public class CarModels
     {
-        public CarModel()
+        public CarModels()
         {
             CarYears = new HashSet<CarYear>();
         }
