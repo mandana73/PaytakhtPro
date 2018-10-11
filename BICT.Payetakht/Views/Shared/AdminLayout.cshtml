@@ -110,7 +110,7 @@
                     </li>
                     <li class="header">بخش کاربری</li>
                     <li class="treeview">
-                        <a href="~/Dashboard/Home">
+                        <a href="@Url.Action("Index","Home")">
                             <i class="fa fa-dashboard"></i> <span>داشبورد</span>
                         </a>
                     </li>
@@ -121,8 +121,8 @@
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="~/Dashboard/CarManufacture"><i class="fa fa-plus"></i> سازنده </a></li>
-                            <li><a href="#"><i class="fa fa-check"></i> مدل</a></li>
+                            <li><a href="@Url.Action("Index","CarManufacture")"><i class="fa fa-plus"></i> سازنده </a></li>
+                            <li><a href="@Url.Action("Index","CarModel")"><i class="fa fa-check"></i> مدل</a></li>
                             <li><a href="#"><i class="fa fa-file-archive-o"></i> سال ساخت</a></li>
                         </ul>
                     </li>
