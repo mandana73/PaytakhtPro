@@ -1,4 +1,4 @@
-﻿
+﻿using System.Linq;
 using System.Web.Mvc;
 using BICT.Payetakht.Data.Repository;
 using BICT.Payetakht.Data.ViewModels;
@@ -7,11 +7,15 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
 {
     public class CarModelController : Controller
     {
+        private CarManufactureRepository manufactureRepository;
         private CarModelRepository repository;
+
         public CarModelController()
         {
             repository = new CarModelRepository();
+            manufactureRepository = new CarManufactureRepository();
         }
+
         public ActionResult Index()
         {
             var list = repository.GetList();
@@ -21,6 +25,12 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.ManufactureList = manufactureRepository.GetList()
+                .Select(x => new SelectListItem
+                {
+                    Text = x.Title,
+                    Value = x.ID.ToString()
+                }).ToList();
             return View();
         }
 
@@ -28,7 +38,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         public ActionResult Create(CarModelViewModel car)
         {
             repository.Create(car);
-                return RedirectToAction("Index");
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -45,12 +55,12 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             repository.Edit(carModelViewModel);
             return RedirectToAction(nameof(Index));
         }
+
         [HttpGet]
         public ActionResult Delete(int ID)
         {
             repository.Delete(ID);
             return RedirectToAction(nameof(Index));
         }
-
     }
 }
