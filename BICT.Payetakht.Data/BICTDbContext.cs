@@ -17,7 +17,7 @@
         }
 
         public DbSet<CarManufacturer> CarManufacturers { get; set; }
-        public DbSet<CarModel> CarModels { get; set; }
+        public DbSet<CarModels> CarModels { get; set; }
         public DbSet<CarYear> CarYears { get; set; }
         public DbSet<CarDetail> CarDetails { get; set; }
         public DbSet<City> Provinces { get; set; }
@@ -54,7 +54,7 @@
                         .HasForeignKey(x => x.CarManufacturerID)
                         .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<CarModel>()
+            modelBuilder.Entity<CarModels>()
                         .HasMany(x => x.CarYears)
                         .WithRequired(x => x.CarModel)
                         .HasForeignKey(x => x.CarModelID)
