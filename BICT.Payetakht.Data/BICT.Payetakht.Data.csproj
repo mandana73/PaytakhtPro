@@ -92,9 +92,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CarManufactureRepository.cs" />
     <Compile Include="Repository\CarModelRepository.cs" />
+    <Compile Include="Repository\CarYearResponsitory.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\CarManufactureViewModel.cs" />
     <Compile Include="ViewModels\CarModelViewModel.cs" />
+    <Compile Include="ViewModels\CarYearsViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
