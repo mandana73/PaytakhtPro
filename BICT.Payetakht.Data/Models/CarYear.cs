@@ -17,9 +17,9 @@
 
         public int Year { get; set; }
 
-        public virtual CarModel CarModels { get; set; }
+        public virtual CarModels CarModels { get; set; }
 
         public ICollection<CarDetail> CarDetails { get; set; }
-        public CarModel CarModel { get; internal set; }
+        public CarModels CarModel { get; internal set; }
     }
 }
