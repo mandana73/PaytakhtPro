@@ -48,9 +48,9 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
-        public ActionResult Delet(int ID)
+        public ActionResult Delete(int ID)
         {
-            repository.Delet(ID);
+            repository.Delete(ID);
             return RedirectToAction(nameof(Index));
         }
         

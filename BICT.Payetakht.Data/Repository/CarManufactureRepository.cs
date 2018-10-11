@@ -41,7 +41,7 @@ namespace BICT.Payetakht.Data.Repository
             a.Title = carManufactureView.Title;
             db.SaveChanges();
         }
-        public void Delet(int ID)
+        public void Delete(int ID)
         {
             var a = db.CarManufacturers.Find(ID);
             db.CarManufacturers.Remove(a);
