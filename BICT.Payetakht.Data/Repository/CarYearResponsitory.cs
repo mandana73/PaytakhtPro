@@ -14,7 +14,9 @@ namespace BICT.Payetakht.Data.Repository
                      .Select(x => new CarYearViewModel
                      {
                          ID = x.ID,
-                        Year = x.Year
+                         Year = x.Year,
+                         CarModelTitle = x.CarModel.Title,
+                         CarManufactureTitle = x.CarModel.CarManufacturer.Title
                      })
                      .ToList();
         }
@@ -25,13 +27,19 @@ namespace BICT.Payetakht.Data.Repository
                 {
                     ID = x.ID,
                     Year = x.Year,
+                    CarModelTitle = x.CarModel.Title,
 
                 }).FirstOrDefault();
         }
 
         public void Create(CarYearViewModel CarYear)
         {
-            var item = new CarYear { Year = CarYear.Year };
+            var item = new CarYear
+            {
+                Year = CarYear.Year,
+                CarModelID = CarYear.CarModelID,
+
+            };
             db.CarYears.Add(item);
             db.SaveChanges();
 
