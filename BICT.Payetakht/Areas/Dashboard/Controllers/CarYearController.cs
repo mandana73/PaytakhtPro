@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using BICT.Payetakht.Data.Repository;
 using BICT.Payetakht.Data.ViewModels;
 
@@ -6,11 +7,13 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
 {
     public class CarYearController : Controller
     {
+        private CarModelRepository carModelRepository;
         private CarYearRepository repository;
 
         public CarYearController()
         {
             repository = new CarYearRepository();
+            carModelRepository = new CarModelRepository();
         }
 
         public ActionResult Index()
@@ -22,6 +25,13 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.CarModelList = carModelRepository.GetList()
+                .Select(x => new SelectListItem
+                {
+                    Text = x.CarManufactureTitle + " - " + x.Title,
+                    Value = x.ID.ToString()
+
+                }).ToList();
             return View();
         }
 
