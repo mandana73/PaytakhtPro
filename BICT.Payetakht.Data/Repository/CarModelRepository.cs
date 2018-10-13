@@ -31,7 +31,7 @@ namespace BICT.Payetakht.Data.Repository
 
         public void Create(CarModelViewModel car)
         {
-            var item = new CarModels
+            var item = new CarModel
             {
                 Title = car.Title,
                 CarManufacturerID = car.CarManufacturerID
@@ -42,7 +42,7 @@ namespace BICT.Payetakht.Data.Repository
 
         public void Edit(CarModelViewModel carModelView)
         {
-            CarModels a = db.CarModels.Find(carModelView.ID);
+            CarModel a = db.CarModels.Find(carModelView.ID);
             a.Title = carModelView.Title;
             db.SaveChanges();
         }
