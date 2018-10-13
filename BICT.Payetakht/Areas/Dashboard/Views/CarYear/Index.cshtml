@@ -7,6 +7,8 @@
     <table class="table table-bordered table-condensed table-hover table-striped">
         <tr>
             <th>عنوان</th>
+            <th>عنوان مدل</th>
+            <th>عنوان سازنده</th>
             <th></th>
         </tr>
         @foreach (var item in Model)
@@ -14,6 +16,8 @@
             <tr>
 
                 <td>@item.Year</td>
+                <td>@item.CarModelTitle</td>
+                <td>@item.CarManufactureTitle</td>
                 <td>
                     <div class="btn-group">
                         <a class="btn btn-info" href="@Url.Action("Edit","CarYear",new { id = item.ID })">ویرایش</a>
