@@ -196,6 +196,7 @@
     <Compile Include="AppStart\IdentityConfig.cs" />
     <Compile Include="AppStart\RouteConfig.cs" />
     <Compile Include="AppStart\Startup.Auth.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\CarDetailController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CarManufactureController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CarModelController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CarYearController.cs" />
@@ -215,6 +216,14 @@
     <Compile Include="Migrations\201810100714071_A001.cs" />
     <Compile Include="Migrations\201810100714071_A001.Designer.cs">
       <DependentUpon>201810100714071_A001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810130831193_A002.cs" />
+    <Compile Include="Migrations\201810130831193_A002.Designer.cs">
+      <DependentUpon>201810130831193_A002.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810131320080_A003.cs" />
+    <Compile Include="Migrations\201810131320080_A003.Designer.cs">
+      <DependentUpon>201810131320080_A003.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -349,6 +358,9 @@
     <Content Include="Areas\Dashboard\Views\CarYear\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\CarYear\Edit.cshtml" />
     <Content Include="Areas\Dashboard\Views\CarYear\Create.cshtml" />
+    <Content Include="Areas\Dashboard\Views\CarDetail\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\CarDetail\Create.cshtml" />
+    <Content Include="Areas\Dashboard\Views\CarDetail\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.rtl.min.js" />
     <Content Include="Scripts\chart.js" />
@@ -445,6 +457,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810100714071_A001.resx">
       <DependentUpon>201810100714071_A001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810130831193_A002.resx">
+      <DependentUpon>201810130831193_A002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810131320080_A003.resx">
+      <DependentUpon>201810131320080_A003.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
