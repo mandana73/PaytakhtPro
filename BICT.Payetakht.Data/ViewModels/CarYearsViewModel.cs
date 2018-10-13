@@ -6,9 +6,14 @@ namespace BICT.Payetakht.Data.ViewModels
     {
         public int ID { get; set; }
 
+
+        public string CarManufactureTitle { get; set; }
+
+        public int CarModelID { get; set; }
+        public string CarModelTitle { get; set; }
+
         [Required(ErrorMessage = "عنوان را وارد نمایید")]
-        [StringLength(255)]
-        [Display(Name = "عنوان سازنده")]
+        [Display(Name = "سال ساخت")]
         public int Year { get; set; }
     }
 }
