@@ -7,13 +7,13 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
 {
     public class CarDetailController : Controller
     {
-        private CarYearRepository carYearRepository;
+        private CarModelRepository carModelRepository;
         private CarDetailRepository repository;
 
         public CarDetailController()
         {
+            carModelRepository = new CarModelRepository();
             repository = new CarDetailRepository();
-            carYearRepository = new CarYearRepository();
         }
 
         public ActionResult Index()
@@ -25,10 +25,10 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.CarYearsList = carYearRepository.GetList()
+            ViewBag.CarModelList = carModelRepository.GetList()
                 .Select(x => new SelectListItem
                 {
-                    Text = x.CarManufactureTitle + " - " + x,
+                    Text = x.CarManufactureTitle + " - " + x.Title,
                     Value = x.ID.ToString()
 
                 }).ToList();
@@ -36,9 +36,9 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(CarDetailViewModel model)
+        public ActionResult Create(CarDetailViewModel carDetailcarDetailView)
         {
-            repository.Create(model);
+            repository.Create(carDetailcarDetailView);
             return RedirectToAction("Index");
         }
 
@@ -53,16 +53,14 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         public ActionResult Edit(int ID, CarDetailViewModel carDetailViewModel)
         {
             repository.Edit(carDetailViewModel);
-
             return RedirectToAction(nameof(Index));
         }
+
         [HttpGet]
         public ActionResult Delete(int ID)
         {
             repository.Delete(ID);
             return RedirectToAction(nameof(Index));
         }
-
-
     }
 }
