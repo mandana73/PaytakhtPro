@@ -1182,6 +1182,15 @@ Home Section style
     width: 100%;
 }
 
+.audit {
+    background: url(images/audit-bg.jpg) no-repeat scroll center;
+    background-size: contain;
+    position: center;
+    padding-top: 150px;
+    padding-bottom: 500px;
+    width: 100%;
+}
+
 .main_home .home_text h2
 {
     font-size: 36px;
