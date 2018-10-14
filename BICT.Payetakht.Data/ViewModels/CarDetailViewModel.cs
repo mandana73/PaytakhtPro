@@ -13,5 +13,6 @@ namespace BICT.Payetakht.Data.ViewModels
 
         public int CarModelID { get; set; }
         public string CarModelTitle { get; set; }
+        public string CarManufactureTitle { get; set; }
     }
 }
