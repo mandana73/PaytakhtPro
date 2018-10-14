@@ -8,6 +8,7 @@ namespace BICT.Payetakht.Data.ViewModels
 
         public int CarManufacturerID { get; set; }
         public string CarManufactureTitle { get; set; }
+        
 
         [Required(ErrorMessage = "عنوان را وارد نمایید")]
         [StringLength(255)]
