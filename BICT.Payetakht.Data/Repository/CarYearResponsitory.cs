@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BICT.Payetakht.Data.Models;
 using BICT.Payetakht.Data.ViewModels;
@@ -50,6 +51,12 @@ namespace BICT.Payetakht.Data.Repository
             a.Year = carYearView.Year;
             db.SaveChanges();
         }
+
+        public void Edit(CarDetailViewModel carDetailViewModel)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Delete(int ID)
         {
             var a = db.CarYears.Find(ID);
