@@ -8,20 +8,24 @@
         <tr>
 
             <th>جزئیات</th>
+            <th>سازنده</th>
+            <th>مدل</th>
             <th></th>
         </tr>
         @foreach (var item in Model)
         {
-            <tr>
+        <tr>
 
-                <td>@item.Title</td>
-                <td>
-                    <div class="btn-group">
-                        <a class="btn btn-info" href="@Url.Action("Edit","CarYear",new { id = item.ID })">ویرایش</a>
-                        <a class="btn btn-danger" href="@Url.Action("Delete","CarYear",new { id = item.ID })">حذف</a>
-                    </div>
-                </td>
-            </tr>
+            <td>@item.Title</td>
+            <td>@item.CarModelTitle</td>
+            <td>@item.CarManufactureTitle</td>
+            <td>
+                <div class="btn-group">
+                    <a class="btn btn-info" href="@Url.Action("Edit",new { id = item.ID })">ویرایش</a>
+                    <a class="btn btn-danger" href="@Url.Action("Delete",new { id = item.ID })">حذف</a>
+                </div>
+            </td>
+        </tr>
         }
     </table>
 </div>
