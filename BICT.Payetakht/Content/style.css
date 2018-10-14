@@ -1793,8 +1793,8 @@ work Section style
     float: right;
 }
 
-.hello_slid
-{
+.hello_slid,
+.audit_slid {
     direction: ltr;
 }
 
