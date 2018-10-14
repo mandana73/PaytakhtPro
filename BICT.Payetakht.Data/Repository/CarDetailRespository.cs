@@ -14,6 +14,8 @@ namespace BICT.Payetakht.Data.Repository
                      {
                          ID = x.ID,
                          CarModelTitle = x.CarModel.Title,
+                         CarModelID = x.CarModelID,
+                         CarManufactureTitle = x.CarModel.CarManufacturer.Title,
                          Title = x.Title,
                      }).ToList();
         }
