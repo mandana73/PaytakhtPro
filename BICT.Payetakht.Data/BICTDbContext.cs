@@ -20,7 +20,7 @@
         public DbSet<CarModel> CarModels { get; set; }
         public DbSet<CarYear> CarYears { get; set; }
         public DbSet<CarDetail> CarDetails { get; set; }
-        public DbSet<City> Provinces { get; set; }
+        public DbSet<City> Cities { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
