@@ -200,6 +200,7 @@
     <Compile Include="Areas\Dashboard\Controllers\CarManufactureController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CarModelController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CarYearController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\CityController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\HomeController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
@@ -361,6 +362,9 @@
     <Content Include="Areas\Dashboard\Views\CarDetail\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\CarDetail\Create.cshtml" />
     <Content Include="Areas\Dashboard\Views\CarDetail\Edit.cshtml" />
+    <Content Include="Areas\Dashboard\Views\City\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\City\Create.cshtml" />
+    <Content Include="Areas\Dashboard\Views\City\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.rtl.min.js" />
     <Content Include="Scripts\chart.js" />
