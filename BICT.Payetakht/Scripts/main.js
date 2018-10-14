@@ -1,16 +1,8 @@
 "use strict";
 jQuery(document).ready(function ($) {
-
-//for Preloader
-
     $(window).load(function () {
         $("#loading").fadeOut(500);
     });
-
-
-    /*---------------------------------------------*
-     * Mobile menu
-     ---------------------------------------------*/
     $('#navbar-menu').find('a[href*=#]:not([href=#])').click(function () {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var target = $(this.hash);
@@ -26,34 +18,19 @@ jQuery(document).ready(function ($) {
             }
         }
     });
-
-
-
-    /*---------------------------------------------*
-     * WOW
-     ---------------------------------------------*/
-
     var wow = new WOW({
-        mobile: false // trigger animations on mobile devices (default is true)
+        mobile: false
     });
     wow.init();
-
-// magnificPopup
-
     $('.popup-img').magnificPopup({
         type: 'image',
         gallery: {
             enabled: true
         }
     });
-
     $('.video-link').magnificPopup({
         type: 'iframe'
     });
-
-
-
-// slick slider active Home Page Tow
     $(".hello_slid").slick({
         dots: true,
         infinite: false,
@@ -65,9 +42,17 @@ jQuery(document).ready(function ($) {
         autoplay: true,
         autoplaySpeed: 2000
     });
-    
-    
-    
+    $(".audit_slid").slick({
+        dots: false,
+        infinite: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow: "<i class='icon icon-chevron-left nextprevleft'></i>",
+        nextArrow: "<i class='icon icon-chevron-right nextprevright'></i>",
+        autoplay: true,
+        autoplaySpeed: 2000
+    });
     $(".business_items").slick({
         dots: true,
         infinite: false,
@@ -79,32 +64,8 @@ jQuery(document).ready(function ($) {
         autoplay: true,
         autoplaySpeed: 2000
     });
-
-
-
-
-//---------------------------------------------
-// Scroll Up 
-//---------------------------------------------
-
     $('.scrollup').click(function () {
-        $("html, body").animate({scrollTop: 0}, 1000);
+        $("html, body").animate({ scrollTop: 0 }, 1000);
         return false;
     });
-
-
-
-
-
-
-
-
-
-
-
-    //End
-
 });
-
-
-
