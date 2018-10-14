@@ -1,6 +1,7 @@
-﻿@model BICT.Payetakht.Data.ViewModels.CarYearViewModel
+﻿@model BICT.Payetakht.Data.ViewModels.CarDetailViewModel
 @{
-    ViewBag.Year = "Create";
+    ViewBag.DashboardTitle = "جزئیات";
+
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 @using (Html.BeginForm())
@@ -9,20 +10,20 @@
     <div class="form-group">
         @Html.Label("سال ساخت", new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownList("CarYearID", (IEnumerable<SelectListItem>)ViewBag.CarYearList, new { @class = "form-control" })
+            @Html.DropDownList("CarModelID", (IEnumerable<SelectListItem>)ViewBag.CarModelList, new { @class = "form-control" })
         </div>
         @Html.ValidationSummary("", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(m => m.Year, new { @class = "col-md-2 control-label" })
+            @Html.LabelFor(m => m.Title, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
             </div>
         </div>
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <button type="submit" class="btn btn-default">ذخیره</button>
-            <a href="~/Dashboard/CarYear">بازگشت</a>
+            <a href= "@Url.Action("Index")">بازگشت</a>
         </div>
     </div>
     @section Scripts {
