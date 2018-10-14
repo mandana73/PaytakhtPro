@@ -1,6 +1,6 @@
 ﻿@model BICT.Payetakht.Data.ViewModels.CarModelViewModel
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.DashboardTitle = "مدل";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 @using (Html.BeginForm())
@@ -15,7 +15,7 @@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <button type="submit" class="btn btn-default">ذخیره</button>
-            <a href="~/Dashboard/CarModel">بازگشت</a>
+            <a href="@Url.Action("Index")">بازگشت</a>
         </div>
     </div>
     @section Scripts {
