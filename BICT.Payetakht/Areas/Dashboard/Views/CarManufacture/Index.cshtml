@@ -16,8 +16,8 @@
                 <td>@item.Title</td>
                 <td>
                     <div class="btn-group">
-                        <a class="btn btn-info" href="@Url.Action("Edit","CarManufacture",new { id = item.ID })">ویرایش</a>
-                        <a class="btn btn-danger" href="@Url.Action("Delete","CarManufacture",new { id = item.ID })">حذف</a>
+                        <a class="btn btn-info" href="@Url.Action("Edit",new { id = item.ID })">ویرایش</a>
+                        <a class="btn btn-danger" href="@Url.Action("Delete",new { id = item.ID })">حذف</a>
                     </div>
                 </td>
             </tr>
