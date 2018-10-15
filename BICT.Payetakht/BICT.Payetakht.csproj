@@ -371,6 +371,8 @@
     <Content Include="Areas\Dashboard\Views\City\Create.cshtml" />
     <Content Include="Areas\Dashboard\Views\City\Edit.cshtml" />
     <Content Include="Areas\Dashboard\Views\CarModelYearDetail\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\CarModelYearDetail\Create.cshtml" />
+    <Content Include="Areas\Dashboard\Views\CarModelYearDetail\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.rtl.min.js" />
