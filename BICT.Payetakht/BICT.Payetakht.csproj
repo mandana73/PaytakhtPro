@@ -199,6 +199,7 @@
     <Compile Include="Areas\Dashboard\Controllers\CarDetailController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CarManufactureController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CarModelController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\CarModelYearDetailController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CarYearController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CityController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\HomeController.cs" />
@@ -225,6 +226,10 @@
     <Compile Include="Migrations\201810131320080_A003.cs" />
     <Compile Include="Migrations\201810131320080_A003.Designer.cs">
       <DependentUpon>201810131320080_A003.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810151113309_A004.cs" />
+    <Compile Include="Migrations\201810151113309_A004.Designer.cs">
+      <DependentUpon>201810151113309_A004.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -365,6 +370,7 @@
     <Content Include="Areas\Dashboard\Views\City\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\City\Create.cshtml" />
     <Content Include="Areas\Dashboard\Views\City\Edit.cshtml" />
+    <Content Include="Areas\Dashboard\Views\CarModelYearDetail\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.rtl.min.js" />
@@ -468,6 +474,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810131320080_A003.resx">
       <DependentUpon>201810131320080_A003.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810151113309_A004.resx">
+      <DependentUpon>201810151113309_A004.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
