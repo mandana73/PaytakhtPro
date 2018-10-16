@@ -15,5 +15,7 @@ namespace BICT.Payetakht.Data.Models
         public virtual CarYear CarYear { get; set; }
         public virtual CarDetail CarDetail { get; set; }
         public object a { get; internal set; }
+
+        public int Price { get; set; }
     }
 }
