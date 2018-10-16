@@ -21,6 +21,18 @@ namespace BICT.Payetakht.Data.Repository
                      })
                      .ToList();
         }
+        public IList<CarYearViewModel> GetList(int carModelID)
+        {
+            return db.CarYears.Where(x=>x.CarModelID==carModelID)
+                     .Select(x => new CarYearViewModel
+                     {
+                         ID = x.ID,
+                         Year = x.Year,
+                         CarModelTitle = x.CarModel.Title,
+                         CarManufactureTitle = x.CarModel.CarManufacturer.Title
+                     })
+                     .ToList();
+        }
         public CarYearViewModel GetItem(int id)
         {
             return db.CarYears.Where(x => x.ID == id)
