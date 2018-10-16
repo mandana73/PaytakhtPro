@@ -19,6 +19,18 @@ namespace BICT.Payetakht.Data.Repository
                          Title = x.Title,
                      }).ToList();
         }
+        public IList<CarDetailViewModel> GetList(int carModelID)
+        {
+            return db.CarDetails.Where(x => x.CarModelID == carModelID)
+                     .Select(x => new CarDetailViewModel
+                     {
+                         ID = x.ID,
+                         CarModelTitle = x.CarModel.Title,
+                         CarModelID = x.CarModelID,
+                         CarManufactureTitle = x.CarModel.CarManufacturer.Title,
+                         Title = x.Title,
+                     }).ToList();
+        }
 
         public CarDetailViewModel GetItem(int id)
         {
