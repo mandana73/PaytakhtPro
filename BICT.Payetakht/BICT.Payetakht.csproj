@@ -231,6 +231,10 @@
     <Compile Include="Migrations\201810151113309_A004.Designer.cs">
       <DependentUpon>201810151113309_A004.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810161349384_A005.cs" />
+    <Compile Include="Migrations\201810161349384_A005.Designer.cs">
+      <DependentUpon>201810161349384_A005.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -479,6 +483,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810151113309_A004.resx">
       <DependentUpon>201810151113309_A004.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810161349384_A005.resx">
+      <DependentUpon>201810161349384_A005.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
