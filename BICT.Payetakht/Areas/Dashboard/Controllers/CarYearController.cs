@@ -25,13 +25,15 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.CarModelList = carModelRepository.GetList()
+          var list =  ViewBag.CarModelList = carModelRepository.GetList()
                 .Select(x => new SelectListItem
                 {
                     Text = x.CarManufactureTitle + " - " + x.Title,
                     Value = x.ID.ToString()
 
                 }).ToList();
+            list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
+            ViewBag.ModelList = list;
             return View();
         }
 
