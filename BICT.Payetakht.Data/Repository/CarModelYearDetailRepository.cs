@@ -22,7 +22,7 @@ namespace BICT.Payetakht.Data.Repository
                     CarModelTitle = x.CarModel.Title,
                     CarYearID = x.CarYearID,
                     CarYearTitle=x.CarYear.Year,
-
+                   Price = x.Price,
 
                 }).ToList();
 
@@ -39,6 +39,7 @@ namespace BICT.Payetakht.Data.Repository
                     CarModelTitle = x.CarModel.Title,
                     CarYearID = x.CarYearID,
                     CarYearTitle=x.CarYear.Year,
+                     Price=x.Price,
                 }).FirstOrDefault();
 
         }
@@ -49,6 +50,7 @@ namespace BICT.Payetakht.Data.Repository
                 CarDetailID = carModelYearDetailView.CarDetailID,
                 CarModelID = carModelYearDetailView.CarModelID,
                 CarYearID = carModelYearDetailView.CarYearID,
+                Price=carModelYearDetailView.Price,
             };
             db.CarModelYearDetails.Add(item);
             db.SaveChanges();
@@ -60,6 +62,8 @@ namespace BICT.Payetakht.Data.Repository
             a.CarYearID = carModelYearDetailView.CarYearID;
             a.CarModelID = carModelYearDetailView.CarModelID;
             a.CarDetailID = carModelYearDetailView.CarDetailID;
+            a.Price = carModelYearDetailView.Price;
+            
 
             db.SaveChanges();
         }
