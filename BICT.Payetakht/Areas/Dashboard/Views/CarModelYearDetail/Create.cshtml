@@ -1,8 +1,60 @@
-﻿
+﻿@model BICT.Payetakht.Data.ViewModels.CarModelYearDetailViewModel
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>Create</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.Label("مدل", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownList("CarModelID", (IEnumerable<SelectListItem>)ViewBag.ModelList, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("سال", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownList("CarYearID", new List<SelectListItem>(), new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("جزئیات", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownList("CarDetailID", new List<SelectListItem>(), new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-default">ذخیره</button>
+            <a href="@Url.Action("Index")">بازگشت</a>
+        </div>
+    </div>
+    @section scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#CarModelID').change(function () {
+                    var carModelID = $(this).val();
+                    $.get('@Url.Action("GetCarYear")' + '?carModelID=' + carModelID, function (data)
+                    {
+                        $('#CarYearID option').remove();
+                        for (var i = 0; i < data.length; i++) {
+                            $('#CarYearID').append($('<option value="' + data[i].Value + '">' + data[i].Text +'</option>'))
+                        }
+                    });
+                    $.get('@Url.Action("GetCarDetail")' + '?carModelID=' + carModelID, function (data)
+                    {
+                        $('#CarDetailID option').remove();
+                        for (var i = 0; i < data.length; i++) {
+                            $('#CarDetailID').append($('<option value="' + data[i].Value + '">' + data[i].Text +'</option>'))
+                        }
+                    });
+
+                });
+            });
+        </script>
+    }
+}
 
