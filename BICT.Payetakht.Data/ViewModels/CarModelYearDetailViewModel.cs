@@ -19,5 +19,7 @@ namespace BICT.Payetakht.Data.ViewModels
         public String CarDetailTitle { get; set; }
         public int CarYearID { get; set; }
         public int CarYearTitle { get; set; }
+
+       public int Price { get; set; }
     }
 }
