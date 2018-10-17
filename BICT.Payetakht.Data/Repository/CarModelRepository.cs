@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BICT.Payetakht.Data.Models;
 using BICT.Payetakht.Data.ViewModels;
@@ -52,6 +53,18 @@ namespace BICT.Payetakht.Data.Repository
             var a = db.CarModels.Find(ID);
             db.CarModels.Remove(a);
             db.SaveChanges();
+        }
+
+        public IList<CarModelViewModel> GetList(int carManufactureID)
+        {
+            return db.CarModels.Where(x=>x.CarManufacturerID == carManufactureID)
+               .Select(x => new CarModelViewModel
+               {
+                   ID = x.ID,
+                   Title = x.Title,
+                   CarManufactureTitle = x.CarManufacturer.Title
+               })
+                .ToList();
         }
     }
 }
