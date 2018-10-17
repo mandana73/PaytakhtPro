@@ -48,3 +48,75 @@
         </div><!--End off row-->
     </div><!--End off container -->
 </section>
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class=" form-group">
+                @Html.Label("سازنده", new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CarManufacturID", (IEnumerable<SelectListItem>)ViewBag.CarManufacturerList, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("مدل", new { @class = "col-md-2 control-label" })
+                <div class=" col-md-10">
+                    @Html.DropDownList("CarModelID", new List<SelectListItem>(), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("سال ساخت", new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CarYearID", new List<SelectListItem>(), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("جزئیات", new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CarDetailID", new List<SelectListItem>(), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("شهر", new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CityID", (IEnumerable<SelectListItem>)ViewBag.CityList, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#CarManufacturID').change(function () {
+                var carManufactureID = $(this).val() || 0;
+                $.get('@Url.Action("GetCarModel")' + '?carManufactureID=' + carManufactureID, function (data) {
+                    $('#CarModelID option').remove();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#CarModelID').append($('<option value="' + data[i].Value + '">' + data[i].Text + '</option>'))
+                    }
+                });
+            });
+            $('#CarModelID').change(function () {
+                    var carModelID = $(this).val();
+                    $.get('@Url.Action("GetCarYear")' + '?carModelID=' + carModelID, function (data)
+                    {
+                        $('#CarYearID option').remove();
+                        for (var i = 0; i < data.length; i++) {
+                            $('#CarYearID').append($('<option value="' + data[i].Value + '">' + data[i].Text +'</option>'))
+                        }
+                    });
+                    $.get('@Url.Action("GetCarDetail")' + '?carModelID=' + carModelID, function (data)
+                    {
+                        $('#CarDetailID option').remove();
+                        for (var i = 0; i < data.length; i++) {
+                            $('#CarDetailID').append($('<option value="' + data[i].Value + '">' + data[i].Text +'</option>'))
+                        }
+                    });
+
+            });  
+        });
+    </script>
+}
