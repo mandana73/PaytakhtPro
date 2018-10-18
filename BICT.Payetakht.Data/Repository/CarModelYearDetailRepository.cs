@@ -21,8 +21,8 @@ namespace BICT.Payetakht.Data.Repository
                     CarModelID = x.CarModelID,
                     CarModelTitle = x.CarModel.Title,
                     CarYearID = x.CarYearID,
-                    CarYearTitle=x.CarYear.Year,
-                   Price = x.Price,
+                    CarYearTitle = x.CarYear.Year,
+                    Price = x.Price,
 
                 }).ToList();
 
@@ -38,8 +38,8 @@ namespace BICT.Payetakht.Data.Repository
                     CarModelID = x.CarModelID,
                     CarModelTitle = x.CarModel.Title,
                     CarYearID = x.CarYearID,
-                    CarYearTitle=x.CarYear.Year,
-                     Price=x.Price,
+                    CarYearTitle = x.CarYear.Year,
+                    Price = x.Price,
                 }).FirstOrDefault();
 
         }
@@ -50,20 +50,20 @@ namespace BICT.Payetakht.Data.Repository
                 CarDetailID = carModelYearDetailView.CarDetailID,
                 CarModelID = carModelYearDetailView.CarModelID,
                 CarYearID = carModelYearDetailView.CarYearID,
-                Price=carModelYearDetailView.Price,
+                Price = carModelYearDetailView.Price,
             };
             db.CarModelYearDetails.Add(item);
             db.SaveChanges();
         }
         public void Edit(CarModelYearDetailViewModel carModelYearDetailView)
         {
-          
+
             CarModelYearDetail a = db.CarModelYearDetails.Find(carModelYearDetailView.ID);
             a.CarYearID = carModelYearDetailView.CarYearID;
             a.CarModelID = carModelYearDetailView.CarModelID;
             a.CarDetailID = carModelYearDetailView.CarDetailID;
             a.Price = carModelYearDetailView.Price;
-            
+
 
             db.SaveChanges();
         }
@@ -74,6 +74,18 @@ namespace BICT.Payetakht.Data.Repository
             db.CarModelYearDetails.Remove(a);
             db.SaveChanges();
         }
+
+        public int GetPrice(int CarModelID, int CarYearID, int CarDetailID)
+        {
+            var item = db.CarModelYearDetails.Where(x => x.CarModelID == CarModelID &&
+                                                x.CarDetailID == CarDetailID &&
+                                                x.CarYearID == CarYearID).FirstOrDefault();
+            if (item != null) {
+                return item.Price;
+            }
+            return 0;
+        }
+
     }
 
 
