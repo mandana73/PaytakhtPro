@@ -17,9 +17,9 @@ namespace BICT.Payetakht.Data.Repository
                      })
                      .ToList();
         }
-      public CarManufactureViewModel GetItem(int id)
+        public CarManufactureViewModel GetItem(int id)
         {
-            return db.CarManufacturers.Where(x=>x.ID==id)
+            return db.CarManufacturers.Where(x => x.ID == id)
                 .Select(x => new CarManufactureViewModel
                 {
                     ID = x.ID,
@@ -33,20 +33,45 @@ namespace BICT.Payetakht.Data.Repository
             var item = new CarManufacturer { Title = model.Title };
             db.CarManufacturers.Add(item);
             db.SaveChanges();
-            
+
         }
         public void Edit(CarManufactureViewModel carManufactureView)
         {
-           CarManufacturer  a = db.CarManufacturers.Find(carManufactureView.ID);
+            CarManufacturer a = db.CarManufacturers.Find(carManufactureView.ID);
             a.Title = carManufactureView.Title;
             db.SaveChanges();
         }
         public void Delete(int ID)
         {
-            var a = db.CarManufacturers.Find(ID);
-            db.CarManufacturers.Remove(a);
+            var carManufacturer = db.CarManufacturers.Find(ID);
+            db.CarManufacturers.Remove(carManufacturer);
             db.SaveChanges();
         }
-        
+        public bool CheckDuplicate(string Title, int? id = null)
+        {
+            if (string.IsNullOrWhiteSpace(Title))
+            {
+                return false;
+            }
+            string title = Title.Replace(" ", "").Trim();
+            List<CarManufacturer> carManufacturersList;
+            if (id != null)
+            {
+                carManufacturersList = db.CarManufacturers.Where(x => x.ID != id).ToList();
+            }
+            else
+            {
+                carManufacturersList = db.CarManufacturers.ToList();
+            }
+            foreach (var item in carManufacturersList)
+            {
+                string Manufacture = item.Title.Replace(" ", "").Trim();
+                if (Manufacture == title)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
