@@ -11,6 +11,7 @@
         private CarModelRepository carModelRepository;
         private CarYearRepository carYearRepository;
         private CarDetailRepository carDetailRepository;
+        public CarModelYearDetailRepository carModelYearDetailRepository;
 
         public AuditController()
         {
@@ -19,6 +20,7 @@
             carModelRepository = new CarModelRepository();
             carYearRepository = new CarYearRepository();
             carDetailRepository = new CarDetailRepository();
+            carModelYearDetailRepository = new CarModelYearDetailRepository();
         }
 
 
@@ -81,6 +83,13 @@
             list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
 
             return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetPrice(int CarModelID,int CarYearID,int CarDetailID)
+        {
+            var item = carModelYearDetailRepository.GetPrice(CarModelID, CarYearID, CarDetailID);
+            return Json(item, JsonRequestBehavior.AllowGet);
+
         }
     }
    
