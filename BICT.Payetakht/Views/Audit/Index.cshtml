@@ -100,23 +100,34 @@
                 });
             });
             $('#CarModelID').change(function () {
-                    var carModelID = $(this).val();
-                    $.get('@Url.Action("GetCarYear")' + '?carModelID=' + carModelID, function (data)
-                    {
-                        $('#CarYearID option').remove();
-                        for (var i = 0; i < data.length; i++) {
-                            $('#CarYearID').append($('<option value="' + data[i].Value + '">' + data[i].Text +'</option>'))
-                        }
-                    });
-                    $.get('@Url.Action("GetCarDetail")' + '?carModelID=' + carModelID, function (data)
-                    {
-                        $('#CarDetailID option').remove();
-                        for (var i = 0; i < data.length; i++) {
-                            $('#CarDetailID').append($('<option value="' + data[i].Value + '">' + data[i].Text +'</option>'))
-                        }
-                    });
+                var carModelID = $(this).val();
+                $.get('@Url.Action("GetCarYear")' + '?carModelID=' + carModelID, function (data)
+                {
+                    $('#CarYearID option').remove();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#CarYearID').append($('<option value="' + data[i].Value + '">' + data[i].Text +'</option>'))
+                    }
+                });
+                $.get('@Url.Action("GetCarDetail")' + '?carModelID=' + carModelID, function (data)
+                {
+                    $('#CarDetailID option').remove();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#CarDetailID').append($('<option value="' + data[i].Value + '">' + data[i].Text +'</option>'))
+                    }
+                });
+            });
+            $('#CarModelID,#CarYearID,#CarDetailID').change(function () {
+                var carModelID = $('#CarModelID').val();
+                var carYearID = $('#CarYearID').val();
+                var carDetailID = $('#CarDetailID').val();
 
-            });  
+                if (!carModelID || !carYearID || !carDetailID) {
+                    return;
+                }
+                $.get('@Url.Action("GetPrice")' + '?carModelID=' + carModelID + '&carYearID=' + carYearID + '&carDetailID=' + carDetailID, function (data) {
+                    alert(data);
+                });
+            });
         });
     </script>
 }
