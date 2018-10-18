@@ -66,5 +66,31 @@ namespace BICT.Payetakht.Data.Repository
                })
                 .ToList();
         }
+        public bool CheckDuplicate(string Title, int? id = null)
+        {
+            if (string.IsNullOrWhiteSpace(Title))
+            {
+                return false;
+            }
+            string title = Title.Replace(" ", "").Trim();
+            List<CarModel> carModelsList;
+            if (id != null)
+            {
+                carModelsList = db.CarModels.Where(x => x.ID != id).ToList();
+            }
+            else
+            {
+                carModelsList = db.CarModels.ToList();
+            }
+            foreach (var item in carModelsList)
+            {
+                string Model = item.Title.Replace(" ", "").Trim();
+                if (Model == title)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
