@@ -28,6 +28,12 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         [HttpPost]
         public ActionResult Create(CarManufactureViewModel model)
         {
+            var Manufacture = repository.CheckDuplicate(model.Title);
+            if (Manufacture)
+            {
+                ViewBag.ErrorMessage = "عنوان وارد شده تکراریست";
+                return View();
+            }
             repository.Create(model);
             return RedirectToAction("Index");
         }
@@ -35,25 +41,28 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         [HttpGet]
         public ActionResult Edit(int ID)
         {
-           var b= repository.GetItem(ID);
-
+            var b = repository.GetItem(ID);
             return View(b);
         }
 
         [HttpPost]
-        public ActionResult Edit(int ID,CarManufactureViewModel carManufactureViewModel)
+        public ActionResult Edit(int ID, CarManufactureViewModel carManufactureViewModel)
         {
+            var Manufacture = repository.CheckDuplicate(carManufactureViewModel.Title, ID);
+            if (Manufacture)
+            {
+                ViewBag.ErrorMessage = "عنوان وارد شده تکراریست";
+                return View();
+            }
             repository.Edit(carManufactureViewModel);
-
             return RedirectToAction(nameof(Index));
         }
+
         [HttpGet]
         public ActionResult Delete(int ID)
         {
             repository.Delete(ID);
             return RedirectToAction(nameof(Index));
         }
-        
-
     }
 }
