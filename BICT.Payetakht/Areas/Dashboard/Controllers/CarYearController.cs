@@ -25,13 +25,13 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-          var list =  ViewBag.CarModelList = carModelRepository.GetList()
-                .Select(x => new SelectListItem
-                {
-                    Text = x.CarManufactureTitle + " - " + x.Title,
-                    Value = x.ID.ToString()
+            var list = ViewBag.CarModelList = carModelRepository.GetList()
+                  .Select(x => new SelectListItem
+                  {
+                      Text = x.CarManufactureTitle + " - " + x.Title,
+                      Value = x.ID.ToString()
 
-                }).ToList();
+                  }).ToList();
             list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
             ViewBag.ModelList = list;
             return View();
@@ -40,6 +40,22 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         [HttpPost]
         public ActionResult Create(CarYearViewModel model)
         {
+            if (repository.CheckDuplicate(model.Year))
+            {
+                var list = ViewBag.CarModelList = carModelRepository.GetList()
+              .Select(x => new SelectListItem
+              {
+                  Text = x.CarManufactureTitle + " - " + x.Title,
+                  Value = x.ID.ToString()
+
+              }).ToList();
+                list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
+                ViewBag.ErrorMessage = "سال تکراریست";
+                list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
+                ViewBag.ModelList = list;
+                return View();
+            }
+
             repository.Create(model);
             return RedirectToAction("Index");
         }
