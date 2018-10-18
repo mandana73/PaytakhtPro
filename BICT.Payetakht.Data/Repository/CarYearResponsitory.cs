@@ -23,7 +23,7 @@ namespace BICT.Payetakht.Data.Repository
         }
         public IList<CarYearViewModel> GetList(int carModelID)
         {
-            return db.CarYears.Where(x=>x.CarModelID==carModelID)
+            return db.CarYears.Where(x => x.CarModelID == carModelID)
                      .Select(x => new CarYearViewModel
                      {
                          ID = x.ID,
@@ -75,6 +75,9 @@ namespace BICT.Payetakht.Data.Repository
             db.CarYears.Remove(a);
             db.SaveChanges();
         }
-
+        public bool CheckDuplicate(int  Year)
+        {
+            return db.CarYears.Any(x => x.Year == Year);
+        }
     }
 }
