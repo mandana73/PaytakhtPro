@@ -15,7 +15,8 @@ namespace BICT.Payetakht.Data.ViewModels
 
         [Required(ErrorMessage = "سال ساخت را وارد نمایید")]
         [Display(Name = "سال ساخت")]
-        [Range(1350, 2020)]
+        [Range(1350, 2020, ErrorMessage="سال ساخت باید از سال 1350 تا سال 2020 انتخاب شود"
+            )]
         public int Year { get; set; }
     }
 }
