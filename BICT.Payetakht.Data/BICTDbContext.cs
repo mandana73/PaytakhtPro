@@ -22,6 +22,7 @@
         public DbSet<CarDetail> CarDetails { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<CarModelYearDetail> CarModelYearDetails { get; set; }
+        public DbSet<Audit> Audit { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -84,7 +85,6 @@
                 .WithRequired(x => x.CarYear)
                 .HasForeignKey(x => x.CarYearID)
                 .WillCascadeOnDelete(false);
-
         }
     }
 }
