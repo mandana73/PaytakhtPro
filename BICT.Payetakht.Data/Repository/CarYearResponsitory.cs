@@ -4,7 +4,6 @@ using System.Linq;
 using BICT.Payetakht.Data.Models;
 using BICT.Payetakht.Data.ViewModels;
 
-
 namespace BICT.Payetakht.Data.Repository
 {
     public class CarYearRepository : BaseRepository
@@ -21,6 +20,7 @@ namespace BICT.Payetakht.Data.Repository
                      })
                      .ToList();
         }
+
         public IList<CarYearViewModel> GetList(int carModelID)
         {
             return db.CarYears.Where(x => x.CarModelID == carModelID)
@@ -33,6 +33,7 @@ namespace BICT.Payetakht.Data.Repository
                      })
                      .ToList();
         }
+
         public CarYearViewModel GetItem(int id)
         {
             return db.CarYears.Where(x => x.ID == id)
@@ -41,7 +42,6 @@ namespace BICT.Payetakht.Data.Repository
                     ID = x.ID,
                     Year = x.Year,
                     CarModelTitle = x.CarModel.Title,
-
                 }).FirstOrDefault();
         }
 
@@ -51,12 +51,11 @@ namespace BICT.Payetakht.Data.Repository
             {
                 Year = CarYear.Year,
                 CarModelID = CarYear.CarModelID,
-
             };
             db.CarYears.Add(item);
             db.SaveChanges();
-
         }
+
         public void Edit(CarYearViewModel carYearView)
         {
             CarYear a = db.CarYears.Find(carYearView.ID);
@@ -75,7 +74,8 @@ namespace BICT.Payetakht.Data.Repository
             db.CarYears.Remove(a);
             db.SaveChanges();
         }
-        public bool CheckDuplicate(int  Year)
+
+        public bool CheckDuplicate(int Year)
         {
             return db.CarYears.Any(x => x.Year == Year);
         }
