@@ -29,6 +29,18 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            if (!ModelState.IsValid)
+            {
+                var List = carModelRepository.GetList()
+                          .Select(x => new SelectListItem
+                          {
+                              Text = x.CarManufactureTitle + " - " + x.Title,
+                              Value = x.ID.ToString()
+                          }).ToList();
+                List.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
+                ViewBag.CarModelList = List;
+                return View();
+            }
             var list = carModelRepository.GetList()
                 .Select(x => new SelectListItem
                 {
@@ -42,6 +54,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
 
         public JsonResult GetCarYear(int carModelID)
         {
+          
             var list = carYearRepository.GetList(carModelID).Select(x => new SelectListItem
             {
                 Text = x.Year.ToString(),
