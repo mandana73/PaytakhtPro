@@ -25,34 +25,42 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            var list = ViewBag.CarModelList = carModelRepository.GetList()
+            var list = carModelRepository.GetList()
                   .Select(x => new SelectListItem
                   {
                       Text = x.CarManufactureTitle + " - " + x.Title,
                       Value = x.ID.ToString()
-
                   }).ToList();
             list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
-            ViewBag.ModelList = list;
+            ViewBag.CarModelList = list;
             return View();
         }
 
         [HttpPost]
         public ActionResult Create(CarYearViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                var list = carModelRepository.GetList()
+                          .Select(x => new SelectListItem
+                          {
+                              Text = x.CarManufactureTitle + " - " + x.Title,
+                              Value = x.ID.ToString()
+                          }).ToList();
+                list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
+                ViewBag.CarModelList = list;
+                return View(model);
+            }
             if (repository.CheckDuplicate(model.Year))
             {
-                var list = ViewBag.CarModelList = carModelRepository.GetList()
-              .Select(x => new SelectListItem
-              {
-                  Text = x.CarManufactureTitle + " - " + x.Title,
-                  Value = x.ID.ToString()
-
-              }).ToList();
+                var list = carModelRepository.GetList()
+                            .Select(x => new SelectListItem
+                            {
+                                Text = x.CarManufactureTitle + " - " + x.Title,
+                                Value = x.ID.ToString()
+                            }).ToList();
                 list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
-                ViewBag.ErrorMessage = "سال تکراریست";
-                list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
-                ViewBag.ModelList = list;
+                ViewBag.CarModelList = list;
                 return View();
             }
 
@@ -75,13 +83,12 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
         [HttpGet]
         public ActionResult Delete(int ID)
         {
             repository.Delete(ID);
             return RedirectToAction(nameof(Index));
         }
-
-
     }
 }
