@@ -196,6 +196,7 @@
     <Compile Include="AppStart\IdentityConfig.cs" />
     <Compile Include="AppStart\RouteConfig.cs" />
     <Compile Include="AppStart\Startup.Auth.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\AuditController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CarDetailController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CarManufactureController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CarModelController.cs" />
@@ -234,6 +235,10 @@
     <Compile Include="Migrations\201810161349384_A005.cs" />
     <Compile Include="Migrations\201810161349384_A005.Designer.cs">
       <DependentUpon>201810161349384_A005.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810210755323_A006.cs" />
+    <Compile Include="Migrations\201810210755323_A006.Designer.cs">
+      <DependentUpon>201810210755323_A006.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -377,6 +382,8 @@
     <Content Include="Areas\Dashboard\Views\CarModelYearDetail\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\CarModelYearDetail\Create.cshtml" />
     <Content Include="Areas\Dashboard\Views\CarModelYearDetail\Edit.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Audit\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Audit\Detail.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.rtl.min.js" />
@@ -457,6 +464,10 @@
       <Project>{08EE6FC7-6326-44D1-956C-62137D3784EF}</Project>
       <Name>BICT.Payetakht.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BICT.Payetakht.Helper\BICT.Payetakht.Helper.csproj">
+      <Project>{a9f450a1-4faf-430c-bf9a-05e73b91211a}</Project>
+      <Name>BICT.Payetakht.Helper</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
@@ -486,6 +497,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810161349384_A005.resx">
       <DependentUpon>201810161349384_A005.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810210755323_A006.resx">
+      <DependentUpon>201810210755323_A006.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
