@@ -8,6 +8,7 @@
         public CarManufacturer()
         {
             CarModels = new HashSet<CarModel>();
+            Audits = new HashSet<Audit>();
         }
 
         [Key]
@@ -18,5 +19,6 @@
         public string Title { get; set; }
 
         public virtual ICollection<CarModel> CarModels { get; set; }
+        public virtual  ICollection<Audit> Audits { get; set; }
     }
 }
