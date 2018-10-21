@@ -1,0 +1,49 @@
+﻿@model IList<BICT.Payetakht.Data.ViewModels.AuditViewModel>
+@{
+    ViewBag.DashboardTitle = "جزئیات";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+ @if ( ViewBag.Error != null )
+ {
+     @ViewBag.Error
+ }
+<div class="table-responsive">
+    <table class=" table table-bordered table-condensed table-hover table-striped ">
+        <tr>
+            <th>سازنده</th>
+            <th>مدل</th>
+            <th>نام</th>
+            <th>نام خانوادگی</th>
+            <th>تاریخ</th>
+            <th>چک شد</th>
+            <th>خوانده شد</th>
+            <th></th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CarManufactureTitle</td>
+                <td>@item.CarModelTitle</td>
+                <td>@item.CarDetailTitle</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@(new BICT.Payetakht.Helper.PersianDateTime(item.RequestDate).ToString())</td>
+                <td>@(item.IsDone ? "بررسی شده" : "بررسی نشده")</td>
+                <td>@(item.IsRead ? "خوانده شده" : "خوانده نشده")</td>
+                <td>
+                    <div class="btn-group">
+                        @if (item.IsDone==false)
+                        {
+                        <a class="btn btn-info" href="@Url.Action("SetAsDone",new { id = item.ID })">چک شده</a>
+                        }
+                        <a class="btn btn-danger" href="@Url.Action("Detail",new { id = item.ID })">نمایش</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+
