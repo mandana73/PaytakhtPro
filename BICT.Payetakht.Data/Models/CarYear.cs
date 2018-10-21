@@ -8,6 +8,7 @@
         public CarYear()
         {
             CarModelYearDetails = new HashSet<CarModelYearDetail>();
+            Audits = new HashSet<Audit>();
         }
 
         [Key]
@@ -20,5 +21,6 @@
         public virtual CarModel CarModel { get; set; }
 
         public ICollection<CarModelYearDetail> CarModelYearDetails { get; set; }
+        public ICollection<Audit> Audits { get; set; }
     }
 }
