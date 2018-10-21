@@ -56,6 +56,12 @@
                         .HasForeignKey(x => x.CarManufacturerID)
                         .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<CarManufacturer>()
+                  .HasMany(x => x.Audits)
+                  .WithRequired(x => x.CarManufacturer)
+                  .HasForeignKey(x => x.CarManufactureID)
+                  .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<CarModel>()
                         .HasMany(x => x.CarYears)
                         .WithRequired(x => x.CarModel)
@@ -71,11 +77,23 @@
             modelBuilder.Entity<CarModel>()
                 .HasMany(x => x.CarModelYearDetails)
                 .WithRequired(x => x.CarModel)
-.HasForeignKey(x => x.CarModelID)
-.WillCascadeOnDelete(false);
+                .HasForeignKey(x => x.CarModelID)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CarModel>()
+                .HasMany(x => x.Audits)
+                .WithRequired(x => x.CarModel)
+                .HasForeignKey(x => x.CarModelID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<CarDetail>()
                 .HasMany(x => x.CarModelYearDetails)
+                .WithRequired(x => x.CarDetail)
+                .HasForeignKey(x => x.CarDetailID)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CarDetail>()
+                .HasMany(x => x.Audits)
                 .WithRequired(x => x.CarDetail)
                 .HasForeignKey(x => x.CarDetailID)
                 .WillCascadeOnDelete(false);
@@ -85,6 +103,14 @@
                 .WithRequired(x => x.CarYear)
                 .HasForeignKey(x => x.CarYearID)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CarYear>()
+                .HasMany(x => x.Audits)
+                .WithRequired(x => x.CarYear)
+                .HasForeignKey(x => x.CarYearID)
+                .WillCascadeOnDelete(false);
+
+
         }
     }
 }
