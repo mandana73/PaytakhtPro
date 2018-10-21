@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace BICT.Payetakht.Data.ViewModels
 {
@@ -22,7 +23,8 @@ namespace BICT.Payetakht.Data.ViewModels
         public int CarYearID { get; set; }
 
         [Display(Name = "سال ساخت")]
-        public int CarYear { get; set; }
+        public int CarYearTitle { get; set; }
+
 
         [Required]
         public int CarDetailID { get; set; }
@@ -48,6 +50,20 @@ namespace BICT.Payetakht.Data.ViewModels
 
         [Required(ErrorMessage = "تاریخ را وارد کنید")]
         [Display(Name = "تاریخ درخواست")]
-        public string Date { get; set; }
+        public DateTime RequestDate { get; set; }
+
+        [Required(ErrorMessage = "تاریخ را وارد کنید")]
+        [Display(Name = "تاریخ درخواست")]
+        public string RequestDatePersian { get; set; }
+
+        [Required(ErrorMessage = "قیمت را وارد کنید")]
+        [Display(Name = "هزینه کارشناسی")]
+        public int Price { get; set; }
+
+        [Display(Name ="خوانده شد")]
+        public bool IsRead { get; set; }
+
+        [Display(Name = "چک شد")]
+        public bool IsDone { get; set; }
     }
 }
