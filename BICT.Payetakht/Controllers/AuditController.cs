@@ -54,6 +54,23 @@
         public ActionResult Index(AuditViewModel audit)
         {
             auditRepository.Create(audit);
+            var mlist = carManufactureRepository.GetList()
+                 .Select(x => new SelectListItem
+                 {
+                     Text = x.Title,
+                     Value = x.ID.ToString()
+                 }).ToList();
+            mlist.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
+            ViewBag.CarManufacturerList = mlist;
+
+            var list = cityRepository.GetList()
+                            .Select(x => new SelectListItem
+                            {
+                                Text = x.Title,
+                                Value = x.ID.ToString()
+                            }).ToList();
+            list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
+            ViewBag.CityList = list;
             return View();
         }
 
