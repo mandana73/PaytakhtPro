@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BICT.Payetakht", "BICT.Paye
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BICT.Payetakht.Data", "BICT.Payetakht.Data\BICT.Payetakht.Data.csproj", "{08EE6FC7-6326-44D1-956C-62137D3784EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BICT.Payetakht.Helper", "BICT.Payetakht.Helper\BICT.Payetakht.Helper.csproj", "{A9F450A1-4FAF-430C-BF9A-05E73B91211A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{08EE6FC7-6326-44D1-956C-62137D3784EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08EE6FC7-6326-44D1-956C-62137D3784EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08EE6FC7-6326-44D1-956C-62137D3784EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9F450A1-4FAF-430C-BF9A-05E73B91211A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9F450A1-4FAF-430C-BF9A-05E73B91211A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9F450A1-4FAF-430C-BF9A-05E73B91211A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9F450A1-4FAF-430C-BF9A-05E73B91211A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
