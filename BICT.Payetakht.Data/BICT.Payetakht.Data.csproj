@@ -113,6 +113,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BICT.Payetakht.Helper\BICT.Payetakht.Helper.csproj">
+      <Project>{a9f450a1-4faf-430c-bf9a-05e73b91211a}</Project>
+      <Name>BICT.Payetakht.Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
