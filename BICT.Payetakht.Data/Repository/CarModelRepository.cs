@@ -19,6 +19,25 @@ namespace BICT.Payetakht.Data.Repository
                })
                 .ToList();
         }
+        public IList<CarModelViewModel> GetPagedList(int pageNum)
+        {
+            if (pageNum<1)
+            {
+                pageNum = 1;
+            }
+            var skip = (pageNum - 1) * 10;
+            return db.CarModels
+                .OrderByDescending(x=>x.ID)
+                .Skip(skip)
+                .Take(10)
+                 .Select(x => new CarModelViewModel
+                 {
+                     ID = x.ID,
+                     Title = x.Title,
+                     CarManufactureTitle = x.CarManufacturer.Title
+                 })
+                .ToList();
+        }
 
         public CarModelViewModel GetItem(int id)
         {
