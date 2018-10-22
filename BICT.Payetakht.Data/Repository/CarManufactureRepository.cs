@@ -17,6 +17,25 @@ namespace BICT.Payetakht.Data.Repository
                      })
                      .ToList();
         }
+
+        public IList<CarManufactureViewModel> GetPagedList(int pageNum)
+        {
+            if (pageNum < 1)
+            {
+                pageNum = 1;
+            }
+            var Skip = (pageNum - 1) * 10;
+            return db.CarManufacturers
+                .OrderByDescending(x=>x.ID)
+                .Skip(Skip)
+                .Take(10)
+                .Select(x => new CarManufactureViewModel
+                {
+                    ID = x.ID,
+                    Title = x.Title
+                }).ToList();
+        }
+
         public CarManufactureViewModel GetItem(int id)
         {
             return db.CarManufacturers.Where(x => x.ID == id)
@@ -24,7 +43,6 @@ namespace BICT.Payetakht.Data.Repository
                 {
                     ID = x.ID,
                     Title = x.Title,
-
                 }).FirstOrDefault();
         }
 
@@ -33,20 +51,22 @@ namespace BICT.Payetakht.Data.Repository
             var item = new CarManufacturer { Title = model.Title };
             db.CarManufacturers.Add(item);
             db.SaveChanges();
-
         }
+
         public void Edit(CarManufactureViewModel carManufactureView)
         {
             CarManufacturer a = db.CarManufacturers.Find(carManufactureView.ID);
             a.Title = carManufactureView.Title;
             db.SaveChanges();
         }
+
         public void Delete(int ID)
         {
             var carManufacturer = db.CarManufacturers.Find(ID);
             db.CarManufacturers.Remove(carManufacturer);
             db.SaveChanges();
         }
+
         public bool CheckDuplicate(string Title, int? id = null)
         {
             if (string.IsNullOrWhiteSpace(Title))
