@@ -16,9 +16,10 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             carModelRepository = new CarModelRepository();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int p=1)
         {
-            var list = repository.GetList();
+            ViewBag.Page = p;
+            var list = repository.GetPagedList(p);
             return View(list);
         }
 
@@ -51,7 +52,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
                 ViewBag.CarModelList = list;
                 return View(model);
             }
-            if (repository.CheckDuplicate(model.Year))
+            if (repository.CheckDuplicate(model.Year, model.CarModelID))
             {
                 var list = carModelRepository.GetList()
                             .Select(x => new SelectListItem
@@ -61,6 +62,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
                             }).ToList();
                 list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
                 ViewBag.CarModelList = list;
+                ViewBag.ErrorMessage = "برای مدل انتخاب شده سال مورد نظر شما وارد شده است";
                 return View();
             }
 
