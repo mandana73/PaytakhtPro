@@ -67,5 +67,10 @@ namespace BICT.Payetakht.Data.Repository
             db.CarDetails.Remove(carDetail);
             db.SaveChanges();
         }
+
+        public int CarDetailCount()
+        {
+            return db.CarDetails.Count();
+        }
     }
 }
