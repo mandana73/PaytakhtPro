@@ -8,6 +8,7 @@ using BICT.Payetakht.Data.ViewModels;
 
 namespace BICT.Payetakht.Areas.Dashboard.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private CarManufactureRepository carManufactureRepository;
