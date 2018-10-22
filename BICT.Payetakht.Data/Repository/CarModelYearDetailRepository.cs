@@ -27,6 +27,30 @@ namespace BICT.Payetakht.Data.Repository
                 }).ToList();
 
         }
+        public IList<CarModelYearDetailViewModel> GetPagedList(int pageNum)
+        {
+            if (pageNum<1)
+            {
+                pageNum = 1;
+            }
+            var skip = (pageNum - 1) * 10;
+            return db.CarModelYearDetails
+                .OrderByDescending(x=>x.ID)
+                .Skip(skip)
+                .Take(10)
+                 .Select(x => new CarModelYearDetailViewModel
+                 {
+                     ID = x.ID,
+                     CarDetailID = x.CarDetailID,
+                     CarDetailTitle = x.CarDetail.Title,
+                     CarModelID = x.CarModelID,
+                     CarModelTitle = x.CarModel.Title,
+                     CarYearID = x.CarYearID,
+                     CarYearTitle = x.CarYear.Year,
+                     Price = x.Price,
+
+                 }).ToList();
+        }
         public CarModelYearDetailViewModel GetItem(int id)
         {
             return db.CarModelYearDetails.Where(x => x.ID == id)
