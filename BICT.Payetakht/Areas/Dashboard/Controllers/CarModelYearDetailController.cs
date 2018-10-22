@@ -52,6 +52,49 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                var List = carModelRepository.GetList()
+                          .Select(x => new SelectListItem
+                          {
+                              Text = x.CarManufactureTitle + " - " + x.Title,
+                              Value = x.ID.ToString()
+                          }).ToList();
+                List.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
+                ViewBag.CarModelList = List;
+                return View();
+            }
+            var list = carModelRepository.GetList()
+                .Select(x => new SelectListItem
+                {
+                    Text = x.CarManufactureTitle + " - " + x.Title,
+                    Value = x.ID.ToString()
+                }).ToList();
+            list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
+            ViewBag.ModelList = list;
+            var item = repository.GetItem(id);
+            return View(item);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(CarModelYearDetailViewModel model)
+        {
+            repository.Edit(model);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var item = repository.GetItem(id);
+            if (item!= null)
+            {
+            repository.Delete(id);
+            }
+            return RedirectToAction(nameof(Index));
+        }
         public JsonResult GetCarYear(int carModelID)
         {
           
