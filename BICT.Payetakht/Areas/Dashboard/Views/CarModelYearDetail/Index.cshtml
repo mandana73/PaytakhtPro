@@ -30,6 +30,18 @@
             </tr>
         }
     </table>
+    <nav aria-label="...">
+        <ul class="pager">
+            @if (ViewBag.Page > 1)
+            {
+                <li class="previous"><a href="@Url.Action("Index", new { p = ViewBag.Page - 1 })"><span aria-hidden="true">&rarr;</span> قبل</a></li>
+            }
+            @if (Model.Count == 10)
+            {
+                <li class="next"><a href="@Url.Action("Index", new { p = ViewBag.Page + 1 })">بعد <span aria-hidden="true">&larr;</span></a></li>
+            }
+        </ul>
+    </nav>
 </div>
 <a href="@Url.Action("Create")">ایجاد جزئیات کلی</a>
 
