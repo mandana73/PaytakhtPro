@@ -16,9 +16,10 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         {
             repository = new CityRepository();
         }
-        public ActionResult Index()
+        public ActionResult Index( int p =1)
         {
-            var list = repository.GetList();
+            ViewBag.Page = p;
+            var list = repository.GetPagedList(p);
             return View(list);
         }
 
