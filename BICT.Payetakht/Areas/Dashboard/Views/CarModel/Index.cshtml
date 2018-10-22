@@ -17,7 +17,7 @@
                 <td>@item.Title</td>
                 <td>@item.CarManufactureTitle</td>
                 <td>
-                    
+
                     <div class="btn-group">
                         <a class="btn btn-info" href="@Url.Action("Edit",new { id = item.ID })">ویرایش</a>
                         <a class="btn btn-danger" href="@Url.Action("Delete",new { id = item.ID })">حذف</a>
@@ -26,6 +26,18 @@
             </tr>
         }
     </table>
+    <nav aria-label="...">
+        <ul class="pager">
+            @if (ViewBag.Page > 1)
+            {
+                <li class="previous"><a href="@Url.Action("Index", new { p = ViewBag.Page - 1 })"><span aria-hidden="true">&rarr;</span> قبل</a></li>
+            }
+            @if (Model.Count == 10)
+            {
+                <li class="next"><a href="@Url.Action("Index", new { p = ViewBag.Page + 1 })">بعد <span aria-hidden="true">&larr;</span></a></li>
+            }
+        </ul>
+    </nav>
 </div>
 <a href="@Url.Action("Create")">ایجاد مدل جدید</a>
 
