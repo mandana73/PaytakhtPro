@@ -4,6 +4,7 @@ using BICT.Payetakht.Helper;
 
 namespace BICT.Payetakht.Areas.Dashboard.Controllers
 {
+    [Authorize]
     public class AuditController : Controller
     {
         private AuditRepository auditRepository;
