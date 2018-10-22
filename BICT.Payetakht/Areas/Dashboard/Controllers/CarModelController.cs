@@ -5,6 +5,7 @@ using BICT.Payetakht.Data.ViewModels;
 
 namespace BICT.Payetakht.Areas.Dashboard.Controllers
 {
+    [Authorize]
     public class CarModelController : Controller
     {
         private CarManufactureRepository manufactureRepository;
