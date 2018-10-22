@@ -51,43 +51,43 @@ namespace BICT.Payetakht.Data.Repository
                     IsRead = x.IsRead,
                     RequestDate = x.RequestDate
                 }).ToList();
-
         }
+
         public AuditViewModel Getitem(int id)
         {
-           var a=  db.Audit.Where(x => x.ID == id)
-                    .Select(x => new AuditViewModel
-                    {
-                        ID = x.ID,
-                        CarDetailID = x.CarDetailID,
-                        CarDetailTitle = x.CarDetail.Title,
-                        CarManufactureID = x.CarManufactureID,
-                        CarManufactureTitle = x.CarManufacturer.Title,
-                        CarModelID = x.CarModelID,
-                        CarModelTitle = x.CarModel.Title,
-                        CarYearTitle = x.CarYear.Year,
-                        CarYearID = x.CarYearID,
-                        FirstName = x.FirstName,
-                        LastName = x.LastName,
-                        Phone = x.Phone,
-                        Email = x.Email,
-                        Price = x.Price,
-                        IsDone = x.IsDone,
-                        IsRead = x.IsRead,
-                        RequestDate = x.RequestDate
-                    }).FirstOrDefault();
-            if(a.IsRead==false)
+            var a = db.Audit.Where(x => x.ID == id)
+                     .Select(x => new AuditViewModel
+                     {
+                         ID = x.ID,
+                         CarDetailID = x.CarDetailID,
+                         CarDetailTitle = x.CarDetail.Title,
+                         CarManufactureID = x.CarManufactureID,
+                         CarManufactureTitle = x.CarManufacturer.Title,
+                         CarModelID = x.CarModelID,
+                         CarModelTitle = x.CarModel.Title,
+                         CarYearTitle = x.CarYear.Year,
+                         CarYearID = x.CarYearID,
+                         FirstName = x.FirstName,
+                         LastName = x.LastName,
+                         Phone = x.Phone,
+                         Email = x.Email,
+                         Price = x.Price,
+                         IsDone = x.IsDone,
+                         IsRead = x.IsRead,
+                         RequestDate = x.RequestDate
+                     }).FirstOrDefault();
+            if (a.IsRead == false)
             {
                 SetAsRead(id);
             }
             return a;
         }
+
         public void SetAsDone(int id)
         {
             var a = db.Audit.FirstOrDefault(x => x.ID == id);
             a.IsDone = true;
             db.SaveChanges();
-
         }
 
         public void SetAsRead(int id)
@@ -95,6 +95,21 @@ namespace BICT.Payetakht.Data.Repository
             var a = db.Audit.FirstOrDefault(x => x.ID == id);
             a.IsRead = true;
             db.SaveChanges();
+        }
+
+        public int GetUnReadCount()
+        {
+            return db.Audit.Count(x => x.IsRead == false);
+        }
+
+        public int GetUnDoneCount()
+        {
+            return db.Audit.Count(x => x.IsDone == false);
+        }
+
+        public int AllRequestCount()
+        {
+            return db.Audit.Count();
         }
     }
 }
