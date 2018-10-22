@@ -73,5 +73,12 @@ namespace BICT.Payetakht.Data.Repository
             }
             return false;
         }
+
+        public int CarManufactureCount()
+        {
+            return db.CarManufacturers.Count();
+        }
+
     }
 }
+
