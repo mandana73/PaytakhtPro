@@ -92,5 +92,9 @@ namespace BICT.Payetakht.Data.Repository
             }
             return false;
         }
+        public int CarModelCount()
+        {
+            return db.CarModels.Count();
+        }
     }
 }
