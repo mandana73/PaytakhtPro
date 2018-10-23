@@ -1,5 +1,6 @@
 ﻿namespace BICT.Payetakht
 {
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Web.Mvc;
     using System.Web.Optimization;
@@ -20,13 +21,7 @@
 
         public void InitializeDatabase()
         {
-            var context = new BICTDbContext();
-            if (!context.Database.Exists() || !context.Database.CompatibleWithModel(false))
-            {
-                var configuration = new Configuration();
-                var migrator = new DbMigrator(configuration);
-                migrator.Update();
-            }
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BICTDbContext, Configuration>());
         }
     }
 }
