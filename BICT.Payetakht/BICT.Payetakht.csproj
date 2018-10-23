@@ -263,10 +263,12 @@
     <Content Include="Content\font.css" />
     <Content Include="Content\iconfont.css" />
     <Content Include="Content\images\about-img1.jpg" />
+    <Content Include="Content\images\audit-bg.jpg" />
     <Content Include="Content\images\cbrand-img1-old.png" />
     <Content Include="Content\images\cbrand-img1.png" />
     <Content Include="Content\images\cbrand-img2 .png" />
     <Content Include="Content\images\cbrand-img2-old.png" />
+    <Content Include="Content\images\cbrand-img2.png" />
     <Content Include="Content\images\cbrand-img3-old.png" />
     <Content Include="Content\images\cbrand-img3.png" />
     <Content Include="Content\images\cbrand-img4-old.png" />
