@@ -31,36 +31,36 @@ jQuery(document).ready(function ($) {
     $('.video-link').magnificPopup({
         type: 'iframe'
     });
-    $(".hello_slid").slick({
+    //$(".hello_slid").slick({
+    //    dots: true,
+    //    infinite: false,
+    //    slidesToShow: 1,
+    //    slidesToScroll: 1,
+    //    arrows: true,
+    //    prevArrow: "<i class='glyphicon glyphicon-chevron-left nextprevleft'></i>",
+    //    nextArrow: "<i class='glyphicon glyphicon-chevron-right nextprevright'></i>",
+    //    autoplay: true,
+    //    autoplaySpeed: 2000
+    //});
+    $(".audit_slid").slick({
         dots: true,
         infinite: false,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: true,
-        prevArrow: "<i class='icon icon-chevron-left nextprevleft'></i>",
-        nextArrow: "<i class='icon icon-chevron-right nextprevright'></i>",
+        arrows: false,
+        prevArrow: "<i class='glyphicon glyphicon-chevron-left nextprevleft'></i>",
+        nextArrow: "<i class='glyphicon glyphicon-chevron-right nextprevright'></i>",
         autoplay: true,
-        autoplaySpeed: 2000
-    });
-    $(".audit_slid").slick({
-        dots: false,
-        infinite: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        prevArrow: "<i class='icon icon-chevron-left nextprevleft'></i>",
-        nextArrow: "<i class='icon icon-chevron-right nextprevright'></i>",
-        autoplay: true,
-        autoplaySpeed: 2000
+        autoplaySpeed: 6000
     });
     $(".business_items").slick({
         dots: true,
         infinite: false,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: true,
-        prevArrow: "<i class='icon icon-chevron-left nextprevleft'></i>",
-        nextArrow: "<i class='icon icon-chevron-right nextprevright'></i>",
+        arrows: false,
+        prevArrow: "<i class='glyphicon glyphvicon-chevron-left nextprevleft'></i>",
+        nextArrow: "<i class='glyphicon glyphicon-chevron-right nextprevright'></i>",
         autoplay: true,
         autoplaySpeed: 2000
     });
