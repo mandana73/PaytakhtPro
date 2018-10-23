@@ -586,7 +586,7 @@ Extra height css
 
 .m-top-20
 {
-    margin-top: 0 px;
+    margin-top: 20px;
 }
 
 .m-top-30
@@ -1352,6 +1352,7 @@ Featured section style
 .business_item .business_btn a
 {
     margin-left: 10px;
+    float:left;
 }
 
 .business_item .business_btn .btn-default
@@ -1801,7 +1802,12 @@ work Section style
 
 .layout-container
 {
-    margin-top: 150px;
+    margin-top: 124px;
     margin-bottom: 100px;
     width : 100%;
+}
+
+.control-label
+{
+    margin-top: 1rem;
 }
