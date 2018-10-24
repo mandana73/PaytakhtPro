@@ -71,23 +71,19 @@
                 return View(model);
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToAction("Profile", model); ;
+                    return RedirectToAction("Index","Home", new { Area = "Dashboard" }); 
                 case SignInStatus.LockedOut:
                     return View("Lockout");
-
                 case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-
+                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, model.RememberMe });
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
-                    return View("Profile", model);
+                    return View("Login", model);
             }
         }
 
@@ -174,9 +170,9 @@
         //    return View(model);
         //}
 
-        //
-        // GET: /Account/ConfirmEmail
-        [AllowAnonymous]
+
+        //GET: /Account/ConfirmEmail
+       [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null)
@@ -316,7 +312,7 @@
             {
                 return View("Error");
             }
-            return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
+            return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, model.ReturnUrl, model.RememberMe });
         }
 
         //
@@ -408,7 +404,7 @@
             return View();
         }
 
-        //
+
         //[HttpGet]
         //public ActionResult Profile()
         //{
