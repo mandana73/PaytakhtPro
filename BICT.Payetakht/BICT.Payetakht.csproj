@@ -193,6 +193,7 @@
   <ItemGroup>
     <Compile Include="AppStart\BundleConfig.cs" />
     <Compile Include="AppStart\FilterConfig.cs" />
+    <Compile Include="AppStart\Ext.cs" />
     <Compile Include="AppStart\IdentityConfig.cs" />
     <Compile Include="AppStart\RouteConfig.cs" />
     <Compile Include="AppStart\Startup.Auth.cs" />
@@ -204,6 +205,7 @@
     <Compile Include="Areas\Dashboard\Controllers\CarYearController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CityController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\MetaKeyWordController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -239,6 +241,10 @@
     <Compile Include="Migrations\201810210755323_A006.cs" />
     <Compile Include="Migrations\201810210755323_A006.Designer.cs">
       <DependentUpon>201810210755323_A006.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810241213187_A007.cs" />
+    <Compile Include="Migrations\201810241213187_A007.Designer.cs">
+      <DependentUpon>201810241213187_A007.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -386,6 +392,9 @@
     <Content Include="Areas\Dashboard\Views\Audit\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\Audit\Detail.cshtml" />
     <Content Include="Areas\Dashboard\Views\CarModelYearDetail\Edit.cshtml" />
+    <Content Include="Areas\Dashboard\Views\MetaKeyWord\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\MetaKeyWord\Edit.cshtml" />
+    <Content Include="Areas\Dashboard\Views\MetaKeyWord\Create.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.rtl.min.js" />
@@ -502,6 +511,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810210755323_A006.resx">
       <DependentUpon>201810210755323_A006.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810241213187_A007.resx">
+      <DependentUpon>201810241213187_A007.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
