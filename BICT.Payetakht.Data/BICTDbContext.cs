@@ -23,6 +23,7 @@
         public DbSet<City> Cities { get; set; }
         public DbSet<CarModelYearDetail> CarModelYearDetails { get; set; }
         public DbSet<Audit> Audit { get; set; }
+        public DbSet<MetaKeyWord> MetaKeyWords { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
