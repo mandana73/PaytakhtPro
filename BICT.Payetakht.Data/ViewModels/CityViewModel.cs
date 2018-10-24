@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BICT.Payetakht.Data.ViewModels
 {
-   public class CityViewModel
+    public class CityViewModel
     {
         public int ID { get; set; }
 
