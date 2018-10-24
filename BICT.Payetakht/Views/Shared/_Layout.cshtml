@@ -10,7 +10,7 @@
     <title>مرکز کارشناسان پایتخت</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="~/Content/slick/slick.css">
     <link rel="stylesheet" href="~/Content/slick/slick-theme.css">
     <link rel="stylesheet" href="~/Content/animate.css">
@@ -159,5 +159,13 @@
     <script src="~/Scripts/plugins.js"></script>
     <script src="~/Scripts/main.js"></script>
     @RenderSection("scripts", required: false)
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128043598-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-128043598-1');
+    </script>
 </body>
 </html>
