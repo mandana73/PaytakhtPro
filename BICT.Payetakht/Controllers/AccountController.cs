@@ -55,6 +55,10 @@
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if (TempData["ErrorMessage"] != null)
+            {
+                ViewBag.ErrorMessage = TempData["ErrorMessage"];
+            }
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -132,13 +136,14 @@
             }
         }
 
-        ////
-        //// GET: /Account/Register
-        //[AllowAnonymous]
-        //public ActionResult Register()
-        //{
-        //    return View();
-        //}
+        //
+        // GET: /Account/Register
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+           TempData["ErrorMessage"] = "امکان رجیستر وجود ندارد";
+            return RedirectToAction(nameof (Login));
+        }
 
         ////
         //// POST: /Account/Register
@@ -172,7 +177,7 @@
 
 
         //GET: /Account/ConfirmEmail
-       [AllowAnonymous]
+        [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null)

@@ -3,6 +3,12 @@
 @{
     ViewBag.Title = "ورود";
 }
+@if (ViewBag.ErrorMessage != null)
+{
+   <div class="alert alert-danger">
+       @ViewBag.ErrorMessage
+   </div>
+}
 <div class="container layout-container">
     <h2>@ViewBag.Title</h2>
     <div class="row">

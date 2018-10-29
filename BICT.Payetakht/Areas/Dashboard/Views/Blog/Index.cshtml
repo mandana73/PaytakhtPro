@@ -1,0 +1,44 @@
+﻿
+@model IList<BICT.Payetakht.Data.ViewModels.BlogViewModel>
+@{
+    ViewBag.Title = "وبلاگ";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="table-responsive">
+    <table class="table-bordered table-condensed table-hover table-striped">
+        <tr>
+            <th>وبلاگ</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.Title</td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-info" href="@Url.Action("Edit",new { id = item.ID })">ویرایش</a>
+                        <a class="btn btn-danger" href="@Url.Action("Delete",new { id = item.ID })">حذف</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+    <nav aria-label="...">
+        <ul class="pager">
+            @if (ViewBag.Page > 1)
+            {
+                <li class="previous"><a href="@Url.Action("Index", new { p = ViewBag.Page - 1 })"><span aria-hidden="true">&rarr;</span> قبل</a></li>
+            }
+            @if (Model.Count == 5)
+            {
+                <li class="next"><a href="@Url.Action("Index", new { p = ViewBag.Page + 1 })">بعد <span aria-hidden="true">&larr;</span></a></li>
+            }
+        </ul>
+    </nav>
+
+</div>
+<a href="@Url.Action("Create")">نوشتن وبلاگ</a>
+
+
