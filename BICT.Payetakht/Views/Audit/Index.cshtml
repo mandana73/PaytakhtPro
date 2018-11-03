@@ -53,86 +53,86 @@
     <div class="container">
         @using (Html.BeginForm())
         {
-        <div class="row">
-            @Html.ValidationSummary("", new { @class = "text-danger" })
-            <div class=" form-group">
-                @Html.Label("سازنده", new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.DropDownList("CarManufactureID", (IEnumerable<SelectListItem>)ViewBag.CarManufacturerList, new { @class = "form-control" })
+            <div class="row">
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class=" form-group">
+                    @Html.Label("سازنده", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-4">
+                        @Html.DropDownList("CarManufactureID", (IEnumerable<SelectListItem>)ViewBag.CarManufacturerList, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("مدل", new { @class = "col-md-2 control-label" })
+                    <div class=" col-md-4">
+                        @Html.DropDownList("CarModelID", new List<SelectListItem>(), new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("سال ساخت", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-4">
+                        @Html.DropDownList("CarYearID", new List<SelectListItem>(), new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("جزئیات", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-4">
+                        @Html.DropDownList("CarDetailID", new List<SelectListItem>(), new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("شهر", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-4">
+                        @Html.DropDownList("CityID", (IEnumerable<SelectListItem>)ViewBag.CityList, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.RequestDatePersian, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.RequestDatePersian, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("هزینه کارشناسی", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-4">
+                        <input class="form-control" id="Price" type="text" readonly />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-default">ذخیره</button>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.Label("مدل", new { @class = "col-md-2 control-label" })
-                <div class=" col-md-4">
-                    @Html.DropDownList("CarModelID", new List<SelectListItem>(), new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.Label("سال ساخت", new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.DropDownList("CarYearID", new List<SelectListItem>(), new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.Label("جزئیات", new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.DropDownList("CarDetailID", new List<SelectListItem>(), new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.Label("شهر", new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.DropDownList("CityID", (IEnumerable<SelectListItem>)ViewBag.CityList, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.RequestDatePersian, new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.RequestDatePersian, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.Label("هزینه کارشناسی", new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Price, new { @class = "form-control", @readonly = "readonly" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <button type="submit" class="btn btn-default">ذخیره</button>
-                </div>
-            </div>
-        </div>
         }
     </div>
-    </div>
-    @section scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-        <script type="text/javascript">
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
         $(document).ready(function () {
             $('#CarManufactureID').change(function () {
                 var carManufactureID = $(this).val() || 0;
@@ -173,5 +173,5 @@
                 });
             });
         });
-        </script>
-    }
+    </script>
+}
