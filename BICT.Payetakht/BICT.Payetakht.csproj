@@ -211,6 +211,7 @@
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuditController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ContanctUsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -250,6 +251,10 @@
     <Compile Include="Migrations\201810290923565_A008.cs" />
     <Compile Include="Migrations\201810290923565_A008.Designer.cs">
       <DependentUpon>201810290923565_A008.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810310715319_A009.cs" />
+    <Compile Include="Migrations\201810310715319_A009.Designer.cs">
+      <DependentUpon>201810310715319_A009.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -404,9 +409,61 @@
     <Content Include="Areas\Dashboard\Views\Blog\Edit.cshtml" />
     <Content Include="Areas\Dashboard\Views\Blog\Create.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\ckeditor\ckeditor.js.map" />
+    <Content Include="Scripts\ckeditor\LICENSE.md" />
+    <Content Include="Scripts\ckeditor\README.md" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.rtl.min.js" />
     <Content Include="Scripts\chart.js" />
+    <Content Include="Scripts\ckeditor\ckeditor.js" />
+    <Content Include="Scripts\ckeditor\translations\ar.js" />
+    <Content Include="Scripts\ckeditor\translations\ast.js" />
+    <Content Include="Scripts\ckeditor\translations\bg.js" />
+    <Content Include="Scripts\ckeditor\translations\ca.js" />
+    <Content Include="Scripts\ckeditor\translations\cs.js" />
+    <Content Include="Scripts\ckeditor\translations\da.js" />
+    <Content Include="Scripts\ckeditor\translations\de-ch.js" />
+    <Content Include="Scripts\ckeditor\translations\de.js" />
+    <Content Include="Scripts\ckeditor\translations\el.js" />
+    <Content Include="Scripts\ckeditor\translations\en-au.js" />
+    <Content Include="Scripts\ckeditor\translations\eo.js" />
+    <Content Include="Scripts\ckeditor\translations\es.js" />
+    <Content Include="Scripts\ckeditor\translations\et.js" />
+    <Content Include="Scripts\ckeditor\translations\eu.js" />
+    <Content Include="Scripts\ckeditor\translations\fa.js" />
+    <Content Include="Scripts\ckeditor\translations\fi.js" />
+    <Content Include="Scripts\ckeditor\translations\fr.js" />
+    <Content Include="Scripts\ckeditor\translations\gl.js" />
+    <Content Include="Scripts\ckeditor\translations\gu.js" />
+    <Content Include="Scripts\ckeditor\translations\he.js" />
+    <Content Include="Scripts\ckeditor\translations\hr.js" />
+    <Content Include="Scripts\ckeditor\translations\hu.js" />
+    <Content Include="Scripts\ckeditor\translations\it.js" />
+    <Content Include="Scripts\ckeditor\translations\ja.js" />
+    <Content Include="Scripts\ckeditor\translations\km.js" />
+    <Content Include="Scripts\ckeditor\translations\kn.js" />
+    <Content Include="Scripts\ckeditor\translations\ko.js" />
+    <Content Include="Scripts\ckeditor\translations\ku.js" />
+    <Content Include="Scripts\ckeditor\translations\nb.js" />
+    <Content Include="Scripts\ckeditor\translations\ne.js" />
+    <Content Include="Scripts\ckeditor\translations\nl.js" />
+    <Content Include="Scripts\ckeditor\translations\no.js" />
+    <Content Include="Scripts\ckeditor\translations\oc.js" />
+    <Content Include="Scripts\ckeditor\translations\pl.js" />
+    <Content Include="Scripts\ckeditor\translations\pt-br.js" />
+    <Content Include="Scripts\ckeditor\translations\pt.js" />
+    <Content Include="Scripts\ckeditor\translations\ro.js" />
+    <Content Include="Scripts\ckeditor\translations\ru.js" />
+    <Content Include="Scripts\ckeditor\translations\si.js" />
+    <Content Include="Scripts\ckeditor\translations\sk.js" />
+    <Content Include="Scripts\ckeditor\translations\sq.js" />
+    <Content Include="Scripts\ckeditor\translations\sv.js" />
+    <Content Include="Scripts\ckeditor\translations\tr.js" />
+    <Content Include="Scripts\ckeditor\translations\tt.js" />
+    <Content Include="Scripts\ckeditor\translations\ug.js" />
+    <Content Include="Scripts\ckeditor\translations\uk.js" />
+    <Content Include="Scripts\ckeditor\translations\zh-cn.js" />
+    <Content Include="Scripts\ckeditor\translations\zh.js" />
     <Content Include="Scripts\example-data.js" />
     <Content Include="Scripts\gmaps.min.js" />
     <Content Include="Scripts\isotope.min.js" />
@@ -477,6 +534,8 @@
     <Content Include="Views\Reads\index.cshtml" />
     <Content Include="Views\AboutUs\index.cshtml" />
     <Content Include="Views\ContanctUs\index.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blog\Post.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BICT.Payetakht.Data\BICT.Payetakht.Data.csproj">
@@ -525,6 +584,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810290923565_A008.resx">
       <DependentUpon>201810290923565_A008.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810310715319_A009.resx">
+      <DependentUpon>201810310715319_A009.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
