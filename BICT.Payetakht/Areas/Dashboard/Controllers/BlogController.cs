@@ -19,7 +19,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         public ActionResult Index(int p = 1)
         {
             ViewBag.Page = p;
-            var list = repository.GetPagedList(p);
+            var list = repository.GetPagedList(p,10);
             return View(list);
         }
 

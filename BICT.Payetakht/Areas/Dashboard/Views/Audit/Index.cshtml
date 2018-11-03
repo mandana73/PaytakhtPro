@@ -12,6 +12,8 @@
         <tr>
             <th>سازنده</th>
             <th>مدل</th>
+            <th>جزئیات</th>
+            <th>هزینه کارشناسی</th>
             <th>نام</th>
             <th>نام خانوادگی</th>
             <th>تاریخ</th>
@@ -26,6 +28,7 @@
                 <td>@item.CarManufactureTitle</td>
                 <td>@item.CarModelTitle</td>
                 <td>@item.CarDetailTitle</td>
+                <td>@item.Price</td>
                 <td>@item.FirstName</td>
                 <td>@item.LastName</td>
                 <td>@(new BICT.Payetakht.Helper.PersianDateTime(item.RequestDate).ToString())</td>
