@@ -24,7 +24,7 @@ namespace BICT.Payetakht.Data.ViewModels
 
         [Required]
         [StringLength(1000)]
-        [Display(Name ="خلاصه")]
+        [Display(Name = "خلاصه")]
         public string Summary { get; set; }
     }
 }

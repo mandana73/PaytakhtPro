@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace BICT.Payetakht.Data.ViewModels
 {
-   public class DashboardViewModel
+    public class DashboardViewModel
     {
         [Display(Name = "خوانده نشده")]
         public int AuditUnRead { get; set; }
@@ -18,7 +13,7 @@ namespace BICT.Payetakht.Data.ViewModels
         [Display(Name = "تمامی درخواست ها")]
         public int AuditAllRequest { get; set; }
 
-        [Display(Name ="تمامی سازنده ها")]
+        [Display(Name = "تمامی سازنده ها")]
         public int CarManufactureCount { get; set; }
 
         [Display(Name = "تمامی مدل ها")]
@@ -26,7 +21,5 @@ namespace BICT.Payetakht.Data.ViewModels
 
         [Display(Name = "جزئیات")]
         public int CarDetailCount { get; set; }
-
-
     }
 }

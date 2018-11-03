@@ -50,12 +50,20 @@
             </div><!--End off row-->
         </div><!--End off container -->
     </section>
+    @if (ViewBag.ShowSuccessMessage != null && ViewBag.ShowSuccessMessage == true)
+    {
+        <div class="container">
+            <div class="alert alert-success">
+                درخواست شما با موفقیت ثبت شد.در اسرع وقت با شما تماس خواهیم گرفت.
+            </div>
+        </div>
+    }
     <div class="container">
         @using (Html.BeginForm())
         {
             <div class="row">
                 @Html.ValidationSummary("", new { @class = "text-danger" })
-                <div class=" form-group">
+                <div class="form-group">
                     @Html.Label("سازنده", new { @class = "col-md-2 control-label" })
                     <div class="col-md-4">
                         @Html.DropDownList("CarManufactureID", (IEnumerable<SelectListItem>)ViewBag.CarManufacturerList, new { @class = "form-control" })
@@ -112,7 +120,7 @@
                 <div class="form-group">
                     @Html.LabelFor(m => m.RequestDatePersian, new { @class = "col-md-2 control-label" })
                     <div class="col-md-4">
-                        @Html.TextBoxFor(m => m.RequestDatePersian, new { @class = "form-control" ,@readonly = "readonly"})
+                        @Html.TextBoxFor(m => m.RequestDatePersian, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
@@ -138,7 +146,12 @@
                 initialValue: false,
                 format: 'YYYY/MM/DD',
                 calendarType: "persian",
-                minDate: new persianDate()
+                minDate: new persianDate(),
+                calendar: {
+                    persian: {
+                        locale: 'en'
+                    }
+                }
             });
             $('#CarManufactureID').change(function () {
                 var carManufactureID = $(this).val() || 0;

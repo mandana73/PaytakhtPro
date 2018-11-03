@@ -23,9 +23,9 @@
         public DbSet<City> Cities { get; set; }
         public DbSet<CarModelYearDetail> CarModelYearDetails { get; set; }
         public DbSet<Audit> Audit { get; set; }
+        public DbSet<AuditTemp> AuditTemp { get; set; }
         public DbSet<MetaKeyWord> MetaKeyWords { get; set; }
         public DbSet<Blog> Blogs { get; set; }
-
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -113,7 +113,29 @@
                 .HasForeignKey(x => x.CarYearID)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<CarManufacturer>()
+                .HasMany(x => x.AuditTemps)
+                .WithRequired(x => x.CarManufacturer)
+                .HasForeignKey(x => x.CarManufactureID)
+                .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<CarModel>()
+                       .HasMany(x => x.AuditTemps)
+                       .WithRequired(x => x.CarModel)
+                       .HasForeignKey(x => x.CarModelID)
+                       .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CarYear>()
+              .HasMany(x => x.AuditTemps)
+              .WithRequired(x => x.CarYear)
+              .HasForeignKey(x => x.CarYearID)
+              .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CarDetail>()
+              .HasMany(x => x.AuditTemps)
+              .WithRequired(x => x.CarDetail)
+              .HasForeignKey(x => x.CarDetailID)
+              .WillCascadeOnDelete(false);
         }
     }
 }

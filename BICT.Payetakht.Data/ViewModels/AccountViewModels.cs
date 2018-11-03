@@ -66,12 +66,12 @@
 
     public class RegisterViewModel
     {
-        [Required(ErrorMessage ="پست الکترونیک اجباری می باشد")]
-        [EmailAddress(ErrorMessage ="پست الکترونیکی معتبر نیست")]
+        [Required(ErrorMessage = "پست الکترونیک اجباری می باشد")]
+        [EmailAddress(ErrorMessage = "پست الکترونیکی معتبر نیست")]
         [Display(Name = "پست الکترونیکی")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage ="رمز عبور اجباری می باشد")]
+        [Required(ErrorMessage = "رمز عبور اجباری می باشد")]
         [StringLength(100, ErrorMessage = "حداقل طول رمزعبور {0} و حداکثر طول {2} کاراکتر میباشد", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "رمز عبور")]

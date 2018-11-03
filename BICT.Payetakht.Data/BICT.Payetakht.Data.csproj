@@ -85,6 +85,7 @@
     <Compile Include="BICTDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Audit.cs" />
+    <Compile Include="Models\AuditTemp.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\CarDetail.cs" />
     <Compile Include="Models\CarManufacturer.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Models\MetaKeyWord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AuditRepository.cs" />
+    <Compile Include="Repository\AuditTempRepositorycs.cs" />
     <Compile Include="Repository\BlogRepository.cs" />
     <Compile Include="Repository\CarModelYearDetailRepository.cs" />
     <Compile Include="Repository\CityRepository.cs" />

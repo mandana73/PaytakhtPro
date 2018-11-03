@@ -9,6 +9,7 @@
         {
             CarModels = new HashSet<CarModel>();
             Audits = new HashSet<Audit>();
+            AuditTemps = new HashSet<AuditTemp>();
         }
 
         [Key]
@@ -20,5 +21,6 @@
 
         public virtual ICollection<CarModel> CarModels { get; set; }
         public virtual  ICollection<Audit> Audits { get; set; }
+        public virtual ICollection<AuditTemp> AuditTemps { get; set; }
     }
 }

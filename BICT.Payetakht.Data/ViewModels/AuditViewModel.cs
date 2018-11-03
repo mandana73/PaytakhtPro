@@ -25,7 +25,6 @@ namespace BICT.Payetakht.Data.ViewModels
         [Display(Name = "سال ساخت")]
         public int CarYearTitle { get; set; }
 
-
         [Required(ErrorMessage = "جزئیات را وارد کنید")]
         public int CarDetailID { get; set; }
 
@@ -40,15 +39,14 @@ namespace BICT.Payetakht.Data.ViewModels
         [Display(Name = "نام خانوادگی")]
         public string LastName { get; set; }
 
-      
         [Required(ErrorMessage = "ایمیل  را وارد نمایید")]
         [Display(Name = "ایمیل")]
-        [EmailAddress(ErrorMessage ="ایمیل خود را به درستی وارد نمایید")]
+        [EmailAddress(ErrorMessage = "ایمیل خود را به درستی وارد نمایید")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "تلفن را وارد کنید")]
         [Display(Name = "تلفن")]
-        [RegularExpression(@"09\d\d\d\d\d\d\d\d\d",ErrorMessage = "تلفن را به درستی وارد نمایی.مثال:09121234567")]
+        [RegularExpression(@"09\d\d\d\d\d\d\d\d\d", ErrorMessage = "تلفن را به درستی وارد نمایی.مثال: 09121234567")]
         public string Phone { get; set; }
 
         [Required(ErrorMessage = "تاریخ را وارد کنید")]
@@ -57,14 +55,14 @@ namespace BICT.Payetakht.Data.ViewModels
 
         [Required(ErrorMessage = "تاریخ را وارد کنید")]
         [Display(Name = "تاریخ درخواست")]
-        [RegularExpression(@"\d\d\d\d/\d\d/\d\d",ErrorMessage = "تاریخ را به درستی وارد نمایی.مثال:1397/01/01")]
+        [RegularExpression(@"\d\d\d\d/\d\d/\d\d", ErrorMessage = "تاریخ را به درستی وارد نمایی.مثال: 1397/01/01")]
         public string RequestDatePersian { get; set; }
 
         [Required(ErrorMessage = "قیمت را وارد کنید")]
         [Display(Name = "هزینه کارشناسی")]
         public int Price { get; set; }
 
-        [Display(Name ="خوانده شد")]
+        [Display(Name = "خوانده شد")]
         public bool IsRead { get; set; }
 
         [Display(Name = "چک شد")]

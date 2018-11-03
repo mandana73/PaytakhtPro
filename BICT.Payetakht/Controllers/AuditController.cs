@@ -4,6 +4,7 @@
     using System.Web.Mvc;
     using BICT.Payetakht.Data.Repository;
     using BICT.Payetakht.Data.ViewModels;
+    using BICT.Payetakht.Helper;
 
     public class AuditController : Controller
     {
@@ -14,6 +15,7 @@
         private CarDetailRepository carDetailRepository;
         private CarModelYearDetailRepository carModelYearDetailRepository;
         private AuditRepository auditRepository;
+        private AuditTempRepository auditTempRepository;
 
         public AuditController()
         {
@@ -24,6 +26,7 @@
             carDetailRepository = new CarDetailRepository();
             carModelYearDetailRepository = new CarModelYearDetailRepository();
             auditRepository = new AuditRepository();
+            auditTempRepository = new AuditTempRepository();
         }
 
         [HttpGet]
@@ -46,14 +49,17 @@
                             }).ToList();
             list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
             ViewBag.CityList = list;
-
+            if (TempData["SuccessAudit"] != null && TempData["SuccessAudit"].ToString() == "Success")
+            {
+                ViewBag.ShowSuccessMessage = true;
+            }
             return View();
         }
 
         [HttpPost]
         public ActionResult Index(AuditViewModel audit)
         {
-            auditRepository.Create(audit);
+            var id = auditTempRepository.Create(audit);
             var mlist = carManufactureRepository.GetList()
                  .Select(x => new SelectListItem
                  {
@@ -71,7 +77,22 @@
                             }).ToList();
             list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
             ViewBag.CityList = list;
-            return View();
+            return RedirectToAction("Detail", new { id });
+        }
+        public ActionResult Detail(int id)
+        {
+            var a = auditTempRepository.GetItem(id);
+            return View(a);
+        }
+
+        public ActionResult Finalize(int id)
+        {
+            var a = auditTempRepository.GetItem(id);
+            a.RequestDatePersian = new PersianDateTime(a.RequestDate).ToString(PersianDateTimeFormat.Date);
+            auditRepository.Create(a);
+            TempData["SuccessAudit"] = "Success";
+            return RedirectToAction("Index");
+
         }
 
         public JsonResult GetCarModel(int carManufactureID)

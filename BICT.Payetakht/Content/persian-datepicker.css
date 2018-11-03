@@ -564,3 +564,7 @@
         height: 40px;
         line-height: 40px;
     }
+
+.pwt-btn-calendar {
+    display:none;
+}

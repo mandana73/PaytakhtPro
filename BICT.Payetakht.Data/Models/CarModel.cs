@@ -11,6 +11,7 @@
             CarDetails = new HashSet<CarDetail>();
             CarModelYearDetails = new HashSet<CarModelYearDetail>();
             Audits = new HashSet<Audit>();
+            AuditTemps= new HashSet<AuditTemp>();
 
         }
 
@@ -29,5 +30,6 @@
         public ICollection<CarDetail> CarDetails { get; set; }
         public ICollection<CarModelYearDetail> CarModelYearDetails { get; set; }
         public ICollection<Audit> Audits { get; set; }
+        public ICollection<AuditTemp> AuditTemps { get; set; }
     }
 }
