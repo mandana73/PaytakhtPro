@@ -552,6 +552,10 @@
       <Project>{a9f450a1-4faf-430c-bf9a-05e73b91211a}</Project>
       <Name>BICT.Payetakht.Helper</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BICT.Payetakht.Payment\BICT.Payetakht.Payment.csproj">
+      <Project>{dd99a60c-09c3-457e-8274-c8c7876ed37d}</Project>
+      <Name>BICT.Payetakht.Payment</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
