@@ -5,6 +5,7 @@ namespace BICT.Payetakht.Payment
     {
         public static int ZarinpalPayment(string MerchantID, int Amount, string Description, string Email, string Mobile, string CallbackURL, out string Authority)
         {
+            Authority = string.Empty;
             try
             {
                 ZarinPalService.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinPalService.PaymentGatewayImplementationServicePortTypeClient();
@@ -13,12 +14,13 @@ namespace BICT.Payetakht.Payment
             }
             catch
             {
-                Authority = string.Empty;
+
                 return -1000;
             }
         }
         public static int ZarinpalPaymentVerification(string MerchantID, string Authority, int Amount)
         {
+            Authority = string.Empty;
             try
             {
                 ZarinPalService.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinPalService.PaymentGatewayImplementationServicePortTypeClient();
@@ -28,7 +30,7 @@ namespace BICT.Payetakht.Payment
             }
             catch
             {
-                Authority = string.Empty;
+
                 return -1000;
             }
         }
