@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BICT.Payetakht.Data.Models;
 using BICT.Payetakht.Data.ViewModels;
 
@@ -17,32 +15,33 @@ namespace BICT.Payetakht.Data.Repository
                 {
                     ID = x.ID,
                     Title = x.Title,
-                     Content=x.Content,
-                      CreateDateTime=x.CreateDateTime,
+                    Summary = x.Summary,
+                    CreateDateTime = x.CreateDateTime,
                 })
                 .ToList();
         }
 
-        public IList<BlogViewModel> GetPagedList(int pageNum)
+        public IList<BlogViewModel> GetPagedList(int pageNum,int pageSize)
         {
             if (pageNum < 1)
             {
                 pageNum = 1;
             }
-            var skip = (pageNum - 1) * 5;
+            var skip = (pageNum - 1) * pageSize;
             return db.Blogs
                      .OrderByDescending(x => x.ID)
                      .Skip(skip)
-                     .Take(5)
+                     .Take(pageSize)
                      .Select(x => new BlogViewModel
                      {
                          ID = x.ID,
                          Title = x.Title,
-                         Content = x.Content,
+                         Summary = x.Summary,
                          CreateDateTime = x.CreateDateTime,
                      })
                      .ToList();
         }
+
         public BlogViewModel GetItem(int id)
         {
             return db.Blogs.Where(x => x.ID == id)
@@ -50,14 +49,21 @@ namespace BICT.Payetakht.Data.Repository
                 {
                     ID = x.ID,
                     Title = x.Title,
-                     CreateDateTime=x.CreateDateTime,
-                      Content=x.Content,
+                    CreateDateTime = x.CreateDateTime,
+                    Summary = x.Summary,
+                    Content = x.Content,
                 }).FirstOrDefault();
         }
 
         public void Create(BlogViewModel Blog)
         {
-            var item = new Blog { Title = Blog.Title, CreateDateTime = DateTime.Now };
+            var item = new Blog
+            {
+                Title = Blog.Title,
+                Content = Blog.Content,
+                Summary = Blog.Summary,
+                CreateDateTime = DateTime.Now
+            };
             db.Blogs.Add(item);
             db.SaveChanges();
         }
@@ -66,6 +72,8 @@ namespace BICT.Payetakht.Data.Repository
         {
             var a = db.Blogs.Find(BlogView.ID);
             a.Title = BlogView.Title;
+            a.Content = BlogView.Content;
+            a.Summary = BlogView.Summary;
             db.SaveChanges();
         }
 

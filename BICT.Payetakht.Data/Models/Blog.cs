@@ -20,5 +20,9 @@ namespace BICT.Payetakht.Data.Models
         public string Content { get; set; }
         public DateTime CreateDateTime { get; set; }
 
+        [Required]
+        [StringLength (1000)]
+        public string Summary { get; set; }
+
     }
 }

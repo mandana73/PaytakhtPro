@@ -1,0 +1,16 @@
+﻿@model BICT.Payetakht.Data.ViewModels.BlogViewModel
+@{
+    ViewBag.Title = "post";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="layout-container">
+    <div class="container">
+        <h3>@Model.Title</h3>
+        <p class="pull-left">@(new BICT.Payetakht.Helper.PersianDateTime(Model.CreateDateTime).ToString(BICT.Payetakht.Helper.PersianDateTimeFormat.LongDateLongTime))</p>
+        <div class="clearfix"></div>
+        <div>@Html.Raw(Model.Content)</div>
+        <div><a class="pull-left" href="@Url.Action("Index")">بازگشت</a></div>
+        <div class="clearfix"></div>
+        <hr />
+    </div>
+</div>

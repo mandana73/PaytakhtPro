@@ -1,0 +1,32 @@
+﻿@model IList<BICT.Payetakht.Data.ViewModels.BlogViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="layout-container">
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <h3>@item.Title</h3>
+            <p class="pull-left">@(new BICT.Payetakht.Helper.PersianDateTime(item.CreateDateTime).ToString(BICT.Payetakht.Helper.PersianDateTimeFormat.LongDateLongTime))</p>
+            <p class="pull-right">@Html.Raw(item.Summary)</p>
+            <div class="clearfix"></div>
+            <a href="@Url.Action("Post",new { id = item.ID})" class="pull-left">ادامه مطلب</a>
+            <div class="clearfix"></div>
+            <hr />
+        }
+        <nav aria-label="...">
+            <ul class="pager">
+                @if (ViewBag.Page > 1)
+                {
+                    <li class="previous"><a href="@Url.Action("Index", new { p = ViewBag.Page - 1 })"><span aria-hidden="true">&rarr;</span> قبل</a></li>
+                }
+                @if (Model.Count == 5)
+                {
+                    <li class="next"><a href="@Url.Action("Index", new { p = ViewBag.Page + 1 })">بعد <span aria-hidden="true">&larr;</span></a></li>
+                }
+            </ul>
+        </nav>
+    </div>
+</div>

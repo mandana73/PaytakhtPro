@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace BICT.Payetakht.Data.ViewModels
 {
-   public class BlogViewModel
+    public class BlogViewModel
     {
         public int ID { get; set; }
 
@@ -16,14 +13,18 @@ namespace BICT.Payetakht.Data.ViewModels
         [Display(Name = "عنوان")]
         public string Title { get; set; }
 
+        [AllowHtml]
         [Required]
-        [Display(Name = "Content")]
+        [Display(Name = "محتوا")]
         public string Content { get; set; }
 
         [Required]
-        [Display(Name ="CreateDateTime")]
+        [Display(Name = "CreateDateTime")]
         public DateTime CreateDateTime { get; set; }
 
-
+        [Required]
+        [StringLength(1000)]
+        [Display(Name ="خلاصه")]
+        public string Summary { get; set; }
     }
 }
