@@ -316,6 +316,7 @@
     <Content Include="Content\images\work-img9.jpg" />
     <Content Include="Content\magnific-popup.css" />
     <Content Include="Content\panel.css" />
+    <Content Include="Content\persian-datepicker.css" />
     <Content Include="Content\plugins.css" />
     <Content Include="Content\prism-okaidia.css" />
     <Content Include="Content\responsive.css" />
