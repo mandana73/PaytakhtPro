@@ -14,7 +14,6 @@ namespace BICT.Payetakht.Payment
             }
             catch
             {
-
                 return -1000;
             }
         }
@@ -30,7 +29,6 @@ namespace BICT.Payetakht.Payment
             }
             catch
             {
-
                 return -1000;
             }
         }
