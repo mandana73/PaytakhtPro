@@ -1807,7 +1807,10 @@ work Section style
     width : 100%;
 }
 
-.control-label
-{
+.control-label {
     margin-top: 1rem;
+    margin-left: -4rem;
+}
+.form-group {
+    margin-bottom: 0 !important;
 }
