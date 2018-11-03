@@ -1,0 +1,78 @@
+﻿@model BICT.Payetakht.Data.ViewModels.AuditViewModel
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container layout-container">
+    <h2>ثبت نهایی سفارش</h2>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="form-group">
+                @Html.LabelFor(model => model.CarManufactureTitle, new { @class = "col-md-2 " })
+                <div class="col-md-10">
+                    <p class="form-control-static">@Model.CarManufactureTitle</p>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.CarModelTitle, new { @class = "col-md-2 " })
+                <div class="col-md-10">
+                    <p class="form-control-static">@Model.CarModelTitle</p>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.CarYearTitle, new { @class = "col-md-2 " })
+                <div class="col-md-10">
+                    <p class="form-control-static">@Model.CarYearTitle</p>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.CarDetailTitle, new { @class = "col-md-2 " })
+                <div class="col-md-10">
+                    <p class="form-control-static">@Model.CarDetailTitle</p>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.FirstName, new { @class = "col-md-2 " })
+                <div class="col-md-10">
+                    <p class="form-control-static">@Model.FirstName</p>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.LastName, new { @class = "col-md-2 " })
+                <div class="col-md-10">
+                    <p class="form-control-static">@Model.LastName</p>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, new { @class = "col-md-2 " })
+                <div class="col-md-10">
+                    <p class="form-control-static">@Model.Email</p>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Phone, new { @class = "col-md-2 " })
+                <div class="col-md-10">
+                    <p class="form-control-static">@Model.Phone</p>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.RequestDate, new { @class = "col-md-2 " })
+                <div class="col-md-10">
+                    <p class="form-control-static">@(new BICT.Payetakht.Helper.PersianDateTime(Model.RequestDate).ToString(BICT.Payetakht.Helper.PersianDateTimeFormat.Date))</p>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Price, new { @class = "col-md-2 " })
+                <div class="col-md-10">
+                    <p class="form-control-static">@Model.Price</p>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-default" href="@Url.Action("Payment",new { id = Model.ID })">ذخیره و پرداخت</a>
+        <a class="btn btn-default" href="@Url.Action("Finalize",new { id = Model.ID })">ثبت</a>
+        <a href="@Url.Action("Index")">بازگشت به صفحه قبل</a>
+    }
+</div>
