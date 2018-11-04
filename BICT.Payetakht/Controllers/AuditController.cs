@@ -110,7 +110,7 @@
             string MerchantID = "e53f3f7c-d9f1-11e8-a28f-000c295eb8fc";
             string authority;
             var urlWebConfig = ConfigurationManager.AppSettings["ZarinPalPayment"];
-            string CallbackURL = "http://" + Request.Url.Authority + urlWebConfig + requestitem.ID;
+            string CallbackURL = "http://" + Request.Url.Authority + urlWebConfig+"/" + requestitem.ID;
             int status = ZarinPal.ZarinpalPayment(MerchantID, requestitem.Price, " کارشناسی برای " + requestitem.CarModelTitle + " " + requestitem.CarManufactureTitle, requestitem.Email, requestitem.Phone, CallbackURL, out authority);
             if (status == 100)
             {
