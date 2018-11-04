@@ -23,8 +23,8 @@ namespace BICT.Payetakht.Data.Repository
                 Phone = audit.Phone,
                 Price = cmydr.GetPrice(audit.CarModelID, audit.CarYearID, audit.CarDetailID),
                 Email = audit.Email,
-                PaymentDate=audit.PaymentDate,
-                ReferID=audit.ReferID,
+                PaymentDate = audit.PaymentDate,
+                ReferID = audit.ReferID,
                 Authority=audit.Authority,
                 PaymentTypeID=audit.PaymentTypeID
             };
@@ -54,7 +54,11 @@ namespace BICT.Payetakht.Data.Repository
                     Price = x.Price,
                     IsDone = x.IsDone,
                     IsRead = x.IsRead,
-                    RequestDate = x.RequestDate
+                    RequestDate = x.RequestDate,
+                    Authority = x.Authority,
+                    PaymentDate = x.PaymentDate,
+                    PaymentTypeID = x.PaymentTypeID,
+                    ReferID = x.ReferID,
                 }).ToList();
         }
 
