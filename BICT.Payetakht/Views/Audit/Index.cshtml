@@ -52,6 +52,15 @@
     </section>
     @if (ViewBag.ShowSuccessMessage != null && ViewBag.ShowSuccessMessage == true)
     {
+        if (ViewBag.ReturnBank != null && ViewBag.ReturnBank == true)
+        {
+            <div class="container">
+                <div class="alert alert-success">
+                    پرداخت شما با شماره پیگیری @ViewBag.ReferID باموفقیت ثبت گردید
+                </div>
+            </div>
+            
+        }
         <div class="container">
             <div class="alert alert-success">
                 درخواست شما با موفقیت ثبت شد.در اسرع وقت با شما تماس خواهیم گرفت.

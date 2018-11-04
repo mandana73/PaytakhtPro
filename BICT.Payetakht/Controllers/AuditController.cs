@@ -54,6 +54,13 @@
             {
                 ViewBag.ShowSuccessMessage = true;
             }
+            if (TempData["RefId"] != null && TempData["OrdeID"] != null&&TempData["authority"]!=null)
+            {
+                ViewBag.RetyrnBank = true;
+                ViewBag.ReferID = TempData["RefId"];
+                ViewBag.OrderID = TempData["OrdeID"];
+            }
+
             return View();
         }
 
@@ -130,6 +137,8 @@
                     {
                         ViewBag.RefId = "کد پیگیری: " + refID + " - کد سفارش: " + id;
                         auditTempRepository.Edit(id, refID, TempData["authority"].ToString());
+                        TempData["RefId"] = refID;
+                        TempData["OrdeID"] = id;
                         var audit = auditTempRepository.GetItem(id);
                         audit.RequestDatePersian = new PersianDateTime(audit.RequestDate).ToString(PersianDateTimeFormat.Date);
                         auditRepository.Create(audit);
@@ -150,7 +159,7 @@
             {
                 ViewBag.Message = "ورودی نامعتبر است.";
             }
-            return View();
+            return RedirectToAction("Index");
         }
 
         public JsonResult GetCarModel(int carManufactureID)
