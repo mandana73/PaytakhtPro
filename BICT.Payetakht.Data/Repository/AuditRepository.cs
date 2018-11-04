@@ -25,7 +25,8 @@ namespace BICT.Payetakht.Data.Repository
                 Email = audit.Email,
                 PaymentDate=audit.PaymentDate,
                 ReferID=audit.ReferID,
-                Authority=audit.Authority
+                Authority=audit.Authority,
+                PaymentTypeID=audit.PaymentTypeID
             };
             db.Audit.Add(item);
             db.SaveChanges();
