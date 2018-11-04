@@ -103,7 +103,7 @@
             string authority;
             var urlWebConfig = ConfigurationManager.AppSettings["ZarinPalPayment"];
             string CallbackURL = "http://" + Request.Url.Authority + urlWebConfig + requestitem.ID;
-            int status = ZarinPal.ZarinpalPayment(MerchantID, requestitem.Price, "کارشناسی برای" + requestitem.CarModelTitle + " " + requestitem.CarManufactureTitle, requestitem.Email, requestitem.Phone, CallbackURL, out authority);
+            int status = ZarinPal.ZarinpalPayment(MerchantID, requestitem.Price, " کارشناسی برای " + requestitem.CarModelTitle + " " + requestitem.CarManufactureTitle, requestitem.Email, requestitem.Phone, CallbackURL, out authority);
             if (status == 100)
             {
                 ////For release mode
