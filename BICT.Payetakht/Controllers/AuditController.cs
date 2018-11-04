@@ -1,11 +1,12 @@
 ﻿namespace BICT.Payetakht.Controllers
 {
+    using System.Configuration;
     using System.Linq;
     using System.Web.Mvc;
     using BICT.Payetakht.Data.Repository;
     using BICT.Payetakht.Data.ViewModels;
     using BICT.Payetakht.Helper;
-
+    using BICT.Payetakht.Payment;
     public class AuditController : Controller
     {
         private CarManufactureRepository carManufactureRepository;
@@ -92,6 +93,18 @@
             auditRepository.Create(a);
             TempData["SuccessAudit"] = "Success";
             return RedirectToAction("Index");
+
+        }
+
+        public ActionResult ZarinPalPayment(int ID)
+        {
+            var requestitem = auditTempRepository.GetItem(ID);
+            string MerchantID = "e53f3f7c-d9f1-11e8-a28f-000c295eb8fc";
+            var urlWebConfig = ConfigurationManager.AppSettings["ZarinPalPayment"];
+            string CallbackURL = "http://" + Request.Url.Authority + urlWebConfig ;
+            var Payment = ZarinPal.ZarinpalPayment(MerchantID, requestitem.Price, "" , requestitem.Email,requestitem.Phone,CallbackURL, out string Authority);
+            return View();
+
 
         }
 
