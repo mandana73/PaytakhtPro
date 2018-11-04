@@ -67,5 +67,9 @@ namespace BICT.Payetakht.Data.ViewModels
 
         [Display(Name = "چک شد")]
         public bool IsDone { get; set; }
+
+        public DateTime? PaymentDate { get; set; }
+        public long? ReferID { get; set; }
+        public string Authority { get; set; }
     }
 }

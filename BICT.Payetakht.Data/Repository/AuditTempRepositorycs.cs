@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using BICT.Payetakht.Data.Models;
 using BICT.Payetakht.Data.ViewModels;
 using BICT.Payetakht.Helper;
@@ -27,6 +28,16 @@ namespace BICT.Payetakht.Data.Repository
             db.SaveChanges();
             return item.ID;
         }
+        public void Edit (int ID,long refid,string Authority)
+        {
+            var list = db.AuditTemp.Find(ID);
+
+            list.PaymentDate = DateTime.Now;
+            list.ReferID = refid;
+            list.Authority = Authority;
+            db.SaveChanges();
+        }
+
 
         public AuditViewModel GetItem(int id)
         {

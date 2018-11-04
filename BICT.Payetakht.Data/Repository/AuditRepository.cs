@@ -23,10 +23,14 @@ namespace BICT.Payetakht.Data.Repository
                 Phone = audit.Phone,
                 Price = cmydr.GetPrice(audit.CarModelID, audit.CarYearID, audit.CarDetailID),
                 Email = audit.Email,
+                PaymentDate=audit.PaymentDate,
+                ReferID=audit.ReferID,
+                Authority=audit.Authority
             };
             db.Audit.Add(item);
             db.SaveChanges();
         }
+
 
         public ICollection<AuditViewModel> GetList()
         {
