@@ -33,8 +33,14 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         [HttpPost]
         public ActionResult Create(MetaKeyWordViewModel model)
         {
+            var Model = repository.CheckDuplicate(model.Title);
+            if (Model)
+            {
+                ViewBag.ErrorMessage = "عنوان وارد شده تکراریست";
+                return View();
+            }
             repository.Create(model);
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]

@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using BICT.Payetakht.Data.Models;
 using BICT.Payetakht.Data.ViewModels;
+using BICT.Payetakht.Helper;
 
 namespace BICT.Payetakht.Data.Repository
 {
-    public class MetaKeyWordRepository: BaseRepository
+    public class MetaKeyWordRepository : BaseRepository
     {
         public IList<MetaKeyWordViewModel> GetList()
         {
@@ -68,6 +69,32 @@ namespace BICT.Payetakht.Data.Repository
             var a = db.MetaKeyWords.Find(ID);
             db.MetaKeyWords.Remove(a);
             db.SaveChanges();
+        }
+        public bool CheckDuplicate(string Title, int? id = null)
+        {
+            if (string.IsNullOrWhiteSpace(Title))
+            {
+                return false;
+            }
+            string title = Util.RemoveMultiSpaces(Title, true).Trim();
+            List<MetaKeyWord> MetaKeyWordList;
+            if (id != null)
+            {
+                MetaKeyWordList = db.MetaKeyWords.Where(x => x.ID != id).ToList();
+            }
+            else
+            {
+                MetaKeyWordList = db.MetaKeyWords.ToList();
+            }
+            foreach (var item in MetaKeyWordList)
+            {
+                string Model = Util.RemoveMultiSpaces( item.Title).Trim();
+                if (Model == title)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
