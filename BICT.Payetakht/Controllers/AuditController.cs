@@ -141,6 +141,7 @@
                         auditTempRepository.Edit(id, refID, authority, 2);
                         TempData["RefId"] = refID;
                         TempData["OrdeID"] = id;
+                        TempData["authority"] = authority;
                         var audit = auditTempRepository.GetItem(id);
                         audit.RequestDatePersian = new PersianDateTime(audit.RequestDate).ToString(PersianDateTimeFormat.Date);
                         auditRepository.Create(audit);
