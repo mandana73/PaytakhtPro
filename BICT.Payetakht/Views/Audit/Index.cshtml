@@ -59,7 +59,7 @@
                     پرداخت شما با شماره پیگیری @ViewBag.ReferID باموفقیت ثبت گردید
                 </div>
             </div>
-            
+
         }
         <div class="container">
             <div class="alert alert-success">
@@ -154,12 +154,23 @@
             $('#RequestDatePersian').persianDatepicker({
                 initialValue: false,
                 format: 'YYYY/MM/DD',
-                calendarType: "persian",
                 minDate: new persianDate(),
                 calendar: {
                     persian: {
-                        locale: 'en'
-                    }
+                        showHint: true,
+                        locale: 'fa'
+                    },
+                    gregorian: {
+                        locale: 'fa',
+                        showHint: false
+                    },
+                },
+                autoClose :true,
+                formatter: function (unixDate) {
+                    var self = this;
+                    var pdate = new persianDate(unixDate);
+                    pdate.formatPersian = false;
+                    return pdate.format(self.format);
                 }
             });
             $('#CarManufactureID').change(function () {
