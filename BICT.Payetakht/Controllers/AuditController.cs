@@ -125,19 +125,20 @@
             TempData["Message"] = ZarinPal.GetMessage(status);
             return View("Detail", requestitem);
         }
-        public ActionResult ZarinpalPaymentVerification(int id)
+        public ActionResult ZarinpalPaymentVerification(int id,string authority,string Status)
         {
-            if (!string.IsNullOrEmpty(Request.QueryString["Status"]) && !string.IsNullOrEmpty(Request.QueryString["Authority"]))
+            if (!string.IsNullOrEmpty(Status) && !string.IsNullOrEmpty(authority))
             {
-                if (Request.QueryString["Status"].Equals("OK"))
+                if (Status.Equals("OK"))
                 {
                     var requestitem = auditTempRepository.GetItem(id);
                     long refID;
-                    int status = ZarinPal.ZarinpalPaymentVerification("MerchantID", Request.QueryString["Authority"], requestitem.Price, out refID);
-                    if (status == 100 || status == 101)
+                    string MerchantID = "e53f3f7c-d9f1-11e8-a28f-000c295eb8fc";
+                    int statuses = ZarinPal.ZarinpalPaymentVerification(MerchantID, authority, requestitem.Price, out refID);
+                    if (statuses == 100 || statuses == 101)
                     {
                         ViewBag.RefId = "کد پیگیری: " + refID + " - کد سفارش: " + id;
-                        auditTempRepository.Edit(id, refID, TempData["authority"].ToString(),2);
+                        auditTempRepository.Edit(id, refID, authority, 2);
                         TempData["RefId"] = refID;
                         TempData["OrdeID"] = id;
                         var audit = auditTempRepository.GetItem(id);
@@ -148,7 +149,7 @@
                     }
                     else
                     {
-                        ViewBag.Message = ZarinPal.GetMessage(status);
+                        ViewBag.Message = ZarinPal.GetMessage(statuses);
                     }
                 }
                 else
