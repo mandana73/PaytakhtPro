@@ -56,7 +56,7 @@
             }
             if (TempData["RefId"] != null && TempData["OrdeID"] != null&&TempData["authority"]!=null)
             {
-                ViewBag.RetyrnBank = true;
+                ViewBag.ReturnBank = true;
                 ViewBag.ReferID = TempData["RefId"];
                 ViewBag.OrderID = TempData["OrdeID"];
             }
