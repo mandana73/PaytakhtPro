@@ -1182,8 +1182,8 @@ Home Section style
 }
 
 .audit {
-    background: url(images/audit-bg.jpg) no-repeat scroll center;
-    background-size: contain;
+    background: url(images/Slide.jpg) no-repeat scroll center;
+    background-size:100%;
     position: center;
     padding-top: 4rem;
     padding-bottom: 4rem;
