@@ -97,6 +97,7 @@
         {
             var a = auditTempRepository.GetItem(id);
             a.RequestDatePersian = new PersianDateTime(a.RequestDate).ToString(PersianDateTimeFormat.Date);
+            a.PaymentTypeID = 1;
             auditRepository.Create(a);
             TempData["SuccessAudit"] = "Success";
             return RedirectToAction("Index");
@@ -136,7 +137,7 @@
                     if (status == 100 || status == 101)
                     {
                         ViewBag.RefId = "کد پیگیری: " + refID + " - کد سفارش: " + id;
-                        auditTempRepository.Edit(id, refID, TempData["authority"].ToString());
+                        auditTempRepository.Edit(id, refID, TempData["authority"].ToString(),2);
                         TempData["RefId"] = refID;
                         TempData["OrdeID"] = id;
                         var audit = auditTempRepository.GetItem(id);

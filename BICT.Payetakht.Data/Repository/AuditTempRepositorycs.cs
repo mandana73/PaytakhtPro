@@ -28,11 +28,12 @@ namespace BICT.Payetakht.Data.Repository
             db.SaveChanges();
             return item.ID;
         }
-        public void Edit (int ID,long refid,string Authority)
+        public void Edit (int ID,long refid,string Authority, int? PaymentTypeID)
         {
             var list = db.AuditTemp.Find(ID);
 
             list.PaymentDate = DateTime.Now;
+            list.PaymentTypeID = PaymentTypeID;
             list.ReferID = refid;
             list.Authority = Authority;
             db.SaveChanges();
