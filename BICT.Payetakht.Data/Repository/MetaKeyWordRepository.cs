@@ -52,7 +52,7 @@ namespace BICT.Payetakht.Data.Repository
 
         public void Create(MetaKeyWordViewModel Cities)
         {
-            var item = new MetaKeyWord { Title = Cities.Title };
+            var item = new MetaKeyWord { Title = Util.RemoveMultiSpaces(Cities.Title) };
             db.MetaKeyWords.Add(item);
             db.SaveChanges();
         }
