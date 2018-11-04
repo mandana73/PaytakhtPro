@@ -292,8 +292,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill
     color: rgb(0, 0, 0);
 }
 
-.form-control
-{
+.form-control {
     border-radius: 0px;
     border: 1px solid #ccc;
     box-shadow: inset 0 0px 0px rgba(0,0,0,.075);
@@ -525,20 +524,19 @@ Button
     color: #00a885;
 }
 
-.btn-default
-{
+.btn-default {
     color: #fff;
     background-color: #00a885;
     border-color: #00a885;
 }
 
-.btn-default:hover
-{
-    color: #00a885;
-    background-color: transparent;
-    border: 1px solid;
-    border-color: #00a885;
-}
+    .btn-default:hover {
+        color: #00a885;
+        background-color: transparent;
+        border: 1px solid;
+        border-color: #00a885;
+        
+    }
 
 /*
 socail icon
@@ -1183,15 +1181,15 @@ Home Section style
     width: 100%;
 }
 
-.audit
-{
-    background: url(images/audit-bg.jpg) no-repeat scroll center;
-    background-size: contain;
+.audit {
+    background: url(images/Slide.jpg) no-repeat scroll center;
+    background-size:100%;
     position: center;
     padding-top: 4rem;
     padding-bottom: 4rem;
     width: 100%;
     margin-bottom: 4rem;
+
 }
 
 .main_home .home_text h2
@@ -1354,7 +1352,7 @@ Featured section style
 .business_item .business_btn a
 {
     margin-left: 10px;
-    float: left;
+    float:left;
 }
 
 .business_item .business_btn .btn-default
@@ -1798,8 +1796,7 @@ work Section style
 }
 
 .hello_slid,
-.audit_slid
-{
+.audit_slid {
     direction: ltr;
 }
 
@@ -1807,15 +1804,13 @@ work Section style
 {
     margin-top: 124px;
     margin-bottom: 100px;
+    width : 100%;
 }
 
-.control-label
-{
+.control-label {
     margin-top: 1rem;
     margin-left: -4rem;
 }
-
-.form-group
-{
+.form-group {
     margin-bottom: 0 !important;
 }

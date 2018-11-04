@@ -267,6 +267,10 @@
     <Compile Include="Migrations\201811041119404_A012.Designer.cs">
       <DependentUpon>201811041119404_A012.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811041252203_A013.cs" />
+    <Compile Include="Migrations\201811041252203_A013.Designer.cs">
+      <DependentUpon>201811041252203_A013.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -311,6 +315,7 @@
     <Content Include="Content\images\ltst-img-1.jpg" />
     <Content Include="Content\images\ltst-img-2.jpg" />
     <Content Include="Content\images\ltst-img-3.jpg" />
+    <Content Include="Content\images\Slide.jpg" />
     <Content Include="Content\images\test-img1.jpg" />
     <Content Include="Content\images\test-img2.jpg" />
     <Content Include="Content\images\work-img1.jpg" />
@@ -613,6 +618,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811041119404_A012.resx">
       <DependentUpon>201811041119404_A012.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811041252203_A013.resx">
+      <DependentUpon>201811041252203_A013.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

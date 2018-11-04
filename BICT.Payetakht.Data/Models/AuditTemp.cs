@@ -36,6 +36,7 @@ namespace BICT.Payetakht.Data.Models
         public DateTime? PaymentDate { get; set; }
         public long? ReferID { get; set; }
         public string Authority { get; set; }
+        public int? PaymentTypeID { get; set; }
 
         public virtual CarManufacturer CarManufacturer { get; set; }
         public virtual CarModel CarModel { get; set; }
