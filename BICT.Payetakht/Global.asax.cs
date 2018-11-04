@@ -12,6 +12,9 @@
     {
         protected void Application_Start()
         {
+#if !DEBUG
+            GlobalFilters.Filters.Add(new RequireHttpsAttribute());
+#endif
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
