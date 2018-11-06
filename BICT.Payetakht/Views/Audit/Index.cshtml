@@ -6,50 +6,15 @@
 <div class="container layout-container">
     <section id="home" class="audit bg-black fix">
         <div class="overlay"></div>
-        @*<div class="container">
-            <div class="row">*@
-                @*<div class="main_home text-center">
-                    <div class="col-md-12">
-                        <div class="audit_slid">
-                            <div class="slid_item">
-                                <div class="home_text ">
-                                    <h2 class="text-white">کارشناسی تخصصی خودرو در محل</h2>
-                                    <h1 class="text-white">بیش از ۲۵,۰۰۰ کارشناسی خودروی انجام شده در محل</h1>
-                                    <h3 class="text-white">کارشناسی کامل فنی، بدنه و آپشن خودرو </h3>
-                                </div>
-                                <div class="home_btns m-top-40">
-                                    <a href="" class="btn btn-primary m-top-20">مشاهده هزینه و ثبت سفارش</a>
-                                    <a href="" class="btn btn-default m-top-20">آخرین کارشناسی های انجام شده</a>
-                                </div>
-                            </div><!-- End off slid item -->
-                            <div class="slid_item">
-                                <div class="home_text ">
-                                    <h2 class="text-white">کارشناسی تخصصی خودرو در محل</h2>
-                                    <h1 class="text-white">از سلامت فنی، بدنه و صلاحیت قیمت خودرویی که میخرید آگاه شوید</h1>
-                                    <h3 class="text-white"> کارشناسی کامل فنی، بدنه و آپشن خودرو </h3>
-                                </div>
-                                <div class="home_btns m-top-40">
-                                    <a href="" class="btn btn-primary m-top-20">مشاهده هزینه و ثبت سفارش</a>
-                                    <a href="" class="btn btn-default m-top-20">آخرین کارشناسی های انجام شده</a>
-                                </div>
-                            </div><!-- End off slid item -->
-                            <div class="slid_item">
-                                <div class="home_text ">
-                                    <h2 class="text-white">کارشناسی تخصصی خودرو در محل</h2>
-                                    <h1 class="text-white">ارائه خدمات تخصصی کارشناسی خودرو در تهران</h1>
-                                    <h3 class="text-white">کارشناسی کامل فنی، بدنه و آپشن خودرو </h3>
-                                </div>
-                                <div class="home_btns m-top-40">
-                                    <a href="" class="btn btn-primary m-top-20">مشاهده هزینه و ثبت سفارش</a>
-                                    <a href="" class="btn btn-default m-top-20">آخرین کارشناسی های انجام شده</a>
-                                </div>
-                            </div><!-- End off slid item -->
-                        </div>
-                    </div>
-                </div>
-            </div><!--End off row-->
-        </div><!--End off container -->*@
     </section>
+    @if(ViewBag.FailMessage != null && ViewBag.FailMessage != "")
+    {
+        <div class="container">
+            <div class="alert alert-danger">
+                @ViewBag.FailMessage
+            </div>
+        </div>
+    }
     @if (ViewBag.ShowSuccessMessage != null && ViewBag.ShowSuccessMessage == true)
     {
         if (ViewBag.ReturnBank != null && ViewBag.ReturnBank == true)
@@ -72,69 +37,78 @@
         {
             <div class="row">
                 @Html.ValidationSummary("", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.Label("سازنده", new { @class = "col-md-2 control-label" })
-                    <div class="col-md-4">
-                        @Html.DropDownList("CarManufactureID", (IEnumerable<SelectListItem>)ViewBag.CarManufacturerList, new { @class = "form-control" })
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.Label("سازنده", new { @class = "col-md-5 control-label" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("CarManufactureID", (IEnumerable<SelectListItem>)ViewBag.CarManufacturerList, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("مدل", new { @class = "col-md-5 control-label" })
+                        <div class=" col-md-8">
+                            @Html.DropDownList("CarModelID", new List<SelectListItem>(), new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("سال ساخت", new { @class = "col-md-5 control-label" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("CarYearID", new List<SelectListItem>(), new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("جزئیات", new { @class = "col-md-5 control-label" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("CarDetailID", new List<SelectListItem>(), new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("شهر", new { @class = "col-md-5 control-label" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("CityID", (IEnumerable<SelectListItem>)ViewBag.CityList, new { @class = "form-control" })
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-4">
-                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                <div class="col-lg-6">
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-5 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.Label("مدل", new { @class = "col-md-2 control-label" })
-                    <div class=" col-md-4">
-                        @Html.DropDownList("CarModelID", new List<SelectListItem>(), new { @class = "form-control" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.LastName, new { @class = "col-md-5 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-4">
-                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Phone, new { @class = "col-md-5 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.Label("سال ساخت", new { @class = "col-md-2 control-label" })
-                    <div class="col-md-4">
-                        @Html.DropDownList("CarYearID", new List<SelectListItem>(), new { @class = "form-control" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-5 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-4">
-                        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.Label("جزئیات", new { @class = "col-md-2 control-label" })
-                    <div class="col-md-4">
-                        @Html.DropDownList("CarDetailID", new List<SelectListItem>(), new { @class = "form-control" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-4">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.Label("شهر", new { @class = "col-md-2 control-label" })
-                    <div class="col-md-4">
-                        @Html.DropDownList("CityID", (IEnumerable<SelectListItem>)ViewBag.CityList, new { @class = "form-control" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.RequestDatePersian, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-4">
-                        @Html.TextBoxFor(m => m.RequestDatePersian, new { @class = "form-control" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.RequestDatePersian, new { @class = "col-md-5 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.RequestDatePersian, new { @class = "form-control" })
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.Label("هزینه کارشناسی", new { @class = "col-md-2 control-label" })
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <input class="form-control" id="Price" type="text" readonly />
                     </div>
                 </div>

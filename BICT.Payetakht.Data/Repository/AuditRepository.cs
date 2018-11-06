@@ -23,16 +23,17 @@ namespace BICT.Payetakht.Data.Repository
                 Phone = audit.Phone,
                 Price = cmydr.GetPrice(audit.CarModelID, audit.CarYearID, audit.CarDetailID),
                 Email = audit.Email,
-                PaymentDate=audit.PaymentDate,
-                ReferID=audit.ReferID,
-                Authority=audit.Authority
+                PaymentDate = audit.PaymentDate,
+                ReferID = audit.ReferID,
+                Authority=audit.Authority,
+                PaymentTypeID=audit.PaymentTypeID
             };
             db.Audit.Add(item);
             db.SaveChanges();
         }
 
 
-        public ICollection<AuditViewModel> GetList()
+        public IList<AuditViewModel> GetList()
         {
             return db.Audit
                 .Select(x => new AuditViewModel
@@ -53,8 +54,50 @@ namespace BICT.Payetakht.Data.Repository
                     Price = x.Price,
                     IsDone = x.IsDone,
                     IsRead = x.IsRead,
-                    RequestDate = x.RequestDate
+                    RequestDate = x.RequestDate,
+                    Authority = x.Authority,
+                    PaymentDate = x.PaymentDate,
+                    PaymentTypeID = x.PaymentTypeID,
+                    ReferID = x.ReferID,
                 }).ToList();
+        }
+        public IList<AuditViewModel> GetPagedList(int pageNum)
+        {
+            if (pageNum < 1)
+            {
+                pageNum = 1;
+            }
+            var skip = (pageNum - 1) * 10;
+            return db.Audit
+                .OrderByDescending(x => x.ID)
+                .Skip(skip)
+                .Take(10)
+                 .Select(x => new AuditViewModel
+                 {
+                     ID = x.ID,
+                     CarDetailID = x.CarDetailID,
+                     CarDetailTitle = x.CarDetail.Title,
+                     CarManufactureID = x.CarManufactureID,
+                     CarManufactureTitle = x.CarManufacturer.Title,
+                     CarModelID = x.CarModelID,
+                     CarModelTitle = x.CarModel.Title,
+                     CarYearTitle = x.CarYear.Year,
+                     CarYearID = x.CarYearID,
+                     FirstName = x.FirstName,
+                     LastName = x.LastName,
+                     Phone = x.Phone,
+                     Email = x.Email,
+                     Price = x.Price,
+                     IsDone = x.IsDone,
+                     IsRead = x.IsRead,
+                     RequestDate = x.RequestDate,
+                     Authority = x.Authority,
+                     PaymentDate = x.PaymentDate,
+                     PaymentTypeID = x.PaymentTypeID,
+                     ReferID = x.ReferID,
+
+                 })
+                .ToList();
         }
 
         public AuditViewModel Getitem(int id)

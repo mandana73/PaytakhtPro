@@ -67,9 +67,17 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Price, new { @class = "col-md-2 " })
                 <div class="col-md-10">
-                    <p class="form-control-static">@Model.Price</p>
+                    <p class="form-control-static">@Model.Price تومان</p>
                 </div>
             </div>
+        </div>
+        <div class="alert alert-success">
+            <p>
+                در صورت پرداخت آنلاین 10% از مبلغ کارشناسی کسر خواهد شد
+            </p>
+            <p>
+                هزینه پس از کسر : @(Model.Price-(Model.Price/10)) تومان
+            </p>
         </div>
         <a class="btn btn-default" href="@Url.Action("ZarinPalPayment",new { id = Model.ID })">ذخیره و پرداخت</a>
         <a class="btn btn-default" href="@Url.Action("Finalize",new { id = Model.ID })">ثبت</a>

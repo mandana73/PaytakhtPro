@@ -59,7 +59,11 @@ namespace BICT.Payetakht.Data.Repository
                          Phone = x.Phone,
                          Email = x.Email,
                          Price = x.Price,
-                         RequestDate = x.RequestDate
+                         RequestDate = x.RequestDate,
+                         PaymentTypeID=x.PaymentTypeID,
+                         Authority=x.Authority,
+                         ReferID=x.ReferID,
+                         PaymentDate=x.PaymentDate
                      }).FirstOrDefault();
         }
     }
