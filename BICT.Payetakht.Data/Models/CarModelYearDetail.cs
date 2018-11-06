@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BICT.Payetakht.Data.Models
 {
@@ -10,6 +11,9 @@ namespace BICT.Payetakht.Data.Models
         public int CarModelID { get; set; }
         public int CarYearID { get; set; }
         public int CarDetailID { get; set; }
+
+        [StringLength(255)]
+        public string ImageUrl { get; set; }
 
         public virtual CarModel CarModel { get; set; }
         public virtual CarYear CarYear { get; set; }
