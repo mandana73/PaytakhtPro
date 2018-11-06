@@ -7,6 +7,7 @@
     using BICT.Payetakht.Data.ViewModels;
     using BICT.Payetakht.Helper;
     using BICT.Payetakht.Payment;
+
     public class AuditController : Controller
     {
         private CarManufactureRepository carManufactureRepository;
@@ -54,7 +55,11 @@
             {
                 ViewBag.ShowSuccessMessage = true;
             }
-            if (TempData["RefId"] != null && TempData["OrdeID"] != null&&TempData["authority"]!=null)
+            if (TempData["FailAudit"] != null && TempData["FailAudit"].ToString() != "")
+            {
+                ViewBag.FailMessage = TempData["FailAudit"].ToString();
+            }
+            if (TempData["RefId"] != null && TempData["OrdeID"] != null && TempData["authority"] != null)
             {
                 ViewBag.ReturnBank = true;
                 ViewBag.ReferID = TempData["RefId"];
@@ -87,6 +92,7 @@
             ViewBag.CityList = list;
             return RedirectToAction("Detail", new { id });
         }
+
         public ActionResult Detail(int id)
         {
             var a = auditTempRepository.GetItem(id);
@@ -101,7 +107,6 @@
             auditRepository.Create(a);
             TempData["SuccessAudit"] = "Success";
             return RedirectToAction("Index");
-
         }
 
         public ActionResult ZarinPalPayment(int ID)
@@ -110,13 +115,13 @@
             string MerchantID = "e53f3f7c-d9f1-11e8-a28f-000c295eb8fc";
             string authority;
             var urlWebConfig = ConfigurationManager.AppSettings["ZarinPalPayment"];
-            string CallbackURL = "http://" + Request.Url.Authority + urlWebConfig+"/" + requestitem.ID;
-            int status = ZarinPal.ZarinpalPayment(MerchantID, requestitem.Price, " کارشناسی برای " + requestitem.CarModelTitle + " " + requestitem.CarManufactureTitle, requestitem.Email, requestitem.Phone, CallbackURL, out authority);
+            string CallbackURL = "http://" + Request.Url.Authority + urlWebConfig + "/" + requestitem.ID;
+            var FinalPrice = requestitem.Price - (requestitem.Price / 10);
+            int status = ZarinPal.ZarinpalPayment(MerchantID, FinalPrice, " کارشناسی برای " + requestitem.CarModelTitle + " " + requestitem.CarManufactureTitle, requestitem.Email, requestitem.Phone, CallbackURL, out authority);
             if (status == 100)
             {
                 ////For release mode
                 Response.Redirect("https://zarinpal.com/pg/StartPay/" + authority);
-
                 ////For test mode
                 //Response.Redirect("https://sandbox.zarinpal.com/pg/StartPay/" + authority);
                 return null;
@@ -125,7 +130,8 @@
             TempData["Message"] = ZarinPal.GetMessage(status);
             return View("Detail", requestitem);
         }
-        public ActionResult ZarinpalPaymentVerification(int id,string authority,string Status)
+
+        public ActionResult ZarinpalPaymentVerification(int id, string authority, string Status)
         {
             if (!string.IsNullOrEmpty(Status) && !string.IsNullOrEmpty(authority))
             {
@@ -150,17 +156,17 @@
                     }
                     else
                     {
-                        ViewBag.Message = ZarinPal.GetMessage(statuses);
+                        TempData["FailAudit"] = ZarinPal.GetMessage(statuses);
                     }
                 }
                 else
                 {
-                    ViewBag.Message = "کد مرجع: " + Request.QueryString["Authority"] + " - وضعیت:" + Request.QueryString["Status"];
+                    TempData["FailAudit"] = "کد مرجع: " + Request.QueryString["Authority"] + " - وضعیت:" + Request.QueryString["Status"];
                 }
             }
             else
             {
-                ViewBag.Message = "ورودی نامعتبر است.";
+                TempData["FailAudit"] = "ورودی نامعتبر است.";
             }
             return RedirectToAction("Index");
         }

@@ -367,15 +367,18 @@ p span
     color: #00a885;
 }
 
-p
-{
+p {
     line-height: 1.5rem;
+    text-align: justify;
+
+   
 }
 
-p:last-child
-{
-    margin-bottom: 0px;
-}
+    p:last-child {
+        margin-bottom: 0px;
+        text-align: justify;
+        
+    }
 /*colors*/
 .w100
 {
@@ -1186,7 +1189,7 @@ Home Section style
 .audit
 {
     background: url(images/Slide.jpg) no-repeat scroll center;
-    background-size: 100%;
+    background-size: cover;
     position: center;
     padding-top: 4rem;
     padding-bottom: 4rem;
@@ -1309,6 +1312,7 @@ Featured section style
 .features_item .f_item_text p
 {
     font-size: 14px;
+    text-align:justify;
 }
 
 /*Business Section*/
@@ -1819,4 +1823,23 @@ work Section style
 .form-group
 {
     margin-bottom: 0 !important;
+}
+
+.port_item p{
+    color:#000;
+    font-weight:300;
+}
+
+.widget_about p{
+    font-weight:300;
+}
+
+.features_item p {
+    color: #000;
+    font-weight: 300;
+}
+
+.reads p {
+    color: #000;
+    font-weight: 300;
 }
