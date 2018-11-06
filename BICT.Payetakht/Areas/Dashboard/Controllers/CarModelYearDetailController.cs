@@ -21,7 +21,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             carDetailRepository = new CarDetailRepository();
         }
 
-        public ActionResult Index(int p =1)
+        public ActionResult Index(int p = 1)
         {
             ViewBag.Page = p;
             var list = repository.GetPagedList(p);
@@ -91,15 +91,15 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         public ActionResult Delete(int id)
         {
             var item = repository.GetItem(id);
-            if (item!= null)
+            if (item != null)
             {
-            repository.Delete(id);
+                repository.Delete(id);
             }
             return RedirectToAction(nameof(Index));
         }
+
         public JsonResult GetCarYear(int carModelID)
         {
-          
             var list = carYearRepository.GetList(carModelID).Select(x => new SelectListItem
             {
                 Text = x.Year.ToString(),
@@ -114,20 +114,20 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         {
             var list = carDetailRepository.GetList(carModelID)
                 .Select(x => new SelectListItem
-            {
-                Text = x.Title.ToString(),
-                Value = x.ID.ToString()
-            }).ToList();
+                {
+                    Text = x.Title.ToString(),
+                    Value = x.ID.ToString()
+                }).ToList();
             list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
 
             return Json(list, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
         public ActionResult Create(CarModelYearDetailViewModel car)
         {
             repository.Create(car);
             return RedirectToAction("Index");
         }
-
     }
 }

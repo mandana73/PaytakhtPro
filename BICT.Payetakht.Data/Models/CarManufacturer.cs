@@ -20,7 +20,7 @@
         public string Title { get; set; }
 
         public virtual ICollection<CarModel> CarModels { get; set; }
-        public virtual  ICollection<Audit> Audits { get; set; }
+        public virtual ICollection<Audit> Audits { get; set; }
         public virtual ICollection<AuditTemp> AuditTemps { get; set; }
     }
 }

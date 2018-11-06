@@ -7,10 +7,12 @@
     public class PersianDateTime
     {
         private readonly static PersianCalendar persianCalendar = new PersianCalendar();
+
         private readonly static string[] dayNames = new string[]
         {
             "شنبه", "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنج شنبه", "جمعه"
         };
+
         private readonly static string[] monthNames = new string[]
         {
             "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BICT.Payetakht.Data.Models
 {
@@ -18,11 +14,11 @@ namespace BICT.Payetakht.Data.Models
 
         [Required]
         public string Content { get; set; }
+
         public DateTime CreateDateTime { get; set; }
 
         [Required]
-        [StringLength (1000)]
+        [StringLength(1000)]
         public string Summary { get; set; }
-
     }
 }

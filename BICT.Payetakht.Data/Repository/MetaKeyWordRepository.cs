@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BICT.Payetakht.Data.Models;
 using BICT.Payetakht.Data.ViewModels;
 using BICT.Payetakht.Helper;
@@ -40,6 +37,7 @@ namespace BICT.Payetakht.Data.Repository
                      })
                      .ToList();
         }
+
         public MetaKeyWordViewModel GetItem(int id)
         {
             return db.MetaKeyWords.Where(x => x.ID == id)
@@ -70,6 +68,7 @@ namespace BICT.Payetakht.Data.Repository
             db.MetaKeyWords.Remove(a);
             db.SaveChanges();
         }
+
         public bool CheckDuplicate(string Title, int? id = null)
         {
             if (string.IsNullOrWhiteSpace(Title))
@@ -88,7 +87,7 @@ namespace BICT.Payetakht.Data.Repository
             }
             foreach (var item in MetaKeyWordList)
             {
-                string Model = Util.RemoveMultiSpaces( item.Title).Trim();
+                string Model = Util.RemoveMultiSpaces(item.Title).Trim();
                 if (Model == title)
                 {
                     return true;

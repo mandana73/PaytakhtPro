@@ -17,7 +17,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             manufactureRepository = new CarManufactureRepository();
         }
 
-        public ActionResult Index(int p=1)
+        public ActionResult Index(int p = 1)
         {
             ViewBag.Page = p;
             var list = repository.GetPagedList(p);
@@ -27,12 +27,12 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-           var list = manufactureRepository.GetList()
-                .Select(x => new SelectListItem
-                {
-                    Text = x.Title,
-                    Value = x.ID.ToString()
-                }).ToList();
+            var list = manufactureRepository.GetList()
+                 .Select(x => new SelectListItem
+                 {
+                     Text = x.Title,
+                     Value = x.ID.ToString()
+                 }).ToList();
             list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
             ViewBag.ManufactureList = list;
             return View();

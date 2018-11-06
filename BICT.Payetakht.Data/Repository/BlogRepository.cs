@@ -21,7 +21,7 @@ namespace BICT.Payetakht.Data.Repository
                 .ToList();
         }
 
-        public IList<BlogViewModel> GetPagedList(int pageNum,int pageSize)
+        public IList<BlogViewModel> GetPagedList(int pageNum, int pageSize)
         {
             if (pageNum < 1)
             {

@@ -79,11 +79,14 @@
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToAction("Index","Home", new { Area = "Dashboard" }); 
+                    return RedirectToAction("Index", "Home", new { Area = "Dashboard" });
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
+
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, model.RememberMe });
+
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
@@ -141,8 +144,8 @@
         [AllowAnonymous]
         public ActionResult Register()
         {
-           TempData["ErrorMessage"] = "امکان رجیستر وجود ندارد";
-            return RedirectToAction(nameof (Login));
+            TempData["ErrorMessage"] = "امکان رجیستر وجود ندارد";
+            return RedirectToAction(nameof(Login));
         }
 
         ////
@@ -174,7 +177,6 @@
         //    // If we got this far, something failed, redisplay form
         //    return View(model);
         //}
-
 
         //GET: /Account/ConfirmEmail
         [AllowAnonymous]
@@ -408,7 +410,6 @@
         {
             return View();
         }
-
 
         //[HttpGet]
         //public ActionResult Profile()

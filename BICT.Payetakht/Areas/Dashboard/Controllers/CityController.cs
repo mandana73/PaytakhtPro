@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using BICT.Payetakht.Data.Repository;
 using BICT.Payetakht.Data.ViewModels;
 
@@ -12,11 +8,13 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
     public class CityController : Controller
     {
         private CityRepository repository;
+
         public CityController()
         {
             repository = new CityRepository();
         }
-        public ActionResult Index( int p =1)
+
+        public ActionResult Index(int p = 1)
         {
             ViewBag.Page = p;
             var list = repository.GetPagedList(p);
@@ -51,6 +49,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
         [HttpGet]
         public ActionResult Delete(int ID)
         {

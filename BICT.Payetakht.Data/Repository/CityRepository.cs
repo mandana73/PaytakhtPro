@@ -18,24 +18,25 @@ namespace BICT.Payetakht.Data.Repository
                 .ToList();
         }
 
-        public IList<CityViewModel> GetPagedList( int pageNum )
+        public IList<CityViewModel> GetPagedList(int pageNum)
         {
-            if (pageNum<1)
+            if (pageNum < 1)
             {
                 pageNum = 1;
             }
             var skip = (pageNum - 1) * 10;
             return db.Cities
-                     .OrderByDescending(x=>x.ID)
+                     .OrderByDescending(x => x.ID)
                      .Skip(skip)
                      .Take(10)
                      .Select(x => new CityViewModel
-                      {
-                          ID = x.ID,
-                          Title = x.Title,
+                     {
+                         ID = x.ID,
+                         Title = x.Title,
                      })
                      .ToList();
         }
+
         public CityViewModel GetItem(int id)
         {
             return db.Cities.Where(x => x.ID == id)

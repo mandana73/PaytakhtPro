@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using BICT.Payetakht.Data.Models;
 using BICT.Payetakht.Data.ViewModels;
@@ -19,15 +18,16 @@ namespace BICT.Payetakht.Data.Repository
                })
                 .ToList();
         }
+
         public IList<CarModelViewModel> GetPagedList(int pageNum)
         {
-            if (pageNum<1)
+            if (pageNum < 1)
             {
                 pageNum = 1;
             }
             var skip = (pageNum - 1) * 10;
             return db.CarModels
-                .OrderByDescending(x=>x.ID)
+                .OrderByDescending(x => x.ID)
                 .Skip(skip)
                 .Take(10)
                  .Select(x => new CarModelViewModel
@@ -64,7 +64,7 @@ namespace BICT.Payetakht.Data.Repository
         {
             CarModel a = db.CarModels.Find(carModelView.ID);
             a.Title = carModelView.Title;
-            db.SaveChanges(); 
+            db.SaveChanges();
         }
 
         public void Delete(int ID)
@@ -76,7 +76,7 @@ namespace BICT.Payetakht.Data.Repository
 
         public IList<CarModelViewModel> GetList(int carManufactureID)
         {
-            return db.CarModels.Where(x=>x.CarManufacturerID == carManufactureID)
+            return db.CarModels.Where(x => x.CarManufacturerID == carManufactureID)
                .Select(x => new CarModelViewModel
                {
                    ID = x.ID,
@@ -85,6 +85,7 @@ namespace BICT.Payetakht.Data.Repository
                })
                 .ToList();
         }
+
         public bool CheckDuplicate(string Title, int? id = null)
         {
             if (string.IsNullOrWhiteSpace(Title))
@@ -111,6 +112,7 @@ namespace BICT.Payetakht.Data.Repository
             }
             return false;
         }
+
         public int CarModelCount()
         {
             return db.CarModels.Count();

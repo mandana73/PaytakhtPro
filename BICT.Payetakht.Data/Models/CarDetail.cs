@@ -14,7 +14,7 @@
 
         [Key]
         public int ID { get; set; }
-        
+
         public int CarModelID { get; set; }
 
         [Required]

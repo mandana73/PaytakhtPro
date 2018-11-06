@@ -28,7 +28,8 @@ namespace BICT.Payetakht.Data.Repository
             db.SaveChanges();
             return item.ID;
         }
-        public void Edit (int ID,long refid,string Authority, int? PaymentTypeID)
+
+        public void Edit(int ID, long refid, string Authority, int? PaymentTypeID)
         {
             var list = db.AuditTemp.Find(ID);
 
@@ -39,32 +40,31 @@ namespace BICT.Payetakht.Data.Repository
             db.SaveChanges();
         }
 
-
         public AuditViewModel GetItem(int id)
         {
-           return db.AuditTemp.Where(x => x.ID == id)
-                     .Select(x => new AuditViewModel
-                     {
-                         ID = x.ID,
-                         CarDetailID = x.CarDetailID,
-                         CarDetailTitle = x.CarDetail.Title,
-                         CarManufactureID = x.CarManufactureID,
-                         CarManufactureTitle = x.CarManufacturer.Title,
-                         CarModelID = x.CarModelID,
-                         CarModelTitle = x.CarModel.Title,
-                         CarYearTitle = x.CarYear.Year,
-                         CarYearID = x.CarYearID,
-                         FirstName = x.FirstName,
-                         LastName = x.LastName,
-                         Phone = x.Phone,
-                         Email = x.Email,
-                         Price = x.Price,
-                         RequestDate = x.RequestDate,
-                         PaymentTypeID=x.PaymentTypeID,
-                         Authority=x.Authority,
-                         ReferID=x.ReferID,
-                         PaymentDate=x.PaymentDate
-                     }).FirstOrDefault();
+            return db.AuditTemp.Where(x => x.ID == id)
+                      .Select(x => new AuditViewModel
+                      {
+                          ID = x.ID,
+                          CarDetailID = x.CarDetailID,
+                          CarDetailTitle = x.CarDetail.Title,
+                          CarManufactureID = x.CarManufactureID,
+                          CarManufactureTitle = x.CarManufacturer.Title,
+                          CarModelID = x.CarModelID,
+                          CarModelTitle = x.CarModel.Title,
+                          CarYearTitle = x.CarYear.Year,
+                          CarYearID = x.CarYearID,
+                          FirstName = x.FirstName,
+                          LastName = x.LastName,
+                          Phone = x.Phone,
+                          Email = x.Email,
+                          Price = x.Price,
+                          RequestDate = x.RequestDate,
+                          PaymentTypeID = x.PaymentTypeID,
+                          Authority = x.Authority,
+                          ReferID = x.ReferID,
+                          PaymentDate = x.PaymentDate
+                      }).FirstOrDefault();
         }
     }
 }

@@ -25,13 +25,12 @@ namespace BICT.Payetakht.Data.Repository
                 Email = audit.Email,
                 PaymentDate = audit.PaymentDate,
                 ReferID = audit.ReferID,
-                Authority=audit.Authority,
-                PaymentTypeID=audit.PaymentTypeID
+                Authority = audit.Authority,
+                PaymentTypeID = audit.PaymentTypeID
             };
             db.Audit.Add(item);
             db.SaveChanges();
         }
-
 
         public IList<AuditViewModel> GetList()
         {
@@ -61,6 +60,7 @@ namespace BICT.Payetakht.Data.Repository
                     ReferID = x.ReferID,
                 }).ToList();
         }
+
         public IList<AuditViewModel> GetPagedList(int pageNum)
         {
             if (pageNum < 1)
@@ -95,7 +95,6 @@ namespace BICT.Payetakht.Data.Repository
                      PaymentDate = x.PaymentDate,
                      PaymentTypeID = x.PaymentTypeID,
                      ReferID = x.ReferID,
-
                  })
                 .ToList();
         }

@@ -26,7 +26,7 @@ namespace BICT.Payetakht.Data.Repository
             }
             var Skip = (pageNum - 1) * 10;
             return db.CarManufacturers
-                .OrderByDescending(x=>x.ID)
+                .OrderByDescending(x => x.ID)
                 .Skip(Skip)
                 .Take(10)
                 .Select(x => new CarManufactureViewModel
@@ -98,7 +98,5 @@ namespace BICT.Payetakht.Data.Repository
         {
             return db.CarManufacturers.Count();
         }
-
     }
 }
-

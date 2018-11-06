@@ -36,13 +36,13 @@ namespace BICT.Payetakht.Data.Repository
 
         public IList<CarYearViewModel> GetPagedList(int pageNum)
         {
-            if (pageNum<1)
+            if (pageNum < 1)
             {
                 pageNum = 1;
             }
             var skip = (pageNum - 1) * 10;
             return db.CarYears
-                     .OrderByDescending(x=>x.ID)
+                     .OrderByDescending(x => x.ID)
                      .Skip(skip)
                      .Take(10)
                       .Select(x => new CarYearViewModel
@@ -96,9 +96,9 @@ namespace BICT.Payetakht.Data.Repository
             db.SaveChanges();
         }
 
-        public bool CheckDuplicate(int Year , int carModelID)
+        public bool CheckDuplicate(int Year, int carModelID)
         {
-            return db.CarYears.Any(x => x.Year == Year && x.CarModelID==carModelID);
+            return db.CarYears.Any(x => x.Year == Year && x.CarModelID == carModelID);
         }
     }
 }

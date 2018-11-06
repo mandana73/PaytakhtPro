@@ -17,7 +17,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             carModelRepository = new CarModelRepository();
         }
 
-        public ActionResult Index(int p=1)
+        public ActionResult Index(int p = 1)
         {
             ViewBag.Page = p;
             var list = repository.GetPagedList(p);

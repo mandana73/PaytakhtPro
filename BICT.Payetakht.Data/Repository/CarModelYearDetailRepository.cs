@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BICT.Payetakht.Data.Models;
 using BICT.Payetakht.Data.ViewModels;
 
@@ -23,19 +20,18 @@ namespace BICT.Payetakht.Data.Repository
                     CarYearID = x.CarYearID,
                     CarYearTitle = x.CarYear.Year,
                     Price = x.Price,
-
                 }).ToList();
-
         }
+
         public IList<CarModelYearDetailViewModel> GetPagedList(int pageNum)
         {
-            if (pageNum<1)
+            if (pageNum < 1)
             {
                 pageNum = 1;
             }
             var skip = (pageNum - 1) * 10;
             return db.CarModelYearDetails
-                .OrderByDescending(x=>x.ID)
+                .OrderByDescending(x => x.ID)
                 .Skip(skip)
                 .Take(10)
                  .Select(x => new CarModelYearDetailViewModel
@@ -48,9 +44,9 @@ namespace BICT.Payetakht.Data.Repository
                      CarYearID = x.CarYearID,
                      CarYearTitle = x.CarYear.Year,
                      Price = x.Price,
-
                  }).ToList();
         }
+
         public CarModelYearDetailViewModel GetItem(int id)
         {
             return db.CarModelYearDetails.Where(x => x.ID == id)
@@ -65,8 +61,8 @@ namespace BICT.Payetakht.Data.Repository
                     CarYearTitle = x.CarYear.Year,
                     Price = x.Price,
                 }).FirstOrDefault();
-
         }
+
         public void Create(CarModelYearDetailViewModel carModelYearDetailView)
         {
             var item = new CarModelYearDetail
@@ -79,15 +75,14 @@ namespace BICT.Payetakht.Data.Repository
             db.CarModelYearDetails.Add(item);
             db.SaveChanges();
         }
+
         public void Edit(CarModelYearDetailViewModel carModelYearDetailView)
         {
-
             CarModelYearDetail a = db.CarModelYearDetails.Find(carModelYearDetailView.ID);
             a.CarYearID = carModelYearDetailView.CarYearID;
             a.CarModelID = carModelYearDetailView.CarModelID;
             a.CarDetailID = carModelYearDetailView.CarDetailID;
             a.Price = carModelYearDetailView.Price;
-
 
             db.SaveChanges();
         }
@@ -104,16 +99,11 @@ namespace BICT.Payetakht.Data.Repository
             var item = db.CarModelYearDetails.Where(x => x.CarModelID == CarModelID &&
                                                 x.CarDetailID == CarDetailID &&
                                                 x.CarYearID == CarYearID).FirstOrDefault();
-            if (item != null) {
+            if (item != null)
+            {
                 return item.Price;
             }
             return 0;
         }
-
     }
-
-
 }
-
-
-

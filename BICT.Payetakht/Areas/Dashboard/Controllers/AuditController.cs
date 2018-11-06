@@ -21,7 +21,6 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             return View(audits);
         }
 
-
         public ActionResult Detail(int id)
         {
             var audit = auditRepository.Getitem(id);
@@ -32,15 +31,13 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         public ActionResult SetAsDone(int id)
         {
             var audit = auditRepository.Getitem(id);
-            if(audit ==null )
+            if (audit == null)
             {
                 ViewBag.Error = "آیتم انتخاب نشده است";
-            return RedirectToAction(nameof (Index));
+                return RedirectToAction(nameof(Index));
             }
             auditRepository.SetAsDone(id);
             return RedirectToAction(nameof(Index));
-
-
         }
     }
 }

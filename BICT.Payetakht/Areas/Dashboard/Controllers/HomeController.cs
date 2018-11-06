@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using BICT.Payetakht.Data.Repository;
 using BICT.Payetakht.Data.ViewModels;
 
@@ -15,6 +11,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         private CarModelRepository carModelRepository;
         private AuditRepository auditRepository;
         private CarDetailRepository carDetailRepository;
+
         public HomeController()
         {
             auditRepository = new AuditRepository();
@@ -34,8 +31,5 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             model.CarDetailCount = carDetailRepository.CarDetailCount();
             return View(model);
         }
-
-
-       
     }
 }

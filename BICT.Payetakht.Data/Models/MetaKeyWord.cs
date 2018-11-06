@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace BICT.Payetakht.Data.Models
 {
-   public  class MetaKeyWord
+    public class MetaKeyWord
     {
         [Key]
         public int ID { get; set; }

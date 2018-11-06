@@ -11,8 +11,7 @@
             CarDetails = new HashSet<CarDetail>();
             CarModelYearDetails = new HashSet<CarModelYearDetail>();
             Audits = new HashSet<Audit>();
-            AuditTemps= new HashSet<AuditTemp>();
-
+            AuditTemps = new HashSet<AuditTemp>();
         }
 
         [Key]
