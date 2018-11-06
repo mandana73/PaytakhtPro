@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BICT.Payetakht.Data.Models;
 using BICT.Payetakht.Data.ViewModels;
@@ -61,14 +62,25 @@ namespace BICT.Payetakht.Data.Repository
                 }).ToList();
         }
 
-        public IList<AuditViewModel> GetPagedList(int pageNum)
+        public IList<AuditViewModel> GetPagedList(int pageNum, int? read, int? done)
         {
             if (pageNum < 1)
             {
                 pageNum = 1;
             }
             var skip = (pageNum - 1) * 10;
-            return db.Audit
+            var query = db.Audit.AsQueryable();
+            if (read != null)
+            {
+                var readBool = Convert.ToBoolean(read);
+                query = query.Where(x => x.IsRead == readBool);
+            }
+            if (done != null)
+            {
+                var doneBool = Convert.ToBoolean(done);
+                query = query.Where(x => x.IsDone == doneBool);
+            }
+            return query
                 .OrderByDescending(x => x.ID)
                 .Skip(skip)
                 .Take(10)

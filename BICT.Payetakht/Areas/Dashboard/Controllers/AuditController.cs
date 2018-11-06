@@ -14,10 +14,12 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             auditRepository = new AuditRepository();
         }
 
-        public ActionResult Index(int p = 1)
+        public ActionResult Index(int p = 1, int? read = null, int? done = null)
         {
-            ViewBag.page = p;
-            var audits = auditRepository.GetPagedList(p);
+            ViewBag.Page = p;
+            ViewBag.Read = read;
+            ViewBag.Done = done;
+            var audits = auditRepository.GetPagedList(p, read, done);
             return View(audits);
         }
 

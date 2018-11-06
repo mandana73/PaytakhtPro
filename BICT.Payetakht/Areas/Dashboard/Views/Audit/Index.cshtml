@@ -1,5 +1,7 @@
 ﻿@model IList<BICT.Payetakht.Data.ViewModels.AuditViewModel>
 @{
+    /**/
+
     ViewBag.DashboardTitle = "جزئیات";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
@@ -7,7 +9,35 @@
 {
     @ViewBag.Error
 }
-<div class="  table-responsive">
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>خوانده شده/ خوانده نشده</label>
+            <select class="form-control" id="readStatus">
+                <option value="">انتخاب نمایید</option>
+                <option value="0" selected="@(ViewBag.Read == 0 ? true : false)">خوانده نشده</option>
+                <option value="1" selected="@(ViewBag.Read == 1 ? true : false)">خوانده شده</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>وضعیت بازرسی</label>
+            <select class="form-control" id="doneStatus">
+                <option value="">انتخاب نمایید</option>
+                <option value="0" selected="@(ViewBag.Done == 0 ? true : false)">انجام نشده</option>
+                <option value="1" selected="@(ViewBag.Done == 1 ? true : false)">انجام شده</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="btn-group">
+            <button class="btn btn-primary" id="btnSearch">جستجو</button>
+            <a class="btn btn-default" href="@Url.Action("Index")">نمایش همه</a>
+        </div>
+    </div>
+</div>
+<div class="table-responsive">
     <table class=" table table-bordered table-condensed table-hover table-striped ">
         <tr>
             <th>سازنده</th>
@@ -53,7 +83,7 @@
                     <div class="btn-group">
                         @if (item.IsDone == false)
                         {
-                            <a class="btn btn-info" href="@Url.Action("SetAsDone",new { id = item.ID })">چک شده</a>
+                            <a class="btn btn-info" href="@Url.Action("SetAsDone",new { id = item.ID })">انجام شده</a>
                         }
                         <a class="btn btn-danger" href="@Url.Action("Detail",new { id = item.ID })">نمایش</a>
                     </div>
@@ -65,12 +95,23 @@
         <ul class="pager">
             @if (ViewBag.Page > 1)
             {
-                <li class="previous"><a href="@Url.Action("Index", new { p = ViewBag.Page - 1 })"><span aria-hidden="true">&rarr;</span> قبل</a></li>
+                <li class="previous"><a href="@Url.Action("Index", new { p = ViewBag.Page - 1 , read = ViewBag.Read , done = ViewBag.Done })"><span aria-hidden="true">&rarr;</span> قبل</a></li>
             }
             @if (Model.Count == 10)
             {
-                <li class="next"><a href="@Url.Action("Index", new { p = ViewBag.Page + 1 })">بعد <span aria-hidden="true">&larr;</span></a></li>
+                <li class="next"><a href="@Url.Action("Index", new { p = ViewBag.Page + 1 , read = ViewBag.Read , done = ViewBag.Done })">بعد <span aria-hidden="true">&larr;</span></a></li>
             }
         </ul>
     </nav>
 </div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#btnSearch').click(function () {
+                var read = $('#readStatus').val();
+                var done = $('#doneStatus').val();
+                window.location.href = "@Url.Action("Index")?p=1&read=" + read + "&done=" + done;
+            });
+        });
+    </script>
+}
