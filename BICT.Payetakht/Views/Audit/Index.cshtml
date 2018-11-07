@@ -4,10 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container layout-container">
-    <section id="home" class="audit bg-black fix">
-        <div class="overlay"></div>
-    </section>
-    @if(ViewBag.FailMessage != null && ViewBag.FailMessage != "")
+    <div class="audit">
+        <img src="~/Content/images/Slide.jpg" alt="" />
+    </div>
+    @if (ViewBag.FailMessage != null && ViewBag.FailMessage != "")
     {
         <div class="container">
             <div class="alert alert-danger">
@@ -39,82 +39,79 @@
                 @Html.ValidationSummary("", new { @class = "text-danger" })
                 <div class="col-lg-6">
                     <div class="form-group">
-                        @Html.Label("سازنده", new { @class = "col-md-5 control-label" })
+                        @Html.Label("سازنده", new { @class = "col-md-4 control-label" })
                         <div class="col-md-8">
                             @Html.DropDownList("CarManufactureID", (IEnumerable<SelectListItem>)ViewBag.CarManufacturerList, new { @class = "form-control" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.Label("مدل", new { @class = "col-md-5 control-label" })
+                        @Html.Label("مدل", new { @class = "col-md-4 control-label" })
                         <div class=" col-md-8">
                             @Html.DropDownList("CarModelID", new List<SelectListItem>(), new { @class = "form-control" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.Label("سال ساخت", new { @class = "col-md-5 control-label" })
+                        @Html.Label("سال ساخت", new { @class = "col-md-4 control-label" })
                         <div class="col-md-8">
                             @Html.DropDownList("CarYearID", new List<SelectListItem>(), new { @class = "form-control" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.Label("جزئیات", new { @class = "col-md-5 control-label" })
+                        @Html.Label("جزئیات", new { @class = "col-md-4 control-label" })
                         <div class="col-md-8">
                             @Html.DropDownList("CarDetailID", new List<SelectListItem>(), new { @class = "form-control" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.Label("شهر", new { @class = "col-md-5 control-label" })
+                        @Html.Label("شهر", new { @class = "col-md-4 control-label" })
                         <div class="col-md-8">
                             @Html.DropDownList("CityID", (IEnumerable<SelectListItem>)ViewBag.CityList, new { @class = "form-control" })
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-
                     <div class="form-group">
-                        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-5 control-label" })
+                        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-4 control-label" })
                         <div class="col-md-8">
                             @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
                         </div>
                     </div>
-
                     <div class="form-group">
-                        @Html.LabelFor(m => m.LastName, new { @class = "col-md-5 control-label" })
+                        @Html.LabelFor(m => m.LastName, new { @class = "col-md-4 control-label" })
                         <div class="col-md-8">
                             @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
                         </div>
                     </div>
-
                     <div class="form-group">
-                        @Html.LabelFor(m => m.Phone, new { @class = "col-md-5 control-label" })
+                        @Html.LabelFor(m => m.Phone, new { @class = "col-md-4 control-label" })
                         <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", type = Request.Browser.IsMobileDevice ? "number" : "text" })
                         </div>
                     </div>
-
                     <div class="form-group">
-                        @Html.LabelFor(m => m.Email, new { @class = "col-md-5 control-label" })
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
                         <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = Request.Browser.IsMobileDevice ? "email" : "text" })
                         </div>
                     </div>
-
                     <div class="form-group">
-                        @Html.LabelFor(m => m.RequestDatePersian, new { @class = "col-md-5 control-label" })
+                        @Html.LabelFor(m => m.RequestDatePersian, new { @class = "col-md-4 control-label" })
                         <div class="col-md-8">
                             @Html.TextBoxFor(m => m.RequestDatePersian, new { @class = "form-control" })
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    @Html.Label("هزینه کارشناسی", new { @class = "col-md-2 control-label" })
-                    <div class="col-md-6">
-                        <input class="form-control" id="Price" type="text" readonly />
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.Label("هزینه کارشناسی", new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            <input class="form-control" id="Price" type="text" readonly />
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <button type="submit" class="btn btn-default">ذخیره</button>
+                    <div class="col-md-11">
+                        <button type="submit" class="btn btn-default pull-left">ذخیره</button>
                     </div>
                 </div>
             </div>

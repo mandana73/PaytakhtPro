@@ -6,474 +6,453 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<section class="layout-container">
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <a href="~/Audit">
-                <img src="~/Content/images/home-bg.jpg" href="~/Audit" alt="...">
+<div class="layout-container m-b-0">
+    <section>
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <a href="~/Audit">
+                        <img src="~/Content/images/home-bg.jpg" href="~/Audit" alt="...">
                     </a>
-                <div class="carousel-caption">
                 </div>
-            </div>
-            <div class="item">
-                <a href="~/Audit">
-                <img src="~/Content/images/audit-bg.jpg" alt="...">
+                <div class="item">
+                    <a href="~/Audit">
+                        <img src="~/Content/images/audit-bg.jpg" alt="...">
                     </a>
-                <div class="carousel-caption">
                 </div>
-            </div>
-            <div class="item">
-                <a href="~/Audit">
-                <img src="~/Content/images/about-img1.jpg" alt="...">
+                <div class="item">
+                    <a href="~/Audit">
+                        <img src="~/Content/images/about-img1.jpg" alt="...">
                     </a>
-                <div class="carousel-caption">
+                </div>
+            </div>
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+    <section id="features" class="features">
+        <div class="container">
+            <div class="row">
+                <div class="main_features fix roomy-30">
+                    <div class="col-md-4">
+                        <div class="features_item sm-m-top-30">
+                            <div class="f_item_icon">
+                                <i class="fa fa-thumbs-o-up"></i>
+                            </div>
+                            <div class="f_item_text">
+                                <h3>بازدید خودرو پیش از خرید</h3>
+                                <p>حتما پیش از درخواست کارشناسی، خودروی مدنظر خود را از نزدیک بازدید نموده و عیوب بصری آن نظیر خط و خش، قوری و سایر موارد را بررسی نمایید. در صورتی که خودرو از نظر ظاهری مورد پسند شما قرار گرفت، درخواست کارشناسی بدهید.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="features_item sm-m-top-30">
+                            <div class="f_item_icon">
+                                <i class="fa fa-tablet"></i>
+                            </div>
+                            <div class="f_item_text">
+                                <h3>درخواست کارشناس سیار</h3>
+                                <p>
+                                    بلافاصله پس از پسندیدن خودرو، با شماره های ما تماس بگیرید
+                                    یا فرم ثبت سفارش را پر نمایید. مشخصات خودروی مو
+                                    رد نظر خود را بدهید و زمان و مکان مورد نظر جهت بازدید خود
+                                    روی خود را مشخص نمایید. به صورت معمول 30 دقیقه بعد کارشناس در کنار شما خواهد بود
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="features_item sm-m-top-30">
+                            <div class="f_item_icon">
+                                <i class="fa fa-sliders"></i>
+                            </div>
+                            <div class="f_item_text">
+                                <h3>دریافت گزارش رسمی کارشناسی خودرو</h3>
+                                <p>کارشناسان مادر محل مورد نظر شما حاضر خواهد شد. وضعیت خودرو را از نظر فنی، بدنه، آپشن و کارکرد بررسی نموده و تمام موارد را بر روی برگه رسمی کارشناسی خودروی مدنظر شما درج خواهد نمود. در صورت ارائه ایمیل، گزارش کارشناسی شما به صورت آنلاین به شما ارسال خواهد شد</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
+    <section id="business" class="business bg-grey roomy-70">
+        <div class="container">
+            <div class="row">
+                <div class="main_business">
+                    <div class="col-md-6">
+                        <div class="business_slid">
+                            <div class="business_items text-center">
+                                <div class="business_item">
+                                    <div class="business_img">
+                                        <img src="~/Content/images/about-img1.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="business_item">
+                                    <div class="business_img">
+                                        <img src="~/Content/images/about-img1.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div class="business_item">
+                                    <div class="business_img">
+                                        <img src="~/Content/images/about-img1.jpg" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</section>
-<section id="features" class="features">
-    <div class="container">
-        <div class="row">
-            <div class="main_features fix roomy-70">
-                <div class="col-md-4">
-                    <div class="features_item sm-m-top-30">
-                        <div class="f_item_icon">
-                            <i class="fa fa-thumbs-o-up"></i>
-                        </div>
-                        <div class="f_item_text">
-                            <h3>بازدید خودرو پیش از خرید</h3>
-                            <p>حتما پیش از درخواست کارشناسی، خودروی مدنظر خود را از نزدیک بازدید نموده و عیوب بصری آن نظیر خط و خش، قوری و سایر موارد را بررسی نمایید. در صورتی که خودرو از نظر ظاهری مورد پسند شما قرار گرفت، درخواست کارشناسی بدهید.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="features_item sm-m-top-30">
-                        <div class="f_item_icon">
-                            <i class="fa fa-tablet"></i>
-                        </div>
-                        <div class="f_item_text">
-                            <h3>درخواست کارشناس سیار</h3>
-                            <p>
-                                بلافاصله پس از پسندیدن خودرو، با شماره های ما تماس بگیرید
-                                یا فرم ثبت سفارش را پر نمایید. مشخصات خودروی مو
-                                رد نظر خود را بدهید و زمان و مکان مورد نظر جهت بازدید خود
-                                روی خود را مشخص نمایید. به صورت معمول 30 دقیقه بعد کارشناس در کنار شما خواهد بود
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="features_item sm-m-top-30">
-                        <div class="f_item_icon">
-                            <i class="fa fa-sliders"></i>
-                        </div>
-                        <div class="f_item_text">
-                            <h3>دریافت گزارش رسمی کارشناسی خودرو</h3>
-                            <p>کارشناسان مادر محل مورد نظر شما حاضر خواهد شد. وضعیت خودرو را از نظر فنی، بدنه، آپشن و کارکرد بررسی نموده و تمام موارد را بر روی برگه رسمی کارشناسی خودروی مدنظر شما درج خواهد نمود. در صورت ارائه ایمیل، گزارش کارشناسی شما به صورت آنلاین به شما ارسال خواهد شد</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!-- End off row -->
-    </div><!-- End off container -->
-</section><!-- End off Featured Section-->
-<!--Business Section-->
-<section id="business" class="business bg-grey roomy-70">
-    <div class="container">
-        <div class="row">
-            <div class="main_business">
-                <div class="col-md-6">
-                    <div class="business_slid">
-                        <div class="business_items text-center">
-                            <div class="business_item">
-                                <div class="business_img">
-                                    <img src="~/Content/images/about-img1.jpg" alt="" />
-                                </div>
-                            </div>
-                            <div class="business_item">
-                                <div class="business_img">
-                                    <img src="~/Content/images/about-img1.jpg" alt="" />
-                                </div>
-                            </div>
-                            <div class="business_item">
-                                <div class="business_img">
-                                    <img src="~/Content/images/about-img1.jpg" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <div class="col-md-6">
+                        <div class="business_item sm-m-top-50">
+                            <h2 class="text-uppercase"> مزایای استفاده از خدمات ما</h2>
+                            <ul>
+                                <li><i class="fa fa-arrow-circle-right"></i> بررسی دقیق ۲۰۹ نقطه از خودرو؛ بدنه، فنی و آپشن</li>
+                                <li><i class="fa  fa-arrow-circle-right"></i> بررسی کیلومتر و میزان کارکرد خودرو</li>
+                                <li><i class="fa  fa-arrow-circle-right"></i> ارائه گزارش رسمی و مکتوب از خودروی کارشناسی شده</li>
+                                <li><i class="fa  fa-arrow-circle-right"></i> قیمت گذاری دقیق بر روی خودروی کارشناسی شده</li>
+                                <li><i class="fa  fa-arrow-circle-right"></i> حضور در محل ۳۰ دقیقه پس از تماس</li>
+                                <li><i class="fa  fa-arrow-circle-right"></i> امکان کارشناسی غیر حضوری بدون جابجایی و اتلاف وقت</li>
+                            </ul>
 
-                <div class="col-md-6">
-                    <div class="business_item sm-m-top-50">
-                        <h2 class="text-uppercase"> مزایای استفاده از خدمات ما</h2>
-                        <ul>
-                            <li><i class="fa fa-arrow-circle-right"></i> بررسی دقیق ۲۰۹ نقطه از خودرو؛ بدنه، فنی و آپشن</li>
-                            <li><i class="fa  fa-arrow-circle-right"></i> بررسی کیلومتر و میزان کارکرد خودرو</li>
-                            <li><i class="fa  fa-arrow-circle-right"></i> ارائه گزارش رسمی و مکتوب از خودروی کارشناسی شده</li>
-                            <li><i class="fa  fa-arrow-circle-right"></i> قیمت گذاری دقیق بر روی خودروی کارشناسی شده</li>
-                            <li><i class="fa  fa-arrow-circle-right"></i> حضور در محل ۳۰ دقیقه پس از تماس</li>
-                            <li><i class="fa  fa-arrow-circle-right"></i> امکان کارشناسی غیر حضوری بدون جابجایی و اتلاف وقت</li>
-                        </ul>
-
-                        <div class="business_btn">
-                            <a href="~/Audit" class="btn btn-default m-top-20">مشاهده هزینه و ثبت سفارش</a>
+                            <div class="business_btn">
+                                <a href="~/Audit" class="btn btn-default m-top-20">مشاهده هزینه و ثبت سفارش</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section><!-- End off Business section -->
-<!--product section-->
-<section id="product" class="product">
-    <div class="container">
-        <div class="main_product roomy-80">
-            <div class="head_title text-center fix">
-                <h2 class="text-uppercase">تجارب کارشناسان ما</h2>
-            </div>
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <div class="port_item xs-m-top-30">
-                                        <div class="port_img">
-                                            <img src="~/Content/images/work-img1.jpg" alt="" />
-                                            <div class="port_overlay text-center">
-                                                <a href="~/Content/images/work-img1.jpg" class="popup-img">+</a>
+    </section>
+    <section id="product" class="product">
+        <div class="container">
+            <div class="main_product roomy-80">
+                <div class="head_title text-center fix">
+                    <h2 class="text-uppercase">تجارب کارشناسان ما</h2>
+                </div>
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="port_item xs-m-top-30">
+                                            <div class="port_img">
+                                                <img src="~/Content/images/work-img1.jpg" alt="" />
+                                                <div class="port_overlay text-center">
+                                                    <a href="~/Content/images/work-img1.jpg" class="popup-img">+</a>
+                                                </div>
+                                            </div>
+                                            <div class="port_caption m-top-20">
+                                                <h5>تخفیف با رزرو کارشناس از روز قبل</h5>
+                                                <p>
+                                                    در صورتی که قصد درخواست کارشناس خودرو دارید با رزرو کارشناس و پرداخت هزینه
+                                                    از طریق سایت از تخفیف ویژه کارشناسی برخوردار شوید در این نوع سرویس کارشناس از روز بعد از درخواست شما تا یک هفته بعد از ثبت درخواست
+                                                    در خدمت شماست.در واقع در صورت ثبت درخواست کارشناسی از روز قبل تا 20% تخفیف بگیرید .
+                                                </p>
                                             </div>
                                         </div>
-                                        <div class="port_caption m-top-20">
-                                            <h5>تخفیف با رزرو کارشناس از روز قبل</h5>
-                                            <p>
-                                                در صورتی که قصد درخواست کارشناس خودرو دارید با رزرو کارشناس و پرداخت هزینه
-                                                از طریق سایت از تخفیف ویژه کارشناسی برخوردار شوید در این نوع سرویس کارشناس از روز بعد از درخواست شما تا یک هفته بعد از ثبت درخواست
-                                                در خدمت شماست.در واقع در صورت ثبت درخواست کارشناسی از روز قبل تا 20% تخفیف بگیرید .
-                                            </p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="port_item xs-m-top-30">
+                                            <div class="port_img">
+                                                <img src="~/Content/images/work-img2.jpg" alt="" />
+                                                <div class="port_overlay text-center">
+                                                    <a href="~/Content/images/work-img2.jpg" class="popup-img">+</a>
+                                                </div>
+                                            </div>
+                                            <div class="port_caption m-top-20">
+                                                <h5>تخفیف کارشناسی خودروی صفر</h5>
+                                                <p>متاسفانه تجربه کارشناسی خودروهای صفر کیلومتر که دارای ایرادات فنی و همچنین تصادف و رنگ شدگی بوده اند باعث شد تا اغلب مشتریان ما حتی برای خودروی صفر درخواست کارشناس کنند به همین دلیل پدیده خودرو اقدام به ارائه تخفیف جهت این خودرو ها کرده است با انتخاب خودروی صفر کیلومتر و استفاده از کارشناس با خیال راحت خودرو را تحویل بگیرید.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="port_item xs-m-top-30">
+                                            <div class="port_img">
+                                                <img src="~/Content/images/work-img3.jpg" alt="" />
+                                                <div class="port_overlay text-center">
+                                                    <a href="~/Content/images/work-img3.jpg" class="popup-img">+</a>
+                                                </div>
+                                            </div>
+                                            <div class="port_caption m-top-20">
+                                                <h5>کارشناس خودرو</h5>
+                                                <p>کارشناس خودرو فردی است که که دارای تخصص لازمی می باشد که بتواند خودروی مورد نظر مشتری را از لحاظ فنی  و ظاهری مورد بررسی قرار دهد. کارشناس  فنی  دوره های مختلفی را از خودرو گذرانده است و در زمینه مشخصات ظاهری و شاسی و فنی  خودرو دارای علم و تخصص بسیار زیادی می باشد.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="port_item xs-m-top-30">
+                                            <div class="port_img">
+                                                <img src="~/Content/images/work-img4.jpg" alt="" />
+                                                <div class="port_overlay text-center">
+                                                    <a href="~/Content/images/work-img4.jpg" class="popup-img">+</a>
+                                                </div>
+                                            </div>
+                                            <div class="port_caption m-top-20">
+                                                <h5>نحوه تشخیص رنگ خودرو توسط کارشناس خودرو</h5>
+                                                <p>جهت تشخیص رنگ شدگی خودرو مهارت کارشناس خودرو مهمترین مولفه میباشد.در بسیاری از خودروهایی که توسط کارشناسان پدیده خودرو مورد کارشناسی قرار گرفته است </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
-                                    <div class="port_item xs-m-top-30">
-                                        <div class="port_img">
-                                            <img src="~/Content/images/work-img2.jpg" alt="" />
-                                            <div class="port_overlay text-center">
-                                                <a href="~/Content/images/work-img2.jpg" class="popup-img">+</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="port_item xs-m-top-30">
+                                            <div class="port_img">
+                                                <img src="~/Content/images/work-img1.jpg" alt="" />
+                                                <div class="port_overlay text-center">
+                                                    <a href="~/Content/images/work-img1.jpg" class="popup-img">+</a>
+                                                </div>
+                                            </div>
+                                            <div class="port_caption m-top-20">
+                                                <h5>آموزش کارشناسی خودرو ؟!!!</h5>
+                                                <p>اخیرا با جستجو در میان آگهی های اینترنتی کلاس هایی با عنوان آموزش کارشناسی خودرو به دفعات مشاهده میشود مسئله مهم تر از این نوع آموزش حضور این افراد بعد از شرکت در این کلاسها در بازار کارشناسی خودرو میباشد به همین دلیل تصمیم گرفتیم توضیحاتی را در مورد این کلاس ها و تجربه کارشناسی خودرو صورت گرفته توسط این افراد را با شما در میان بگذاریم.</p>
                                             </div>
                                         </div>
-                                        <div class="port_caption m-top-20">
-                                            <h5>تخفیف کارشناسی خودروی صفر</h5>
-                                            <p>متاسفانه تجربه کارشناسی خودروهای صفر کیلومتر که دارای ایرادات فنی و همچنین تصادف و رنگ شدگی بوده اند باعث شد تا اغلب مشتریان ما حتی برای خودروی صفر درخواست کارشناس کنند به همین دلیل پدیده خودرو اقدام به ارائه تخفیف جهت این خودرو ها کرده است با انتخاب خودروی صفر کیلومتر و استفاده از کارشناس با خیال راحت خودرو را تحویل بگیرید.</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="port_item xs-m-top-30">
+                                            <div class="port_img">
+                                                <img src="~/Content/images/work-img2.jpg" alt="" />
+                                                <div class="port_overlay text-center">
+                                                    <a href="~/Content/images/work-img2.jpg" class="popup-img">+</a>
+                                                </div>
+                                            </div>
+                                            <div class="port_caption m-top-20">
+                                                <h5>کارشناسی بدنه</h5>
+                                                <p>
+                                                    بررسی شاسی و ستون‌های خودرو
+                                                    بررسی رنگ شدگی بدنه خودرو
+                                                    بررسی تعویض قطعات بدنه خودرو
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="port_item xs-m-top-30">
+                                            <div class="port_img">
+                                                <img src="~/Content/images/work-img3.jpg" alt="" />
+                                                <div class="port_overlay text-center">
+                                                    <a href="~/Content/images/work-img3.jpg" class="popup-img">+</a>
+                                                </div>
+                                            </div>
+                                            <div class="port_caption m-top-20">
+                                                <h5>کارشناسی فنی، موتور و گیربکس</h5>
+                                                <p>
+                                                    کارشناسی موتور
+                                                    کارشناسی گیربکس
+                                                    کارشناسی جلوبندی
+                                                    تست دیاگ
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="port_item xs-m-top-30">
+                                            <div class="port_img">
+                                                <img src="~/Content/images/work-img4.jpg" alt="" />
+                                                <div class="port_overlay text-center">
+                                                    <a href="~/Content/images/work-img4.jpg" class="popup-img">+</a>
+                                                </div>
+                                            </div>
+                                            <div class="port_caption m-top-20">
+                                                <h5>دو خودرو در یک خودرو !!!</h5>
+                                                <p>متاسفانه عدم آگاهی خریداران خودرو از میزان اهمیت کارشناسی خودرو پیش از خرید، در بسیاری از موارد آنها را با ضررهای جبران ناپذیری روبرو می سازد. در این مقاله به یک نمونه از تجربیات واقعی ما در مواجهه با خودروی دست دوم دارای مشکل اشاره خواهیم نمود.</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
-                                    <div class="port_item xs-m-top-30">
-                                        <div class="port_img">
-                                            <img src="~/Content/images/work-img3.jpg" alt="" />
-                                            <div class="port_overlay text-center">
-                                                <a href="~/Content/images/work-img3.jpg" class="popup-img">+</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="port_item xs-m-top-30">
+                                            <div class="port_img">
+                                                <img src="~/Content/images/work-img1.jpg" alt="" />
+                                                <div class="port_overlay text-center">
+                                                    <a href="~/Content/images/work-img1.jpg" class="popup-img">+</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="port_caption m-top-20">
-                                            <h5>کارشناس خودرو</h5>
-                                            <p>کارشناس خودرو فردی است که که دارای تخصص لازمی می باشد که بتواند خودروی مورد نظر مشتری را از لحاظ فنی  و ظاهری مورد بررسی قرار دهد. کارشناس  فنی  دوره های مختلفی را از خودرو گذرانده است و در زمینه مشخصات ظاهری و شاسی و فنی  خودرو دارای علم و تخصص بسیار زیادی می باشد.</p>
+                                            <div class="port_caption m-top-20">
+                                                <h5>چرا خرید خودروی کارکرده و حتی صفر به کارشناسی نیاز دارد؟</h5>
+                                                <p>با توجه به افزایش روزافزون خرید و فروش خودرو در ایران، ضرورت استفاده از کارشناسی پیش از خرید خودروی دست دوم چندین برابر شده است. با ما در این مقاله همراه باشید تا شما را با لزوم کارشناسی خودروی دست­ دوم و حتی صفر آشنا سازیم.</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="port_item xs-m-top-30">
-                                        <div class="port_img">
-                                            <img src="~/Content/images/work-img4.jpg" alt="" />
-                                            <div class="port_overlay text-center">
-                                                <a href="~/Content/images/work-img4.jpg" class="popup-img">+</a>
+                                    <div class="col-sm-3">
+                                        <div class="port_item xs-m-top-30">
+                                            <div class="port_img">
+                                                <img src="~/Content/images/work-img2.jpg" alt="" />
+                                                <div class="port_overlay text-center">
+                                                    <a href="~/Content/images/work-img2.jpg" class="popup-img">+</a>
+                                                </div>
+                                            </div>
+                                            <div class="port_caption m-top-20">
+                                                <h5>بودن یا نبودن ABS، مسئله این است !</h5>
+                                                <p>متاسفانه بسیاری از خریداران خودروهای وارداتی به دلیل اطمینانی که به خودروسازان خارجی دارند گمان می‌کنند که این دست خودروها نیازمند استفاده از کارشناسی تخصصی نیستند. این در حالی است که وجود عیب در این خودروها به مراتب خریداران را با ضررهای مالی بیشتری مواجه می سازد. در ادامه یکی از تجارب همراه مکانیک در کارشناسی این نوع خودروهای وارداتی را بیان خواهیم نمود تا لزوم انجام کارشناسی‌های پیش از خرید بیشتر آشکار گردد.</p>
                                             </div>
                                         </div>
-                                        <div class="port_caption m-top-20">
-                                            <h5>نحوه تشخیص رنگ خودرو توسط کارشناس خودرو</h5>
-                                            <p>جهت تشخیص رنگ شدگی خودرو مهارت کارشناس خودرو مهمترین مولفه میباشد.در بسیاری از خودروهایی که توسط کارشناسان پدیده خودرو مورد کارشناسی قرار گرفته است </p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="port_item xs-m-top-30">
+                                            <div class="port_img">
+                                                <img src="~/Content/images/work-img3.jpg" alt="" />
+                                                <div class="port_overlay text-center">
+                                                    <a href="~/Content/images/work-img3.jpg" class="popup-img">+</a>
+                                                </div>
+                                            </div>
+                                            <div class="port_caption m-top-20">
+                                                <h5>
+                                                    دوره های ما مختص چه کسانی است
+                                                </h5>
+                                                <p>
+                                                    دوره های آموزشی مختص بازار کارمی باشد
+                                                    اگر شما هم به دنبال شغلی با درآمد بالا هستید
+                                                    اگر به دنبال استخدام در این زمینه هستید
+                                                    اگر نیاز به مهارت در زینه کارشناسی خودرو هستید
+                                                    میتوانید در کمترین زمان ممکن و به بهترین کیفیت در دوره های ما ثبت نام نموده و یادگیری را آغاز کنید
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="port_item xs-m-top-30">
+                                            <div class="port_img">
+                                                <img src="~/Content/images/work-img4.jpg" alt="" />
+                                                <div class="port_overlay text-center">
+                                                    <a href="~/Content/images/work-img4.jpg" class="popup-img">+</a>
+                                                </div>
+                                            </div>
+                                            <div class="port_caption m-top-20">
+                                                <h5>مزایای استفاده از دوره های ما</h5>
+                                                <p>
+                                                    یادگیری در کمترین زمان ممکن
+                                                    ارئه گواهینامه های تخصیی معتبر داخلی و بین المللی و دانشجو
+                                                    استفاده از مزایای حین دوره آموزشگاه
+                                                    آموزش به شرط استخدام
+                                                    اعطای نمایندگی به دانشپذیران پس از گذراندن دوره
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <div class="port_item xs-m-top-30">
-                                        <div class="port_img">
-                                            <img src="~/Content/images/work-img1.jpg" alt="" />
-                                            <div class="port_overlay text-center">
-                                                <a href="~/Content/images/work-img1.jpg" class="popup-img">+</a>
-                                            </div>
-                                        </div>
-                                        <div class="port_caption m-top-20">
-                                            <h5>آموزش کارشناسی خودرو ؟!!!</h5>
-                                            <p>اخیرا با جستجو در میان آگهی های اینترنتی کلاس هایی با عنوان آموزش کارشناسی خودرو به دفعات مشاهده میشود مسئله مهم تر از این نوع آموزش حضور این افراد بعد از شرکت در این کلاسها در بازار کارشناسی خودرو میباشد به همین دلیل تصمیم گرفتیم توضیحاتی را در مورد این کلاس ها و تجربه کارشناسی خودرو صورت گرفته توسط این افراد را با شما در میان بگذاریم.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="port_item xs-m-top-30">
-                                        <div class="port_img">
-                                            <img src="~/Content/images/work-img2.jpg" alt="" />
-                                            <div class="port_overlay text-center">
-                                                <a href="~/Content/images/work-img2.jpg" class="popup-img">+</a>
-                                            </div>
-                                        </div>
-                                        <div class="port_caption m-top-20">
-                                            <h5>کارشناسی بدنه</h5>
-                                            <p>
-                                                بررسی شاسی و ستون‌های خودرو
-                                                بررسی رنگ شدگی بدنه خودرو
-                                                بررسی تعویض قطعات بدنه خودرو
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="port_item xs-m-top-30">
-                                        <div class="port_img">
-                                            <img src="~/Content/images/work-img3.jpg" alt="" />
-                                            <div class="port_overlay text-center">
-                                                <a href="~/Content/images/work-img3.jpg" class="popup-img">+</a>
-                                            </div>
-                                        </div>
-                                        <div class="port_caption m-top-20">
-                                            <h5>کارشناسی فنی، موتور و گیربکس</h5>
-                                            <p>
-                                                کارشناسی موتور
-                                                کارشناسی گیربکس
-                                                کارشناسی جلوبندی
-                                                تست دیاگ
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="port_item xs-m-top-30">
-                                        <div class="port_img">
-                                            <img src="~/Content/images/work-img4.jpg" alt="" />
-                                            <div class="port_overlay text-center">
-                                                <a href="~/Content/images/work-img4.jpg" class="popup-img">+</a>
-                                            </div>
-                                        </div>
-                                        <div class="port_caption m-top-20">
-                                            <h5>دو خودرو در یک خودرو !!!</h5>
-                                            <p>متاسفانه عدم آگاهی خریداران خودرو از میزان اهمیت کارشناسی خودرو پیش از خرید، در بسیاری از موارد آنها را با ضررهای جبران ناپذیری روبرو می سازد. در این مقاله به یک نمونه از تجربیات واقعی ما در مواجهه با خودروی دست دوم دارای مشکل اشاره خواهیم نمود.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="test bg-grey roomy-60 fix">
+        <div class="container">
+            <div class="row">
+                <div class="main_test fix">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="head_title text-center fix">
+                            <h2 class="text-uppercase">مشتریان ما چه میگویند</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="test_item fix">
+                            <div class="item_img">
+                                <img class="img-circle" src="~/Content/images/test-img1.jpg" alt="" />
+                                <i class="fa fa-quote-left"></i>
+                            </div>
+                            <div class="item_text">
+                                <h5>مشتری2</h5>
+                                <p>
+                                    کارت درسته کارشناس پایتخت!
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <div class="port_item xs-m-top-30">
-                                        <div class="port_img">
-                                            <img src="~/Content/images/work-img1.jpg" alt="" />
-                                            <div class="port_overlay text-center">
-                                                <a href="~/Content/images/work-img1.jpg" class="popup-img">+</a>
-                                            </div>
-                                        </div>
-                                        <div class="port_caption m-top-20">
-                                            <h5>چرا خرید خودروی کارکرده و حتی صفر به کارشناسی نیاز دارد؟</h5>
-                                            <p>با توجه به افزایش روزافزون خرید و فروش خودرو در ایران، ضرورت استفاده از کارشناسی پیش از خرید خودروی دست دوم چندین برابر شده است. با ما در این مقاله همراه باشید تا شما را با لزوم کارشناسی خودروی دست­ دوم و حتی صفر آشنا سازیم.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="port_item xs-m-top-30">
-                                        <div class="port_img">
-                                            <img src="~/Content/images/work-img2.jpg" alt="" />
-                                            <div class="port_overlay text-center">
-                                                <a href="~/Content/images/work-img2.jpg" class="popup-img">+</a>
-                                            </div>
-                                        </div>
-                                        <div class="port_caption m-top-20">
-                                            <h5>بودن یا نبودن ABS، مسئله این است !</h5>
-                                            <p>متاسفانه بسیاری از خریداران خودروهای وارداتی به دلیل اطمینانی که به خودروسازان خارجی دارند گمان می‌کنند که این دست خودروها نیازمند استفاده از کارشناسی تخصصی نیستند. این در حالی است که وجود عیب در این خودروها به مراتب خریداران را با ضررهای مالی بیشتری مواجه می سازد. در ادامه یکی از تجارب همراه مکانیک در کارشناسی این نوع خودروهای وارداتی را بیان خواهیم نمود تا لزوم انجام کارشناسی‌های پیش از خرید بیشتر آشکار گردد.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="port_item xs-m-top-30">
-                                        <div class="port_img">
-                                            <img src="~/Content/images/work-img3.jpg" alt="" />
-                                            <div class="port_overlay text-center">
-                                                <a href="~/Content/images/work-img3.jpg" class="popup-img">+</a>
-                                            </div>
-                                        </div>
-                                        <div class="port_caption m-top-20">
-                                            <h5>
-                                                دوره های ما مختص چه کسانی است
-                                            </h5>
-                                            <p>
-                                                دوره های آموزشی مختص بازار کارمی باشد
-                                                اگر شما هم به دنبال شغلی با درآمد بالا هستید
-                                                اگر به دنبال استخدام در این زمینه هستید
-                                                اگر نیاز به مهارت در زینه کارشناسی خودرو هستید
-                                                میتوانید در کمترین زمان ممکن و به بهترین کیفیت در دوره های ما ثبت نام نموده و یادگیری را آغاز کنید
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="port_item xs-m-top-30">
-                                        <div class="port_img">
-                                            <img src="~/Content/images/work-img4.jpg" alt="" />
-                                            <div class="port_overlay text-center">
-                                                <a href="~/Content/images/work-img4.jpg" class="popup-img">+</a>
-                                            </div>
-                                        </div>
-                                        <div class="port_caption m-top-20">
-                                            <h5>مزایای استفاده از دوره های ما</h5>
-                                            <p>
-                                                یادگیری در کمترین زمان ممکن
-                                                ارئه گواهینامه های تخصیی معتبر داخلی و بین المللی و دانشجو
-                                                استفاده از مزایای حین دوره آموزشگاه
-                                                آموزش به شرط استخدام
-                                                اعطای نمایندگی به دانشپذیران پس از گذراندن دوره
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="col-md-6">
+                        <div class="test_item fix sm-m-top-30">
+                            <div class="item_img">
+                                <img class="img-circle" src="~/Content/images/test-img2.jpg" alt="" />
+                                <i class="fa fa-quote-left"></i>
+                            </div>
+                            <div class="item_text">
+                                <h5>مشتری1</h5>
+                                <p>
+                                    تو بهترینی!
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
-        </div><!-- End off row -->
-    </div><!-- End off container -->
-</section><!-- End off Product section -->
-<!--Test section-->
-<section id="test" class="test bg-grey roomy-60 fix">
-    <div class="container">
-        <div class="row">
-            <div class="main_test fix">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="head_title text-center fix">
-                        <h2 class="text-uppercase">مشتریان ما چه میگویند</h2>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="test_item fix">
-                        <div class="item_img">
-                            <img class="img-circle" src="~/Content/images/test-img1.jpg" alt="" />
-                            <i class="fa fa-quote-left"></i>
-                        </div>
-                        <div class="item_text">
-                            <h5>مشتری2</h5>
-                            <p>
-                                کارت درسته کارشناس پایتخت!
-                            </p>
+        </div>
+    </section>
+    <section id="brand" class="brand fix roomy-80">
+        <div class="container">
+            <div class="row">
+                <div class="main_brand text-center">
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="brand_item sm-m-top-20">
+                            <img src="~/Content/images/cbrand-img1.png" alt="" />
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="test_item fix sm-m-top-30">
-                        <div class="item_img">
-                            <img class="img-circle" src="~/Content/images/test-img2.jpg" alt="" />
-                            <i class="fa fa-quote-left"></i>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="brand_item sm-m-top-20">
+                            <img src="~/Content/images/cbrand-img3.png" alt="" />
                         </div>
-                        <div class="item_text">
-                            <h5>مشتری1</h5>
-                            <p>
-                                تو بهترینی!
-                            </p>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="brand_item sm-m-top-20">
+                            <img src="~/Content/images/cbrand-img5.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="brand_item sm-m-top-20">
+                            <img src="~/Content/images/cbrand-img6.png" alt="" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section id="brand" class="brand fix roomy-80">
-    <div class="container">
-        <div class="row">
-            <div class="main_brand text-center">
-                <div class="col-md-3 col-sm-4 col-xs-6">
-                    <div class="brand_item sm-m-top-20">
-                        <img src="~/Content/images/cbrand-img1.png" alt="" />
+    </section>
+    <section id="action" class="action bg-primary roomy-40">
+        <div class="container">
+            <div class="row">
+                <div class="maine_action">
+                    <div class="col-md-8">
+                        <div class="action_item text-center">
+                            <h2 class="text-white text-uppercase">کارشناسی تخصصی خودرو در محل</h2>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-4 col-xs-6">
-                    <div class="brand_item sm-m-top-20">
-                        <img src="~/Content/images/cbrand-img3.png" alt="" />
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4 col-xs-6">
-                    <div class="brand_item sm-m-top-20">
-                        <img src="~/Content/images/cbrand-img5.png" alt="" />
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4 col-xs-6">
-                    <div class="brand_item sm-m-top-20">
-                        <img src="~/Content/images/cbrand-img6.png" alt="" />
+                    <div class="col-md-4">
+                        <div class="action_btn text-left sm-text-center">
+                            <a href="" class="btn btn-default">درخواست کارشناسی خودرو</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section id="action" class="action bg-primary roomy-40">
-    <div class="container">
-        <div class="row">
-            <div class="maine_action">
-                <div class="col-md-8">
-                    <div class="action_item text-center">
-                        <h2 class="text-white text-uppercase">کارشناسی تخصصی خودرو در محل</h2>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="action_btn text-left sm-text-center">
-                        <a href="" class="btn btn-default">درخواست کارشناسی خودرو</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+</div>

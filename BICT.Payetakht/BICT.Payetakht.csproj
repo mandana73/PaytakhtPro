@@ -212,6 +212,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuditController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QandAController.cs" />
@@ -558,6 +559,7 @@
     <Content Include="Views\Blog\Post.cshtml" />
     <Content Include="Views\Audit\Detail.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BICT.Payetakht.Data\BICT.Payetakht.Data.csproj">

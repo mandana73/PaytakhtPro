@@ -70,6 +70,12 @@ body
     Page Content
 ------------------------------------------*/
 
+.layout-container
+{
+    margin-top: 140px;
+    margin-bottom: 100px;
+}
+
 .page-content,
 section
 {
@@ -121,6 +127,12 @@ section
 {
     padding-top: 40px;
     padding-bottom: 40px;
+}
+
+.roomy-30
+{
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 /*text color*/
@@ -367,18 +379,17 @@ p span
     color: #00a885;
 }
 
-p {
+p
+{
     line-height: 1.5rem;
     text-align: justify;
-
-   
 }
 
-    p:last-child {
-        margin-bottom: 0px;
-        text-align: justify;
-        
-    }
+p:last-child
+{
+    margin-bottom: 0px;
+    text-align: justify;
+}
 /*colors*/
 .w100
 {
@@ -1143,7 +1154,8 @@ Nav Menu style
     width: 80%;
 }
 
-.navbar-callus li a
+.navbar-callus li a,
+.navbar-callus li span
 {
     font-size: 14px;
     padding: 10px;
@@ -1188,14 +1200,12 @@ Home Section style
 
 .audit
 {
-    background: url(images/Slide.jpg) no-repeat scroll center;
-    background-size: cover;
-    position: center;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    margin-bottom: 50px;
+}
+
+.audit img
+{
     width: 100%;
-    margin-bottom: 4rem;
-    height: 400px;
 }
 
 .main_home .home_text h2
@@ -1312,7 +1322,7 @@ Featured section style
 .features_item .f_item_text p
 {
     font-size: 14px;
-    text-align:justify;
+    text-align: justify;
 }
 
 /*Business Section*/
@@ -1789,7 +1799,7 @@ work Section style
 
 .navbar-nav > li
 {
-    float: right !important;
+    float: right;
 }
 
 .attr-nav
@@ -1808,12 +1818,6 @@ work Section style
     direction: ltr;
 }
 
-.layout-container
-{
-    margin-top: 124px;
-    margin-bottom: 100px;
-}
-
 .control-label
 {
     margin-top: 1rem;
@@ -1825,21 +1829,25 @@ work Section style
     margin-bottom: 0 !important;
 }
 
-.port_item p{
-    color:#000;
-    font-weight:300;
-}
-
-.widget_about p{
-    font-weight:300;
-}
-
-.features_item p {
+.port_item p
+{
     color: #000;
     font-weight: 300;
 }
 
-.reads p {
+.widget_about p
+{
+    font-weight: 300;
+}
+
+.features_item p
+{
+    color: #000;
+    font-weight: 300;
+}
+
+.reads p
+{
     color: #000;
     font-weight: 300;
 }

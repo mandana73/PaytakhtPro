@@ -1,17 +1,14 @@
 "use strict";
 jQuery(document).ready(function ($) {
-    $(window).load(function () {
-        $("#loading").fadeOut(500);
-    });
     $('#navbar-menu').find('a[href*=#]:not([href=#])').click(function () {
-        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+        if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
             if (target.length) {
                 $('html,body').animate({
                     scrollTop: (target.offset().top - 80)
                 }, 1000);
-                if ($('.navbar-toggle').css('display') != 'none') {
+                if ($('.navbar-toggle').css('display') !== 'none') {
                     $(this).parents('.container').find(".navbar-toggle").trigger("click");
                 }
                 return false;
@@ -27,20 +24,6 @@ jQuery(document).ready(function ($) {
         gallery: {
             enabled: true
         }
-    });
-    $('.video-link').magnificPopup({
-        type: 'iframe'
-    });
-    $(".audit_slid").slick({
-        dots: true,
-        infinite: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        prevArrow: "<i class='glyphicon glyphicon-chevron-left nextprevleft'></i>",
-        nextArrow: "<i class='glyphicon glyphicon-chevron-right nextprevright'></i>",
-        autoplay: true,
-        autoplaySpeed: 6000
     });
     $(".business_items").slick({
         dots: true,
