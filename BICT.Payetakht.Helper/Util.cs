@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.IO;
+using System.Text.RegularExpressions;
 
 namespace BICT.Payetakht.Helper
 {
@@ -18,6 +19,24 @@ namespace BICT.Payetakht.Helper
             var options = RegexOptions.None;
             var regex = new Regex(pattern, options);
             return regex.Replace(str, " ");
+        }
+
+        public static bool CheckFormat(string fileName, params string[] formats)
+        {
+            var ext = Path.GetExtension(fileName);
+            foreach (var format in formats)
+            {
+                var frmt = format.Trim();
+                if (frmt.StartsWith(".") == false)
+                {
+                    frmt = "." + format;
+                }
+                if (ext.ToLower() == frmt.ToLower())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -72,5 +72,7 @@ namespace BICT.Payetakht.Data.ViewModels
         public long? ReferID { get; set; }
         public string Authority { get; set; }
         public int? PaymentTypeID { get; set; }
+
+        public bool HavePicture { get; set; }
     }
 }

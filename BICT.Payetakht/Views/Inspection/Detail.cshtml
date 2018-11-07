@@ -1,0 +1,251 @@
+﻿@model BICT.Payetakht.Data.ViewModels.InspectionViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string Path = "Content/Audit" + "/" + ViewBag.AuditID;
+}
+
+<div class="container layout-container inspection">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            گزارش کارشناسی @Model.CarManufactureTitle @Model.CarModelTitle @Model.CarDetailTitle @Model.CarYearTitle
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>
+                                <i class="fa fa-chevron-left clr"></i>
+                                سازنده : @Model.CarManufactureTitle
+                            </p>
+                            <p>
+                                <i class="fa fa-chevron-left clr"></i>
+                                تیپ : @Model.CarDetailTitle
+                            </p>
+                            <p>
+                                <i class="fa fa-chevron-left clr"></i>
+                                رنگ : @Model.Color
+                            </p>
+                            <p>
+                                <i class="fa fa-chevron-left clr"></i>
+                                بدنه : @Model.BodyType
+                            </p>
+                            <p>
+                                <i class="fa fa-chevron-left clr"></i>
+                                گیربکس : @Model.GearBoxType
+                            </p>
+                            <p>
+                                <i class="fa fa-chevron-left clr"></i>
+                                حجم موتور : @Model.EngineVolume
+                            </p>
+                            <p>
+                                <i class="fa fa-chevron-left clr"></i>
+                                نوع سوخت : @Model.FuelType
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                                <i class="fa fa-chevron-left clr"></i>
+                                مدل : @Model.CarModelTitle
+                            </p>
+                            <p>
+                                <i class="fa fa-chevron-left clr"></i>
+                                سال : @Model.CarYearTitle
+                            </p>
+                            <p>
+                                <i class="fa fa-chevron-left clr"></i>
+                                روکش رنگ : @Model.ColorType
+                            </p>
+                            <p>
+                                <i class="fa fa-chevron-left clr"></i>
+                                کارکرد : @Model.Usage
+                            </p>
+                            <p>
+                                <i class="fa fa-chevron-left clr"></i>
+                                تعداد دنده : @Model.GearBoxNumner
+                            </p>
+                            <p>
+                                <i class="fa fa-chevron-left clr"></i>
+                                تعداد سیلندر : @Model.CylinderNumber
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                @if (Model.Pictures.Count > 0)
+                {
+                    <div class="col-md-6">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                @for (int i = 0; i < Model.Pictures.Count; i++)
+                                {
+                                    <div class="item @(i==0 ? "active" : "")">
+                                        <img src="~/@(Path + "/" + Model.Pictures[i])" href="~/Audit" alt="...">
+                                    </div>
+                                }
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="well well-sm">
+        <h3>گزارش کارشناسی</h3>
+        <p>@Model.Description</p>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            بدنه خودرو
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        سقف : @Model.Roof
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        صندوق عقب : @Model.Trunk
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        کاپوت : @Model.Hood
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        در جلو سمت راننده : @Model.DoorLeftFront
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        در جلو سمت شاگرد : @Model.DoorRightFront
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        در عقب سمت راننده : @Model.DoorLeftRear
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        در عقب سمت شاگرد : @Model.DoorRightRear
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        ستون جلو سمت راننده : @Model.PillarLeftFront
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        ستون جلو سمت شاگرد : @Model.PillarRightFront
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        ستون عقب سمت راننده : @Model.PillarLeftRear
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        ستون عقب سمت شاگرد : @Model.PillarRightRear
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        گلگیر جلو سمت راننده : @Model.FenderLeftFront
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        گلگیر جلو سمت شاگرد : @Model.FenderRightFront
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        گلگیر عقب سمت راننده : @Model.FenderLeftRear
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        گلگیر عقب سمت شاگرد : @Model.FenderRightRear
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        رکاب سمت راننده : @Model.PedalLeft
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        رکاب سمت شاگرد : @Model.PedalRight
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        شاسی جلو : @Model.ChassisFront
+                    </p>
+                    <p>
+                        <i class="fa fa-circle clr"></i>
+                        شاسی عقب : @Model.ChassisRear
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            وضعیت لاستیک ها
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        لاستیک جلو سمت راننده : @Model.TireLeftFront%
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@Model.TireLeftFront" aria-valuemin="0" aria-valuemax="100" style="width: @Model.TireLeftFront%">
+                                <span class="sr-only">@Model.TireLeftFront%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        لاستیک جلو سمت شاگرد : @Model.TireRightFront%
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@Model.TireRightFront" aria-valuemin="0" aria-valuemax="100" style="width: @Model.TireRightFront%">
+                                <span class="sr-only">@Model.TireRightFront%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        لاستیک عقب سمت راننده : @Model.TireLeftRear%
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@Model.TireLeftRear" aria-valuemin="0" aria-valuemax="100" style="width: @Model.TireLeftRear%">
+                                <span class="sr-only">@Model.TireLeftRear%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        لاستیک عقب سمت شاگرد : @Model.TireLeftRear%
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@Model.TireLeftRear" aria-valuemin="0" aria-valuemax="100" style="width: @Model.TireLeftRear%">
+                                <span class="sr-only">@Model.TireLeftRear%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        لاستیک زاپاس : @Model.TireSpare%
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@Model.TireSpare" aria-valuemin="0" aria-valuemax="100" style="width: @Model.TireSpare%">
+                                <span class="sr-only">@Model.TireSpare%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a href="@Url.Action("Index")" class="btn btn-info pull-left">بازگشت</a>
+    </div>
+</div>

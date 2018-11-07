@@ -11,21 +11,22 @@
         {
         }
 
+        public DbSet<Audit> Audits { get; set; }
+        public DbSet<AuditTemp> AuditTemps { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<CarDetail> CarDetails { get; set; }
+        public DbSet<CarManufacturer> CarManufacturers { get; set; }
+        public DbSet<CarModel> CarModels { get; set; }
+        public DbSet<CarModelYearDetail> CarModelYearDetails { get; set; }
+        public DbSet<CarYear> CarYears { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Inspection> Inspections { get; set; }
+        public DbSet<MetaKeyWord> MetaKeyWords { get; set; }
+
         public static BICTDbContext Create()
         {
             return new BICTDbContext();
         }
-
-        public DbSet<CarManufacturer> CarManufacturers { get; set; }
-        public DbSet<CarModel> CarModels { get; set; }
-        public DbSet<CarYear> CarYears { get; set; }
-        public DbSet<CarDetail> CarDetails { get; set; }
-        public DbSet<City> Cities { get; set; }
-        public DbSet<CarModelYearDetail> CarModelYearDetails { get; set; }
-        public DbSet<Audit> Audit { get; set; }
-        public DbSet<AuditTemp> AuditTemp { get; set; }
-        public DbSet<MetaKeyWord> MetaKeyWords { get; set; }
-        public DbSet<Blog> Blogs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -44,38 +45,35 @@
                             l.UserId
                         }).ToTable("IdentityUserLogin");
 
-            modelBuilder.Entity<ApplicationUser>()
-                        .ToTable("IdentityUser");
+            modelBuilder.Entity<ApplicationUser>().ToTable("IdentityUser");
 
-            modelBuilder.Entity<IdentityRole>()
-                        .ToTable("IdentityRole");
+            modelBuilder.Entity<IdentityRole>().ToTable("IdentityRole");
 
-            modelBuilder.Entity<IdentityUserClaim>()
-                        .ToTable("IdentityUserClaim");
+            modelBuilder.Entity<IdentityUserClaim>().ToTable("IdentityUserClaim");
 
             modelBuilder.Entity<CarManufacturer>()
-                        .HasMany(x => x.CarModels)
-                        .WithRequired(x => x.CarManufacturer)
-                        .HasForeignKey(x => x.CarManufacturerID)
-                        .WillCascadeOnDelete(false);
+                .HasMany(x => x.CarModels)
+                .WithRequired(x => x.CarManufacturer)
+                .HasForeignKey(x => x.CarManufacturerID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<CarManufacturer>()
-                  .HasMany(x => x.Audits)
-                  .WithRequired(x => x.CarManufacturer)
-                  .HasForeignKey(x => x.CarManufactureID)
-                  .WillCascadeOnDelete(false);
+                .HasMany(x => x.Audits)
+                .WithRequired(x => x.CarManufacturer)
+                .HasForeignKey(x => x.CarManufactureID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<CarModel>()
-                        .HasMany(x => x.CarYears)
-                        .WithRequired(x => x.CarModel)
-                        .HasForeignKey(x => x.CarModelID)
-                        .WillCascadeOnDelete(false);
+                .HasMany(x => x.CarYears)
+                .WithRequired(x => x.CarModel)
+                .HasForeignKey(x => x.CarModelID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<CarModel>()
-                      .HasMany(x => x.CarDetails)
-                      .WithRequired(x => x.CarModel)
-                      .HasForeignKey(x => x.CarModelID)
-                      .WillCascadeOnDelete(false);
+                .HasMany(x => x.CarDetails)
+                .WithRequired(x => x.CarModel)
+                .HasForeignKey(x => x.CarModelID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<CarModel>()
                 .HasMany(x => x.CarModelYearDetails)
@@ -120,22 +118,28 @@
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<CarModel>()
-                       .HasMany(x => x.AuditTemps)
-                       .WithRequired(x => x.CarModel)
-                       .HasForeignKey(x => x.CarModelID)
-                       .WillCascadeOnDelete(false);
+                .HasMany(x => x.AuditTemps)
+                .WithRequired(x => x.CarModel)
+                .HasForeignKey(x => x.CarModelID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<CarYear>()
-              .HasMany(x => x.AuditTemps)
-              .WithRequired(x => x.CarYear)
-              .HasForeignKey(x => x.CarYearID)
-              .WillCascadeOnDelete(false);
+                .HasMany(x => x.AuditTemps)
+                .WithRequired(x => x.CarYear)
+                .HasForeignKey(x => x.CarYearID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<CarDetail>()
-              .HasMany(x => x.AuditTemps)
-              .WithRequired(x => x.CarDetail)
-              .HasForeignKey(x => x.CarDetailID)
-              .WillCascadeOnDelete(false);
+                .HasMany(x => x.AuditTemps)
+                .WithRequired(x => x.CarDetail)
+                .HasForeignKey(x => x.CarDetailID)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Audit>()
+                .HasMany(x => x.Inspections)
+                .WithRequired(x => x.Audit)
+                .HasForeignKey(x => x.AuditID)
+                .WillCascadeOnDelete(false);
         }
     }
 }

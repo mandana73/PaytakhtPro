@@ -24,14 +24,14 @@ namespace BICT.Payetakht.Data.Repository
                 Price = cmydr.GetPrice(auditTemp.CarModelID, auditTemp.CarYearID, auditTemp.CarDetailID),
                 Email = auditTemp.Email,
             };
-            db.AuditTemp.Add(item);
+            db.AuditTemps.Add(item);
             db.SaveChanges();
             return item.ID;
         }
 
         public void Edit(int ID, long refid, string Authority, int? PaymentTypeID)
         {
-            var list = db.AuditTemp.Find(ID);
+            var list = db.AuditTemps.Find(ID);
 
             list.PaymentDate = DateTime.Now;
             list.PaymentTypeID = PaymentTypeID;
@@ -42,7 +42,7 @@ namespace BICT.Payetakht.Data.Repository
 
         public AuditViewModel GetItem(int id)
         {
-            return db.AuditTemp.Where(x => x.ID == id)
+            return db.AuditTemps.Where(x => x.ID == id)
                       .Select(x => new AuditViewModel
                       {
                           ID = x.ID,

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<string>
+@{
+    ViewBag.DashboardTitle = "تصاویر";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    string Path = "Content/Audit/" + ViewBag.ID;
+}
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <img src="~/@(Path + "/" + item)" alt="" class="img-responsive" />
+                <a class="btn btn-danger btn-block" href="@Url.Action("PictureDelete",new { id = ViewBag.ID , name = item })">حذف</a>
+            </div>
+        }
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="@Url.Action("Index")">بازگشت</a>
+        </div>
+    </div>
+</div>

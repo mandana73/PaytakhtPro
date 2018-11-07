@@ -1,10 +1,16 @@
 ﻿namespace BICT.Payetakht.Data.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class Audit
     {
+        public Audit()
+        {
+            Inspections = new HashSet<Inspection>();
+        }
+
         [Key]
         public int ID { get; set; }
 
@@ -44,5 +50,7 @@
         public virtual CarModel CarModel { get; set; }
         public virtual CarYear CarYear { get; set; }
         public virtual CarDetail CarDetail { get; set; }
+
+        public virtual ICollection<Inspection> Inspections { get; set; }
     }
 }

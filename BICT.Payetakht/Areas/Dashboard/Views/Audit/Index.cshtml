@@ -1,8 +1,6 @@
 ﻿@model IList<BICT.Payetakht.Data.ViewModels.AuditViewModel>
 @{
-    /**/
-
-    ViewBag.DashboardTitle = "جزئیات";
+    ViewBag.DashboardTitle = "درخواست های کارشناسی  ";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 @if (ViewBag.Error != null)
@@ -79,11 +77,15 @@
                 <td>@(item.PaymentDate != null ? new BICT.Payetakht.Helper.PersianDateTime(item.PaymentDate.Value).ToString(BICT.Payetakht.Helper.PersianDateTimeFormat.FullDateLongTime) : "")</td>
                 <td>@item.ReferID</td>
                 <td>
-
                     <div class="btn-group">
+                        <a class="btn btn-primary" href="@Url.Action("Inspection",new { id = item.ID })">گزارش کارشناسی</a>
                         @if (item.IsDone == false)
                         {
                             <a class="btn btn-info" href="@Url.Action("SetAsDone",new { id = item.ID })">انجام شده</a>
+                        }
+                        @if (item.HavePicture)
+                        {
+                            <a class="btn btn-info" href="@Url.Action("Picture",new { id = item.ID })">تصاویر</a>
                         }
                         <a class="btn btn-danger" href="@Url.Action("Detail",new { id = item.ID })">نمایش</a>
                     </div>

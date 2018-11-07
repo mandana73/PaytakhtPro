@@ -214,6 +214,7 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InspectionController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QandAController.cs" />
     <Compile Include="Controllers\ReadsController.cs" />
@@ -275,6 +276,18 @@
     <Compile Include="Migrations\201811060716009_A014.cs" />
     <Compile Include="Migrations\201811060716009_A014.Designer.cs">
       <DependentUpon>201811060716009_A014.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811071217203_A015.cs" />
+    <Compile Include="Migrations\201811071217203_A015.Designer.cs">
+      <DependentUpon>201811071217203_A015.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811071301183_A016.cs" />
+    <Compile Include="Migrations\201811071301183_A016.Designer.cs">
+      <DependentUpon>201811071301183_A016.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811071318229_A017.cs" />
+    <Compile Include="Migrations\201811071318229_A017.Designer.cs">
+      <DependentUpon>201811071318229_A017.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -430,6 +443,8 @@
     <Content Include="Areas\Dashboard\Views\Blog\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\Blog\Edit.cshtml" />
     <Content Include="Areas\Dashboard\Views\Blog\Create.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Audit\Inspection.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Audit\Picture.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\ckeditor\ckeditor.js.map" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
@@ -560,6 +575,8 @@
     <Content Include="Views\Audit\Detail.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\Inspection\Index.cshtml" />
+    <Content Include="Views\Inspection\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BICT.Payetakht.Data\BICT.Payetakht.Data.csproj">
@@ -630,6 +647,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811060716009_A014.resx">
       <DependentUpon>201811060716009_A014.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811071217203_A015.resx">
+      <DependentUpon>201811071217203_A015.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811071301183_A016.resx">
+      <DependentUpon>201811071301183_A016.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811071318229_A017.resx">
+      <DependentUpon>201811071318229_A017.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

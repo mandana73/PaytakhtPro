@@ -1851,3 +1851,8 @@ work Section style
     color: #000;
     font-weight: 300;
 }
+
+.inspection .progress
+{
+    height: 8px;
+}

@@ -1,0 +1,38 @@
+﻿@model IList<BICT.Payetakht.Data.ViewModels.InspectionViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string Path = "Content/Audit";
+}
+
+<div class="container layout-container">
+    @foreach (var item in Model)
+    {
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="~/@(Path + "/" + item.AuditID + "/" + item.CoverPic)" alt="" class="img-responsive img-bordered" />
+                    </div>
+                    <div class="col-md-10">
+                        <h3>گزارش کارشناسی @item.CarManufactureTitle @item.CarModelTitle @item.CarDetailTitle @item.CarYearTitle</h3>
+                        <p>@item.Description</p>
+                        <a href="@Url.Action("Detail", new { id = item.AuditID })" class="btn btn-info pull-left">مشاهده گزارش</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <nav aria-label="...">
+        <ul class="pager">
+            @if (ViewBag.Page > 1)
+            {
+                <li class="previous"><a href="@Url.Action("Index", new { p = ViewBag.Page - 1 })"><span aria-hidden="true">&rarr;</span> قبل</a></li>
+            }
+            @if (Model.Count == 10)
+            {
+                <li class="next"><a href="@Url.Action("Index", new { p = ViewBag.Page + 1 })">بعد <span aria-hidden="true">&larr;</span></a></li>
+            }
+        </ul>
+    </nav>
+</div>
+

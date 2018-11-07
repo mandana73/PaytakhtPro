@@ -93,6 +93,7 @@
     <Compile Include="Models\CarModelYearDetail.cs" />
     <Compile Include="Models\CarYear.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Inspection.cs" />
     <Compile Include="Models\MetaKeyWord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AuditRepository.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="ViewModels\CarModelViewModel.cs" />
     <Compile Include="ViewModels\CarYearsViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
+    <Compile Include="ViewModels\InspectionViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="ViewModels\MetaKeyWordViewModel.cs" />
   </ItemGroup>
