@@ -328,7 +328,9 @@ namespace BICT.Payetakht.Data.Repository
                          Price = x.Price,
                          IsDone = x.IsDone,
                          IsRead = x.IsRead,
-                         RequestDate = x.RequestDate
+                         RequestDate = x.RequestDate,
+                         ReferID=x.ReferID,
+                         PaymentDate=x.PaymentDate,
                      }).FirstOrDefault();
             if (a.IsRead == false)
             {
