@@ -7,163 +7,167 @@ namespace BICT.Payetakht.Data.ViewModels
     {
         public int AuditID { get; set; }
 
-        [Required]
+        
         [Display(Name = "سازنده")]
+        [Required(ErrorMessage ="سازنده را انتخاب نمایید")]
         public string CarManufactureTitle { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="مدل را انتخاب نمایید")]
         [Display(Name = "مدل")]
         public string CarModelTitle { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="سال را انتخاب نمایید")]
         [Display(Name = "سال ساخت")]
         public int CarYearTitle { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="جزئیات را وارد نمایید")]
         [Display(Name = "جزئیات")]
         public string CarDetailTitle { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="چکیده کارشناسی را وارد نمایید")]
         [Display(Name = "چکیده کارشناسی")]
         public string Description { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="رنگ را وارد نمایید")]
         [Display(Name = "رنگ")]
         public string Color { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "رنگ روکش را وارد نمایید")]
         [Display(Name = "روکش رنگ")]
         public string ColorType { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "تعداد دنده را وارد نمایید")]
         [Display(Name = "تعداد دنده")]
         [Range(1, 10)]
         public int GearBoxNumner { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "گیربکس  را وارد نمایید")]
         [Display(Name = "گیربکس")]
         public string GearBoxType { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "بدنه را وارد نمایید")]
         [Display(Name = "بدنه")]
         public string BodyType { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "کارکرد را وارد نمایید")]
         [Display(Name = "کارکرد")]
         [Range(0, int.MaxValue)]
         public int Usage { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "  حجم موتور را وارد نمایید ")]
         [Display(Name = "حجم موتور")]
         [Range(0, 10000)]
         public int EngineVolume { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = " تعداد سیلندر را وارد نمایید")]
         [Display(Name = "تعداد سیلندر")]
         [Range(0, 10)]
         public int CylinderNumber { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = " نوع سوخت را وارد نمایید")]
         [Display(Name = "نوع سوخت")]
         public string FuelType { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = " وضعیت سقف را وارد نمایید")]
         [Display(Name = "سقف")]
         public string Roof { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = " وضعیت صندوق عقب را وارد نمایید")]
         [Display(Name = "صندوق عقب")]
         public string Trunk { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "  وضعیت کاپوت را وارد نمایید")]
         [Display(Name = "کاپوت")]
         public string Hood { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = " وضعیت در را وارد نمایید")]
         [Display(Name = "در جلو سمت شاگرد")]
         public string DoorRightFront { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = " وضعیت در را وارد نمایید")]
         [Display(Name = "در جلو سمت راننده")]
         public string DoorLeftFront { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = " وضعیت در را وارد نمایید")]
         [Display(Name = "در عقب سمت شاگرد")]
         public string DoorRightRear { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = " وضعیت در را وارد نمایید")]
         [Display(Name = "در عقب سمت راننده")]
         public string DoorLeftRear { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="وضعیت ستون ها را وارد نمایید")]
         [Display(Name = "ستون جلو سمت شاگرد")]
         public string PillarRightFront { get; set; }
 
-        [Required]
+
+        [Required(ErrorMessage = "وضعیت ستون ها را وارد نمایید")]
         [Display(Name = "ستون جلو سمت راننده")]
         public string PillarLeftFront { get; set; }
 
-        [Required]
+
+        [Required(ErrorMessage = "وضعیت ستون ها را وارد نمایید")]
         [Display(Name = "ستون عقب سمت شاگرد")]
         public string PillarRightRear { get; set; }
 
-        [Required]
+
+        [Required(ErrorMessage = "وضعیت ستون ها را وارد نمایید")]
         [Display(Name = "ستون عقب سمت راننده")]
         public string PillarLeftRear { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="وضعیت گلگیر را وارد نمایید")]
         [Display(Name = "گلگیر جلو سمت شاگرد")]
         public string FenderRightFront { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "وضعیت گلگیر را وارد نمایید")]
         [Display(Name = "گلگیر جلو سمت راننده")]
         public string FenderLeftFront { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "وضعیت گلگیر را وارد نمایید")]
         [Display(Name = "گلگیر عقب سمت شاگرد")]
         public string FenderRightRear { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "وضعیت گلگیر را وارد نمایید")]
         [Display(Name = "گلگیر عقب سمت راننده")]
         public string FenderLeftRear { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="وضیت رکاب را وارد نمایید")]
         [Display(Name = "رکاب سمت شاگرد")]
         public string PedalRight { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "وضیت رکاب را وارد نمایید")]
         [Display(Name = "رکاب سمت راننده")]
         public string PedalLeft { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="وضعیت شاسی جلو را وارد نمایید")]
         [Display(Name = "شاسی جلو")]
         public string ChassisFront { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "وضعیت شاسی عقب را وارد نمایید")]
         [Display(Name = "شاسی عقب")]
         public string ChassisRear { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="وضعیت لاستیک جلو سمت شاگرد را وارد نمایید")]
         [Display(Name = "لاستیک جلو سمت شاگرد")]
         [Range(0, 100)]
         public int TireRightFront { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "وضعیت لاستیک عقب سمت راننده را وارد نمایید")]
         [Range(0, 100)]
         [Display(Name = "لاستیک عقب سمت راننده")]
         public int TireLeftFront { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "وضعیت لاستیک عقب سمت شاگرد را وارد نمایید")]
         [Range(0, 100)]
         [Display(Name = "لاستیک عقب سمت شاگرد")]
         public int TireRightRear { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "وضعیت لاستیک جلو سمت راننده را وارد نمایید")]
         [Range(0, 100)]
         [Display(Name = "لاستیک جلو سمت راننده")]
         public int TireLeftRear { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "وضعیت لاستیک زاپاس را وارد نمایید")]
         [Range(0, 100)]
         [Display(Name = "لاستیک زاپاس")]
         public int TireSpare { get; set; }
