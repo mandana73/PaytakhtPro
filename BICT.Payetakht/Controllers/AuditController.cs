@@ -140,11 +140,13 @@
                     var requestitem = auditTempRepository.GetItem(id);
                     long refID;
                     string MerchantID = "e53f3f7c-d9f1-11e8-a28f-000c295eb8fc";
-                    int statuses = ZarinPal.ZarinpalPaymentVerification(MerchantID, authority, requestitem.Price, out refID);
+                    var FinalPrice = requestitem.Price - (requestitem.Price / 10);
+                    int statuses = ZarinPal.ZarinpalPaymentVerification(MerchantID, authority, FinalPrice, out refID);
                     if (statuses == 100 || statuses == 101)
                     {
+
                         ViewBag.RefId = "کد پیگیری: " + refID + " - کد سفارش: " + id;
-                        auditTempRepository.Edit(id, refID, authority, 2);
+                        auditTempRepository.Edit(id, refID, authority, 2,FinalPrice);
                         TempData["RefId"] = refID;
                         TempData["OrdeID"] = id;
                         TempData["authority"] = authority;
