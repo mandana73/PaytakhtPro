@@ -8,10 +8,10 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
     [Authorize]
     public class CarModelYearDetailController : Controller
     {
-        private CarModelYearDetailRepository repository;
+        private CarDetailRepository carDetailRepository;
         private CarModelRepository carModelRepository;
         private CarYearRepository carYearRepository;
-        private CarDetailRepository carDetailRepository;
+        private CarModelYearDetailRepository repository;
 
         public CarModelYearDetailController()
         {
@@ -19,13 +19,6 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             carModelRepository = new CarModelRepository();
             carYearRepository = new CarYearRepository();
             carDetailRepository = new CarDetailRepository();
-        }
-
-        public ActionResult Index(int p = 1)
-        {
-            ViewBag.Page = p;
-            var list = repository.GetPagedList(p);
-            return View(list);
         }
 
         [HttpGet]
@@ -52,6 +45,29 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
             ViewBag.ModelList = list;
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(CarModelYearDetailViewModel car)
+        {
+            var Model = repository.CheckDuplicate(car, null);
+            if (Model)
+            {
+                ViewBag.ErrorMessage = "عنوان وارد شده تکراریست";
+                return View();
+            }
+            repository.Create(car);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var item = repository.GetItem(id);
+            if (item != null)
+            {
+                repository.Delete(id);
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]
@@ -82,32 +98,16 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(CarModelYearDetailViewModel model)
+        public ActionResult Edit(CarModelYearDetailViewModel model, int id)
         {
+            var Model = repository.CheckDuplicate(model, id);
+            if (Model)
+            {
+                ViewBag.ErrorMessage = "عنوان وارد شده تکراریست";
+                return View();
+            }
             repository.Edit(model);
             return RedirectToAction(nameof(Index));
-        }
-
-        public ActionResult Delete(int id)
-        {
-            var item = repository.GetItem(id);
-            if (item != null)
-            {
-                repository.Delete(id);
-            }
-            return RedirectToAction(nameof(Index));
-        }
-
-        public JsonResult GetCarYear(int carModelID)
-        {
-            var list = carYearRepository.GetList(carModelID).Select(x => new SelectListItem
-            {
-                Text = x.Year.ToString(),
-                Value = x.ID.ToString()
-            }).ToList();
-            list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
-
-            return Json(list, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetCarDetail(int carModelID)
@@ -123,11 +123,23 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public ActionResult Create(CarModelYearDetailViewModel car)
+        public JsonResult GetCarYear(int carModelID)
         {
-            repository.Create(car);
-            return RedirectToAction("Index");
+            var list = carYearRepository.GetList(carModelID).Select(x => new SelectListItem
+            {
+                Text = x.Year.ToString(),
+                Value = x.ID.ToString()
+            }).ToList();
+            list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
+
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Index(int p = 1)
+        {
+            ViewBag.Page = p;
+            var list = repository.GetPagedList(p);
+            return View(list);
         }
     }
 }
