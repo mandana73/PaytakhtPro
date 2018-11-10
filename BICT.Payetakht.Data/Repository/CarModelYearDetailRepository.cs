@@ -22,6 +22,21 @@ namespace BICT.Payetakht.Data.Repository
                     Price = x.Price,
                 }).ToList();
         }
+        public bool CheckDuplicate(CarModelYearDetailViewModel model, int? id)
+        {
+            if (model == null)
+            {
+                return false;
+            }
+            if (id != null)
+            {
+                return db.CarModelYearDetails.Any(x => x.ID != id && x.CarYearID == model.CarYearID && x.CarModelID == model.CarModelID && x.CarDetailID == model.CarDetailID);
+            }
+            else
+            {
+                return db.CarModelYearDetails.Any(x => x.CarYearID == model.CarYearID && x.CarModelID == model.CarModelID && x.CarDetailID == model.CarDetailID);
+            }
+        }
 
         public IList<CarModelYearDetailViewModel> GetPagedList(int pageNum)
         {
