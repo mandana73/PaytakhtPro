@@ -29,10 +29,10 @@ namespace BICT.Payetakht.Data.Repository
             return item.ID;
         }
 
-        public void Edit(int ID, long refid, string Authority, int? PaymentTypeID)
+        public void Edit(int ID, long refid, string Authority, int? PaymentTypeID,int Price)
         {
             var list = db.AuditTemps.Find(ID);
-
+            list.Price = Price;
             list.PaymentDate = DateTime.Now;
             list.PaymentTypeID = PaymentTypeID;
             list.ReferID = refid;
