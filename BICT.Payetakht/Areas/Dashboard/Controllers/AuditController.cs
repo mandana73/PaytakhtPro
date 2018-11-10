@@ -22,7 +22,8 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         public ActionResult Detail(int id)
         {
             var audit = auditRepository.Getitem(id);
-            audit.RequestDatePersian = new PersianDateTime(audit.RequestDate).ToString();
+            audit.RequestDatePersian = new PersianDateTime(audit.RequestDate).ToString(PersianDateTimeFormat.Date);
+            audit.PaymentDatePersian = audit.PaymentDate != null ? new PersianDateTime(audit.PaymentDate.Value).ToString(PersianDateTimeFormat.FullDateFullTime) : string.Empty;
             return View(audit);
         }
 
