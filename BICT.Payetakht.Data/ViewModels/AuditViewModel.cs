@@ -68,10 +68,13 @@ namespace BICT.Payetakht.Data.ViewModels
         [Display(Name = "چک شد")]
         public bool IsDone { get; set; }
 
-        [Display(Name ="تاریخ پرداخت")]
+        [Display(Name = "تاریخ پرداخت")]
         public DateTime? PaymentDate { get; set; }
 
-        [Display(Name ="شماره پیگیری")]
+        [Display(Name = "تاریخ پرداخت")]
+        public string PaymentDatePersian { get; set; }
+
+        [Display(Name = "شماره پیگیری")]
         public long? ReferID { get; set; }
 
         public string Authority { get; set; }
