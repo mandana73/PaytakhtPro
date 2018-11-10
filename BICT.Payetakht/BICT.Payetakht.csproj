@@ -569,7 +569,6 @@
     <Content Include="Views\QandA\index.cshtml" />
     <Content Include="Views\Reads\index.cshtml" />
     <Content Include="Views\AboutUs\index.cshtml" />
-    <Content Include="Views\ContanctUs\index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Blog\Post.cshtml" />
     <Content Include="Views\Audit\Detail.cshtml" />

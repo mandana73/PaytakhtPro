@@ -19,6 +19,13 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             auditRepository = new AuditRepository();
         }
 
+        public ActionResult Detail(int id)
+        {
+            var audit = auditRepository.Getitem(id);
+            audit.RequestDatePersian = new PersianDateTime(audit.RequestDate).ToString();
+            return View(audit);
+        }
+
         public ActionResult Index(int p = 1, int? read = null, int? done = null)
         {
             ViewBag.Page = p;
@@ -36,25 +43,6 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             return View(audits);
         }
 
-        public ActionResult Detail(int id)
-        {
-            var audit = auditRepository.Getitem(id);
-            audit.RequestDatePersian = new PersianDateTime(audit.RequestDate).ToString();
-            return View(audit);
-        }
-
-        public ActionResult SetAsDone(int id)
-        {
-            var audit = auditRepository.Getitem(id);
-            if (audit == null)
-            {
-                ViewBag.Error = "آیتم انتخاب نشده است";
-                return RedirectToAction(nameof(Index));
-            }
-            auditRepository.SetAsDone(id);
-            return RedirectToAction(nameof(Index));
-        }
-
         [HttpGet]
         public ActionResult Inspection(int id)
         {
@@ -68,26 +56,6 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
                 new SelectListItem { Text = "ضربه خوردگی جزئی", Value = "ضربه خوردگی جزئی" },
             };
             return View(inspection);
-        }
-
-        [HttpGet]
-        public ActionResult Picture(int id)
-        {
-            ViewBag.ID = id;
-            var path = Server.MapPath("~/Content/Audit/" + id);
-            var list = Directory.GetFiles(path).Select(x => Path.GetFileName(x));
-            return View(list);
-        }
-
-        [HttpGet]
-        public ActionResult PictureDelete(int id, string name)
-        {
-            var path = Server.MapPath("~/Content/Audit/" + id + "/" + name);
-            if (System.IO.File.Exists(path))
-            {
-                System.IO.File.Delete(path);
-            }
-            return RedirectToAction("Picture", new { id });
         }
 
         [HttpPost]
@@ -123,6 +91,26 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             }
             auditRepository.InsertInspection(id, model);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Picture(int id)
+        {
+            ViewBag.ID = id;
+            var path = Server.MapPath("~/Content/Audit/" + id);
+            var list = Directory.GetFiles(path).Select(x => Path.GetFileName(x));
+            return View(list);
+        }
+
+        [HttpGet]
+        public ActionResult PictureDelete(int id, string name)
+        {
+            var path = Server.MapPath("~/Content/Audit/" + id + "/" + name);
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+            return RedirectToAction("Picture", new { id });
         }
     }
 }

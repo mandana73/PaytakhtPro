@@ -174,6 +174,7 @@ namespace BICT.Payetakht.Data.Repository
 
         public void InsertInspection(int id, InspectionViewModel model)
         {
+            SetAsDone(id);
             var ins = db.Inspections.FirstOrDefault(x => x.AuditID == id);
             if (ins == null)
             {
@@ -339,14 +340,20 @@ namespace BICT.Payetakht.Data.Repository
         public void SetAsDone(int id)
         {
             var a = db.Audits.FirstOrDefault(x => x.ID == id);
-            a.IsDone = true;
+            if (a.IsDone != true)
+            {
+                a.IsDone = true;
+            }
             db.SaveChanges();
         }
 
         public void SetAsRead(int id)
         {
             var a = db.Audits.FirstOrDefault(x => x.ID == id);
-            a.IsRead = true;
+            if (a.IsRead != true)
+            {
+                a.IsRead = true;
+            }
             db.SaveChanges();
         }
 

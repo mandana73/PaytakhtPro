@@ -79,10 +79,6 @@
                 <td>
                     <div class="btn-group">
                         <a class="btn btn-primary" href="@Url.Action("Inspection",new { id = item.ID })">گزارش کارشناسی</a>
-                        @if (item.IsDone == false)
-                        {
-                            <a class="btn btn-info" href="@Url.Action("SetAsDone",new { id = item.ID })">انجام شده</a>
-                        }
                         @if (item.HavePicture)
                         {
                             <a class="btn btn-info" href="@Url.Action("Picture",new { id = item.ID })">تصاویر</a>
