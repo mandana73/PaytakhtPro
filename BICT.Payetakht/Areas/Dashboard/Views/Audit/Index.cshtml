@@ -10,11 +10,11 @@
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
-            <label>خوانده شده/ خوانده نشده</label>
+            <label>وضعیت کارشناسی </label>
             <select class="form-control" id="readStatus">
                 <option value="">انتخاب نمایید</option>
-                <option value="0" selected="@(ViewBag.Read == 0 ? true : false)">خوانده نشده</option>
-                <option value="1" selected="@(ViewBag.Read == 1 ? true : false)">خوانده شده</option>
+                <option value="0" selected="@(ViewBag.Read == 0 ? true : false)">چک  نشده</option>
+                <option value="1" selected="@(ViewBag.Read == 1 ? true : false)">چک شده</option>
             </select>
         </div>
     </div>
@@ -23,8 +23,8 @@
             <label>وضعیت بازرسی</label>
             <select class="form-control" id="doneStatus">
                 <option value="">انتخاب نمایید</option>
-                <option value="0" selected="@(ViewBag.Done == 0 ? true : false)">انجام نشده</option>
-                <option value="1" selected="@(ViewBag.Done == 1 ? true : false)">انجام شده</option>
+                <option value="0" selected="@(ViewBag.Done == 0 ? true : false)">بازرسی نشده</option>
+                <option value="1" selected="@(ViewBag.Done == 1 ? true : false)">بازرسیس شده</option>
             </select>
         </div>
     </div>
@@ -45,8 +45,8 @@
             <th>نام</th>
             <th>نام خانوادگی</th>
             <th>تاریخ</th>
-            <th>چک شد</th>
-            <th>خوانده شد</th>
+            <th>وضعیت کارشناسی </th>
+            <th>وضعیت بررسی</th>
             <th>نوع پرداخت</th>
             <th>تاریخ پرداخت</th>
             <th>شماره پیگیری</th>
@@ -62,8 +62,8 @@
                 <td>@item.FirstName</td>
                 <td>@item.LastName</td>
                 <td>@(new BICT.Payetakht.Helper.PersianDateTime(item.RequestDate).ToString(BICT.Payetakht.Helper.PersianDateTimeFormat.Date))</td>
-                <td>@(item.IsDone ? "بررسی شده" : "بررسی نشده")</td>
-                <td>@(item.IsRead ? "خوانده شده" : "خوانده نشده")</td>
+                <td>@(item.IsDone ? "کارشناسی شده" : "کارشناسی نشده")</td>
+                <td>@(item.IsRead ? "چک شده" : "چک نشده")</td>
                 <td>
                     @if (item.PaymentTypeID == 1)
                     {
