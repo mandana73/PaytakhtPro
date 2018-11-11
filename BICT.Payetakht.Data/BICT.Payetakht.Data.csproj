@@ -93,6 +93,7 @@
     <Compile Include="Models\CarModelYearDetail.cs" />
     <Compile Include="Models\CarYear.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\FAQ.cs" />
     <Compile Include="Models\Inspection.cs" />
     <Compile Include="Models\MetaKeyWord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Repository\CarModelRepository.cs" />
     <Compile Include="Repository\CarYearResponsitory.cs" />
     <Compile Include="Repository\MetaKeyWordRepository.cs" />
+    <Compile Include="Repository\FAQRepository.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\AuditViewModel.cs" />
     <Compile Include="ViewModels\BlogViewModel.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="ViewModels\InspectionViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="ViewModels\MetaKeyWordViewModel.cs" />
+    <Compile Include="ViewModels\FAQViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
