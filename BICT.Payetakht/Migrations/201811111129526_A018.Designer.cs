@@ -7,13 +7,13 @@ namespace BICT.Payetakht.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class A019 : IMigrationMetadata
+    public sealed partial class A018 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(A019));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(A018));
         
         string IMigrationMetadata.Id
         {
-            get { return "201811110911368_A019"; }
+            get { return "201811111129526_A018"; }
         }
         
         string IMigrationMetadata.Source
