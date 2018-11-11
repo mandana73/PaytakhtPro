@@ -22,6 +22,7 @@
         public DbSet<City> Cities { get; set; }
         public DbSet<Inspection> Inspections { get; set; }
         public DbSet<MetaKeyWord> MetaKeyWords { get; set; }
+        public DbSet<FAQ> FAQs { get; set; }
 
         public static BICTDbContext Create()
         {
