@@ -205,6 +205,7 @@
     <Compile Include="Areas\Dashboard\Controllers\CarModelYearDetailController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CarYearController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CityController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\FAQController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\HomeController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\MetaKeyWordController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
@@ -216,7 +217,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InspectionController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\QandAController.cs" />
+    <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ReadsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -288,6 +289,10 @@
     <Compile Include="Migrations\201811071318229_A017.cs" />
     <Compile Include="Migrations\201811071318229_A017.Designer.cs">
       <DependentUpon>201811071318229_A017.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811110911368_A019.cs" />
+    <Compile Include="Migrations\201811110911368_A019.Designer.cs">
+      <DependentUpon>201811110911368_A019.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -445,6 +450,9 @@
     <Content Include="Areas\Dashboard\Views\Blog\Create.cshtml" />
     <Content Include="Areas\Dashboard\Views\Audit\Inspection.cshtml" />
     <Content Include="Areas\Dashboard\Views\Audit\Picture.cshtml" />
+    <Content Include="Areas\Dashboard\Views\FAQ\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\FAQ\Edit.cshtml" />
+    <Content Include="Areas\Dashboard\Views\FAQ\Create.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\ckeditor\ckeditor.js.map" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
@@ -566,7 +574,7 @@
     <Content Include="Views\Shared\AdminLayout.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\Audit\Index.cshtml" />
-    <Content Include="Views\QandA\index.cshtml" />
+    <Content Include="Views\FAQ\index.cshtml" />
     <Content Include="Views\Reads\index.cshtml" />
     <Content Include="Views\AboutUs\index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
@@ -655,6 +663,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811071318229_A017.resx">
       <DependentUpon>201811071318229_A017.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811110911368_A019.resx">
+      <DependentUpon>201811110911368_A019.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

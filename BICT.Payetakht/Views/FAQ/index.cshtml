@@ -1,0 +1,27 @@
+﻿@model IList<BICT.Payetakht.Data.ViewModels. FAQViewModel>
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="layout-container">
+    <div class="container">
+        <h2>پرسش و پاسخ</h2>
+        <div class="panel-group" id="accordion">
+            @foreach (var item in Model)
+            {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse@(item.ID)">@item.Question</a>
+                    </h4>
+                </div>
+                <div id="collapse@(item.ID)" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @Html.Raw(item.Answer)
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
