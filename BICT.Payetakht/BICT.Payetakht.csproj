@@ -214,6 +214,7 @@
     <Compile Include="Controllers\AuditController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InspectionController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -584,6 +585,7 @@
     <Content Include="Views\ContactUs\Index.cshtml" />
     <Content Include="Views\Inspection\Index.cshtml" />
     <Content Include="Views\Inspection\Detail.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BICT.Payetakht.Data\BICT.Payetakht.Data.csproj">
