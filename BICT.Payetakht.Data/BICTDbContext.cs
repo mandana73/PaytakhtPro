@@ -23,6 +23,8 @@
         public DbSet<Inspection> Inspections { get; set; }
         public DbSet<MetaKeyWord> MetaKeyWords { get; set; }
         public DbSet<FAQ> FAQs { get; set; }
+        public DbSet<PictureOfSlide> PictureOfSlides { get; set; }
+        public DbSet<Readings> Reads { get; set; }
 
         public static BICTDbContext Create()
         {
