@@ -16,10 +16,10 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             carModelRepository = new CarModelRepository();
             repository = new CarDetailRepository();
         }
-
-        public ActionResult Index()
+        public ActionResult Index(int p = 1)
         {
-            var list = repository.GetList();
+            ViewBag.Page = p;
+            var list = repository.GetPagedList(p);
             return View(list);
         }
 
