@@ -1,12 +1,23 @@
 ﻿namespace BICT.Payetakht.Controllers
 {
     using System.Web.Mvc;
+    using BICT.Payetakht.Data.Repository;
 
     public class HomeController : Controller
+
     {
+      private  PictureOfSlideRepository repository;
+
+        public HomeController()
+
+        {
+            repository = new PictureOfSlideRepository();
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var List = repository.GetList();
+            return View(List);
         }
 
         public ActionResult About()
