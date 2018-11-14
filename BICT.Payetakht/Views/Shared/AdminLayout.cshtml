@@ -17,8 +17,7 @@
     <link href="~/Content/bootstrap.rtl.min.css" rel="stylesheet" />
     <link href="~/Content/panel.css" rel="stylesheet" />
     <style>
-        .control-label
-        {
+        .control-label {
             text-align: left;
             padding-top: 7px;
         }
@@ -59,7 +58,7 @@
                     <li class="treeview">
                         <a href="@Url.Action("Index","Home")">
                             <i class="fa fa-dashboard"></i> <span>داشبورد</span>
-                            </a>
+                        </a>
                     <li class="treeview">
                         <a href="@Url.Action("Index","Audit")">
                             <i class="fa fa-align-center"></i> <span>درخواست ها</span>
@@ -78,10 +77,20 @@
                             <li><a href="@Url.Action("Index","CarDetail")"><i class="fa fa-spinner"></i>جزئیات</a></li>
                             <li><a href="@Url.Action("Index","City")"><i class="fa fa-location-arrow"></i> شهر</a></li>
                             <li><a href="@Url.Action("Index","CarModelYearDetail")"><i class="fa fa-database"></i> جزئیات کلی </a></li>
-                            <li><a href="@Url.Action("Index","MetaKeyWord")"><i class="fa fa-database"></i> کلمات کلیدی </a></li>
-                            <li><a href="@Url.Action("Index","Blog")"><i class="fa fa-database"></i> وبلاگ </a></li>
-                            <li><a href="@Url.Action("Index","FAQ")"><i class="fa fa-database"></i> پرسش و پاسخ </a></li>
+                        </ul>
 
+                    <li class="treeview">
+                        <a>
+                        <i class="fa fa-newspaper-o"></i>
+                        <span>محتوا</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("Index","MetaKeyWord")"><i class="fa fa-file-text"></i> کلمات کلیدی </a></li>
+                            <li><a href="@Url.Action("Index","Blog")"><i class="fa fa-book"></i> وبلاگ </a></li>
+                            <li><a href="@Url.Action("Index","FAQ")"><i class="fa fa-question"></i> پرسش و پاسخ </a></li>
+                            <li><a href="@Url.Action("Index","PictureOfSlide")"><i class="fa fa-camera"></i> عکس اسلاید </a></li>
+                            <li><a href="@Url.Action("Index","Readings")"><i class="fa fa-camera"></i> خواندنی ها </a></li>
 
                         </ul>
                     </li>

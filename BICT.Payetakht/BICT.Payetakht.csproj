@@ -208,6 +208,8 @@
     <Compile Include="Areas\Dashboard\Controllers\FAQController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\HomeController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\MetaKeyWordController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\PictureOfSlideController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\ReadingsController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -219,7 +221,7 @@
     <Compile Include="Controllers\InspectionController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
-    <Compile Include="Controllers\ReadsController.cs" />
+    <Compile Include="Controllers\ReadingsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -294,6 +296,14 @@
     <Compile Include="Migrations\201811111129526_A018.cs" />
     <Compile Include="Migrations\201811111129526_A018.Designer.cs">
       <DependentUpon>201811111129526_A018.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811120849052_A019.cs" />
+    <Compile Include="Migrations\201811120849052_A019.Designer.cs">
+      <DependentUpon>201811120849052_A019.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811121256099_A020.cs" />
+    <Compile Include="Migrations\201811121256099_A020.Designer.cs">
+      <DependentUpon>201811121256099_A020.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -454,6 +464,11 @@
     <Content Include="Areas\Dashboard\Views\FAQ\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\FAQ\Edit.cshtml" />
     <Content Include="Areas\Dashboard\Views\FAQ\Create.cshtml" />
+    <Content Include="Areas\Dashboard\Views\PictureOfSlide\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\PictureOfSlide\Create.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Readings\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Readings\Edit.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Readings\Create.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\ckeditor\ckeditor.js.map" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
@@ -576,7 +591,7 @@
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\Audit\Index.cshtml" />
     <Content Include="Views\FAQ\index.cshtml" />
-    <Content Include="Views\Reads\index.cshtml" />
+    <Content Include="Views\Readings\index.cshtml" />
     <Content Include="Views\AboutUs\index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Blog\Post.cshtml" />
@@ -668,6 +683,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811111129526_A018.resx">
       <DependentUpon>201811111129526_A018.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811120849052_A019.resx">
+      <DependentUpon>201811120849052_A019.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811121256099_A020.resx">
+      <DependentUpon>201811121256099_A020.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
