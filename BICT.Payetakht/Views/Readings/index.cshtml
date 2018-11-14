@@ -1,0 +1,15 @@
+﻿@model IList<BICT.Payetakht.Data.ViewModels.ReadingsViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="layout-container">
+    <div class="container reads">
+        @foreach (var item in Model)
+        {
+            <h3>@item.Title</h3>
+            <p >@Html.Raw( item.Content)</p>
+        }
+    </div>
+</div>
