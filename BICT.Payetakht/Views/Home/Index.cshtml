@@ -1,30 +1,21 @@
-﻿@{
-    ViewBag.Title = "صفحه اصلی";
-}
-
+﻿@model IList<BICT.Payetakht.Data.ViewModels.PictureOfSlideViewModel>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "صفحه اصلی";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="layout-container m-b-0">
     <section>
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <a href="~/Audit">
-                        <img src="~/Content/images/home-bg.jpg" href="~/Audit" alt="...">
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="~/Audit">
-                        <img src="~/Content/images/audit-bg.jpg" alt="...">
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="~/Audit">
-                        <img src="~/Content/images/about-img1.jpg" alt="...">
-                    </a>
-                </div>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <div class="item @(i==0 ? "active" : "")">
+                        <a href="~/Audit">
+                            <img src="@Url.Content( Model[i].PicturePath)" alt="مرکز کارشناسان پایتخت">
+                        </a>
+                    </div>
+                }
             </div>
             <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
@@ -91,17 +82,17 @@
                             <div class="business_items text-center">
                                 <div class="business_item">
                                     <div class="business_img">
-                                        <img src="~/Content/images/about-img1.jpg" alt="" />
+                                        <img src="~/Content/images/about-img1.jpg" alt="مرکز کارشناسان پایتخت" />
                                     </div>
                                 </div>
                                 <div class="business_item">
                                     <div class="business_img">
-                                        <img src="~/Content/images/about-img1.jpg" alt="" />
+                                        <img src="~/Content/images/about-img1.jpg" alt="مرکز کارشناسان پایتخت" />
                                     </div>
                                 </div>
                                 <div class="business_item">
                                     <div class="business_img">
-                                        <img src="~/Content/images/about-img1.jpg" alt="" />
+                                        <img src="~/Content/images/about-img1.jpg" alt="مرکز کارشناسان پایتخت" />
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +139,7 @@
                                     <div class="col-sm-3">
                                         <div class="port_item xs-m-top-30">
                                             <div class="port_img">
-                                                <img src="~/Content/images/work-img1.jpg" alt="" />
+                                                <img src="~/Content/images/work-img1.jpg" alt="مرکز کارشناسان پایتخت" />
                                                 <div class="port_overlay text-center">
                                                     <a href="~/Content/images/work-img1.jpg" class="popup-img">+</a>
                                                 </div>
@@ -166,7 +157,7 @@
                                     <div class="col-sm-3">
                                         <div class="port_item xs-m-top-30">
                                             <div class="port_img">
-                                                <img src="~/Content/images/work-img2.jpg" alt="" />
+                                                <img src="~/Content/images/work-img2.jpg" alt="مرکز کارشناسان پایتخت" />
                                                 <div class="port_overlay text-center">
                                                     <a href="~/Content/images/work-img2.jpg" class="popup-img">+</a>
                                                 </div>
@@ -180,7 +171,7 @@
                                     <div class="col-sm-3">
                                         <div class="port_item xs-m-top-30">
                                             <div class="port_img">
-                                                <img src="~/Content/images/work-img3.jpg" alt="" />
+                                                <img src="~/Content/images/work-img3.jpg" alt="مرکز کارشناسان پایتخت" />
                                                 <div class="port_overlay text-center">
                                                     <a href="~/Content/images/work-img3.jpg" class="popup-img">+</a>
                                                 </div>
@@ -194,7 +185,7 @@
                                     <div class="col-sm-3">
                                         <div class="port_item xs-m-top-30">
                                             <div class="port_img">
-                                                <img src="~/Content/images/work-img4.jpg" alt="" />
+                                                <img src="~/Content/images/work-img4.jpg" alt="مرکز کارشناسان پایتخت" />
                                                 <div class="port_overlay text-center">
                                                     <a href="~/Content/images/work-img4.jpg" class="popup-img">+</a>
                                                 </div>
@@ -214,7 +205,7 @@
                                     <div class="col-sm-3">
                                         <div class="port_item xs-m-top-30">
                                             <div class="port_img">
-                                                <img src="~/Content/images/work-img1.jpg" alt="" />
+                                                <img src="~/Content/images/work-img1.jpg" alt="مرکز کارشناسان پایتخت" />
                                                 <div class="port_overlay text-center">
                                                     <a href="~/Content/images/work-img1.jpg" class="popup-img">+</a>
                                                 </div>
@@ -228,7 +219,7 @@
                                     <div class="col-sm-3">
                                         <div class="port_item xs-m-top-30">
                                             <div class="port_img">
-                                                <img src="~/Content/images/work-img2.jpg" alt="" />
+                                                <img src="~/Content/images/work-img2.jpg" alt="مرکز کارشناسان پایتخت" />
                                                 <div class="port_overlay text-center">
                                                     <a href="~/Content/images/work-img2.jpg" class="popup-img">+</a>
                                                 </div>
@@ -246,7 +237,7 @@
                                     <div class="col-sm-3">
                                         <div class="port_item xs-m-top-30">
                                             <div class="port_img">
-                                                <img src="~/Content/images/work-img3.jpg" alt="" />
+                                                <img src="~/Content/images/work-img3.jpg" alt="مرکز کارشناسان پایتخت" />
                                                 <div class="port_overlay text-center">
                                                     <a href="~/Content/images/work-img3.jpg" class="popup-img">+</a>
                                                 </div>
@@ -265,7 +256,7 @@
                                     <div class="col-sm-3">
                                         <div class="port_item xs-m-top-30">
                                             <div class="port_img">
-                                                <img src="~/Content/images/work-img4.jpg" alt="" />
+                                                <img src="~/Content/images/work-img4.jpg" alt="مرکز کارشناسان پایتخت" />
                                                 <div class="port_overlay text-center">
                                                     <a href="~/Content/images/work-img4.jpg" class="popup-img">+</a>
                                                 </div>
@@ -285,7 +276,7 @@
                                     <div class="col-sm-3">
                                         <div class="port_item xs-m-top-30">
                                             <div class="port_img">
-                                                <img src="~/Content/images/work-img1.jpg" alt="" />
+                                                <img src="~/Content/images/work-img1.jpg" alt="مرکز کارشناسان پایتخت" />
                                                 <div class="port_overlay text-center">
                                                     <a href="~/Content/images/work-img1.jpg" class="popup-img">+</a>
                                                 </div>
@@ -299,7 +290,7 @@
                                     <div class="col-sm-3">
                                         <div class="port_item xs-m-top-30">
                                             <div class="port_img">
-                                                <img src="~/Content/images/work-img2.jpg" alt="" />
+                                                <img src="~/Content/images/work-img2.jpg" alt="مرکز کارشناسان پایتخت" />
                                                 <div class="port_overlay text-center">
                                                     <a href="~/Content/images/work-img2.jpg" class="popup-img">+</a>
                                                 </div>
@@ -313,7 +304,7 @@
                                     <div class="col-sm-3">
                                         <div class="port_item xs-m-top-30">
                                             <div class="port_img">
-                                                <img src="~/Content/images/work-img3.jpg" alt="" />
+                                                <img src="~/Content/images/work-img3.jpg" alt="مرکز کارشناسان پایتخت" />
                                                 <div class="port_overlay text-center">
                                                     <a href="~/Content/images/work-img3.jpg" class="popup-img">+</a>
                                                 </div>
@@ -335,7 +326,7 @@
                                     <div class="col-sm-3">
                                         <div class="port_item xs-m-top-30">
                                             <div class="port_img">
-                                                <img src="~/Content/images/work-img4.jpg" alt="" />
+                                                <img src="~/Content/images/work-img4.jpg" alt="مرکز کارشناسان پایتخت" />
                                                 <div class="port_overlay text-center">
                                                     <a href="~/Content/images/work-img4.jpg" class="popup-img">+</a>
                                                 </div>
@@ -380,7 +371,7 @@
                     <div class="col-md-6">
                         <div class="test_item fix">
                             <div class="item_img">
-                                <img class="img-circle" src="~/Content/images/test-img1.jpg" alt="" />
+                                <img class="img-circle" src="~/Content/images/test-img1.jpg" alt="مرکز کارشناسان پایتخت" />
                                 <i class="fa fa-quote-left"></i>
                             </div>
                             <div class="item_text">
@@ -394,7 +385,7 @@
                     <div class="col-md-6">
                         <div class="test_item fix sm-m-top-30">
                             <div class="item_img">
-                                <img class="img-circle" src="~/Content/images/test-img2.jpg" alt="" />
+                                <img class="img-circle" src="~/Content/images/test-img2.jpg" alt="مرکز کارشناسان پایتخت" />
                                 <i class="fa fa-quote-left"></i>
                             </div>
                             <div class="item_text">
@@ -415,22 +406,22 @@
                 <div class="main_brand text-center">
                     <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="brand_item sm-m-top-20">
-                            <img src="~/Content/images/cbrand-img1.png" alt="" />
+                            <img src="~/Content/images/cbrand-img1.png" alt="مرکز کارشناسان پایتخت" />
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="brand_item sm-m-top-20">
-                            <img src="~/Content/images/cbrand-img3.png" alt="" />
+                            <img src="~/Content/images/cbrand-img3.png" alt="مرکز کارشناسان پایتخت" />
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="brand_item sm-m-top-20">
-                            <img src="~/Content/images/cbrand-img5.png" alt="" />
+                            <img src="~/Content/images/cbrand-img5.png" alt="مرکز کارشناسان پایتخت" />
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="brand_item sm-m-top-20">
-                            <img src="~/Content/images/cbrand-img6.png" alt="" />
+                            <img src="~/Content/images/cbrand-img6.png" alt="مرکز کارشناسان پایتخت" />
                         </div>
                     </div>
                 </div>
