@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.DashboardTitle = "ثبت گزارش کارشناسی";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="container">
+    @using (Html.BeginForm("Create", "PictureOfSlide", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="control-label">تصاویر</label>
+                <input type="file" name="files" multiple accept=".png, .jpg, .jpeg" class="form-control" />
+            </div>
+            <div class="form-group col-md-12">
+                <button type="submit" class="btn btn-default">ذخیره</button>
+                <a href="@Url.Action("Index")">بازگشت</a>
+            </div>
+        </div>
+    }
+</div>

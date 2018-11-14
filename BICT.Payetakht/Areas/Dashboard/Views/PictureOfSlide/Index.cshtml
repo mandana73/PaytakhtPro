@@ -1,0 +1,39 @@
+﻿@model IList<BICT.Payetakht.Data.ViewModels.PictureOfSlideViewModel>
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h4> سایز عکس ها باید 1920 *600 باشد!</h4>
+<div class="table-responsive">
+    <table class="table table-bordered table-condensed table-hover table-striped">
+        <tr>
+          
+            <th>عکس</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img src="@Url.Content(item.PicturePath)" width="300"/></td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-info" href="@Url.Content(item.PicturePath)" target="_blank">نمایش</a>
+                        <a class="btn btn-danger" href="@Url.Action("Delete",new { id = item.ID })">حذف</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+    <nav aria-label="...">
+        <ul class="pager">
+            @if (ViewBag.Page > 1)
+            {
+                <li class="previous"><a href="@Url.Action("Index", new { p = ViewBag.Page - 1 })"><span aria-hidden="true">&rarr;</span> قبل</a></li>
+            }
+            @if (Model.Count == 10)
+            {
+                <li class="next"><a href="@Url.Action("Index", new { p = ViewBag.Page + 1 })">بعد <span aria-hidden="true">&larr;</span></a></li>
+            }
+        </ul>
+    </nav>
+</div>
+<a href="@Url.Action("Create")">عکس</a>
