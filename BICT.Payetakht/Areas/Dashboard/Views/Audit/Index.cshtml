@@ -83,7 +83,12 @@
                         {
                             <a class="btn btn-info" href="@Url.Action("Picture",new { id = item.ID })">تصاویر</a>
                         }
-                        <a class="btn btn-danger" href="@Url.Action("Detail",new { id = item.ID })">نمایش</a>
+                        <a class="btn btn-info" href="@Url.Action("Detail",new { id = item.ID })">نمایش</a>
+                        
+                        @if (item.HaveInspection)
+                        {
+                        <a class="btn btn-danger" href="@Url.Action("DeleteInspection", new { id = item.ID })">حذف کارشناسی</a>
+                        }
                     </div>
                 </td>
             </tr>

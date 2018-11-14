@@ -81,5 +81,7 @@ namespace BICT.Payetakht.Data.ViewModels
         public int? PaymentTypeID { get; set; }
 
         public bool HavePicture { get; set; }
+
+        public bool HaveInspection { get; set; }
     }
 }

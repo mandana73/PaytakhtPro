@@ -35,6 +35,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             var audits = auditRepository.GetPagedList(p, read, done);
             foreach (var item in audits)
             {
+                item.HaveInspection = auditRepository.HaveInspection(item.ID);
                 var path = Server.MapPath("~/Content/Audit/" + item.ID);
                 if (Directory.Exists(path) && Directory.GetFiles(path).Length > 0)
                 {
@@ -113,5 +114,14 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             }
             return RedirectToAction("Picture", new { id });
         }
+
+
+        [HttpGet]
+        public ActionResult DeleteInspection(int ID)
+        {
+            auditRepository.DeleteInspection(ID);
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

@@ -35,6 +35,11 @@ namespace BICT.Payetakht.Data.Repository
             db.SaveChanges();
         }
 
+        public bool HaveInspection(int iD)
+        {
+            return db.Inspections.Any(x => x.AuditID == iD);
+        }
+
         public IList<AuditViewModel> GetList()
         {
             return db.Audits
@@ -372,6 +377,17 @@ namespace BICT.Payetakht.Data.Repository
         public int AllRequestCount()
         {
             return db.Audits.Count();
+        }
+
+        public void DeleteInspection(int ID)
+        {
+
+            var a = db.Inspections.FirstOrDefault(x=>x.AuditID==ID);
+            if (a != null)
+            {
+                db.Inspections.Remove(a);
+                db.SaveChanges();
+            }
         }
     }
 }
