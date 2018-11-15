@@ -1,0 +1,229 @@
+﻿@model BICT.Payetakht.Data.ViewModels.CreateInspectionViewModel
+@{
+    ViewBag.DashboardTitle = "درخواست های کارشناسی  ";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+    @using (Html.BeginForm("CreateInspection", "Audit", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="row">
+            <div class="form-group col-md-6">
+                @Html.Label("سازنده", new { @class = "control-label" })
+                @Html.DropDownList("CarManufactureID", (IEnumerable<SelectListItem>)ViewBag.CarManufacturerList, new { @class = "form-control" })
+            </div>
+            <div class="form-group  col-md-6">
+                @Html.Label("مدل", new { @class = "control-label" })
+                @Html.DropDownList("CarModelID", new List<SelectListItem>(), new { @class = "form-control" })
+            </div>
+            <div class="form-group  col-md-6">
+                @Html.Label("سال ساخت", new { @class = "control-label" })
+                @Html.DropDownList("CarYearID", new List<SelectListItem>(), new { @class = "form-control" })
+            </div>
+            <div class="form-group  col-md-6">
+                @Html.Label("جزئیات", new { @class = "control-label" })
+                @Html.DropDownList("CarDetailID", new List<SelectListItem>(), new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.Color, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Color, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.ColorType, new { @class = "control-label" })
+                <select name="ColorType" class="form-control">
+                    <option value="">انتخاب نمایید</option>
+                    <option value="متالیک" selected="@(Model.ColorType == "متالیک")">متالیک</option>
+                    <option value="مات" selected="@(Model.ColorType == "مات")">مات</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.BodyType, new { @class = "control-label" })
+                <select name="BodyType" class="form-control">
+                    <option value="">انتخاب نمایید</option>
+                    <option value="شاسی بلند" selected="@(Model.BodyType == "شاسی بلند")">شاسی بلند</option>
+                    <option value="هاچبک" selected="@(Model.BodyType == "هاچبک")">هاچبک</option>
+                    <option value="سدان" selected="@(Model.BodyType == "سدان")">سدان</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.Usage, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Usage, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.GearBoxType, new { @class = "control-label" })
+                <select name="GearBoxType" class="form-control">
+                    <option value="">انتخاب نمایید</option>
+                    <option value="دستی" selected="@(Model.GearBoxType == "دستی")">دستی</option>
+                    <option value="اتوماتیک" selected="@(Model.GearBoxType == "اتوماتیک")">اتوماتیک</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.GearBoxNumner, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.GearBoxNumner, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.EngineVolume, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.EngineVolume, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.CylinderNumber, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.CylinderNumber, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.FuelType, new { @class = "control-label" })
+                <select name="FuelType" class="form-control">
+                    <option value="">انتخاب نمایید</option>
+                    <option value="بنزین" selected="@(Model.FuelType == "بنزین")">بنزین</option>
+                </select>
+            </div>
+            <div class="form-group col-md-12">
+                @Html.LabelFor(m => m.Description, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+            </div>
+            <h3 class="col-md-12">بدنه خودرو</h3>
+            <div class="col-md-6">
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.Roof, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.Roof, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.Trunk, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.Trunk, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.Hood, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.Hood, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.DoorLeftFront, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.DoorLeftFront, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.DoorRightFront, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.DoorRightFront, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.DoorLeftRear, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.DoorLeftRear, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.DoorRightRear, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.DoorRightRear, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.PillarLeftFront, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.PillarLeftFront, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.PillarRightFront, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.PillarRightFront, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.PillarLeftRear, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.PillarLeftRear, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.PillarRightRear, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.PillarRightRear, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.FenderLeftFront, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.FenderLeftFront, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.FenderRightFront, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.FenderRightFront, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.FenderLeftRear, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.FenderLeftRear, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.FenderRightRear, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.FenderRightRear, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.PedalLeft, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.PedalLeft, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.PedalRight, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.PedalRight, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.ChassisFront, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.ChassisFront, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.ChassisRear, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.ChassisRear, (IEnumerable<SelectListItem>)ViewBag.BodyList, new { @class = "form-control" })
+                </div>
+            </div>
+            <h3 class="col-md-12">وضعیت لاستیک ها</h3>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.TireLeftFront, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.TireLeftFront, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.TireRightFront, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.TireRightFront, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.TireLeftRear, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.TireLeftRear, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.TireRightRear, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.TireRightRear, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.TireSpare, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.TireSpare, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-12">
+                <label class="control-label">تصاویر</label>
+                <input type="file" name="files" multiple accept=".png, .jpg, .jpeg" class="form-control" />
+            </div>
+            <div class="form-group col-md-12">
+                <button type="submit" class="btn btn-default">ذخیره</button>
+                <a href="@Url.Action("Index")">بازگشت</a>
+            </div>
+        </div>
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+            <script type="text/javascript">
+        $(document).ready(function () {
+            $('#CarManufactureID').change(function () {
+                var carManufactureID = $(this).val() || 0;
+                $.get('@Url.Action("GetCarModel")' + '?carManufactureID=' + carManufactureID, function (data) {
+                    $('#CarModelID option').remove();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#CarModelID').append($('<option value="' + data[i].Value + '">' + data[i].Text + '</option>'))
+                    }
+                });
+            });
+            $('#CarModelID').change(function () {
+                var carModelID = $(this).val();
+                $.get('@Url.Action("GetCarYear")' + '?carModelID=' + carModelID, function (data)
+                {
+                    $('#CarYearID option').remove();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#CarYearID').append($('<option value="' + data[i].Value + '">' + data[i].Text +'</option>'))
+                    }
+                });
+                $.get('@Url.Action("GetCarDetail")' + '?carModelID=' + carModelID, function (data)
+                {
+                    $('#CarDetailID option').remove();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#CarDetailID').append($('<option value="' + data[i].Value + '">' + data[i].Text +'</option>'))
+                    }
+                });
+            });
+        });
+            </script>
+        }
+    }
+</div>

@@ -9,7 +9,7 @@ namespace BICT.Payetakht.Data.Repository
 {
     public class AuditRepository : BaseRepository
     {
-        public void Create(AuditViewModel audit)
+        public int Create(AuditViewModel audit)
         {
             var cmydr = new CarModelYearDetailRepository();
             var item = new Audit()
@@ -31,8 +31,15 @@ namespace BICT.Payetakht.Data.Repository
                 IsDone = false,
                 IsRead = false
             };
-            db.Audits.Add(item);
-            db.SaveChanges();
+            try
+            {
+                db.Audits.Add(item);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+            }
+            return item.ID;
         }
 
         public bool HaveInspection(int iD)
@@ -180,6 +187,7 @@ namespace BICT.Payetakht.Data.Repository
         public void InsertInspection(int id, InspectionViewModel model)
         {
             SetAsDone(id);
+            SetAsRead(id);
             var ins = db.Inspections.FirstOrDefault(x => x.AuditID == id);
             if (ins == null)
             {
