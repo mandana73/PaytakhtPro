@@ -125,6 +125,7 @@
     <Compile Include="ViewModels\CarYearsViewModel.cs" />
     <Compile Include="ViewModels\CreateInspectionViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\InspectionViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="ViewModels\MetaKeyWordViewModel.cs" />
