@@ -31,20 +31,65 @@ namespace BICT.Payetakht.Data.Repository
                 IsDone = false,
                 IsRead = false
             };
-            try
-            {
-                db.Audits.Add(item);
-                db.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-            }
+
+            db.Audits.Add(item);
+            db.SaveChanges();
+
             return item.ID;
         }
 
         public bool HaveInspection(int iD)
         {
             return db.Inspections.Any(x => x.AuditID == iD);
+        }
+
+        public IList<InspectionViewModel> GetLatestInspection(int Show)
+        {
+            return db.Inspections
+                 .OrderByDescending(x => x.ID)
+                 .Take(Show)
+                 .Select(x => new InspectionViewModel
+                 {
+                     AuditID = x.AuditID,
+                     Description = x.Description,
+                     Color = x.Color,
+                     ColorType = x.ColorType,
+                     GearBoxNumner = x.GearBoxNumner,
+                     GearBoxType = x.GearBoxType,
+                     Usage = x.Usage,
+                     EngineVolume = x.EngineVolume,
+                     CylinderNumber = x.CylinderNumber,
+                     FuelType = x.FuelType,
+                     Roof = x.Roof,
+                     Trunk = x.Trunk,
+                     Hood = x.Hood,
+                     DoorRightFront = x.DoorRightFront,
+                     DoorLeftFront = x.DoorLeftFront,
+                     DoorRightRear = x.DoorRightRear,
+                     DoorLeftRear = x.DoorLeftRear,
+                     PillarRightFront = x.PillarRightFront,
+                     PillarLeftFront = x.PillarLeftFront,
+                     PillarRightRear = x.PillarRightRear,
+                     PillarLeftRear = x.PillarLeftRear,
+                     FenderRightFront = x.FenderRightFront,
+                     FenderLeftFront = x.FenderLeftFront,
+                     FenderRightRear = x.FenderRightRear,
+                     FenderLeftRear = x.FenderLeftRear,
+                     PedalRight = x.PedalRight,
+                     PedalLeft = x.PedalLeft,
+                     ChassisFront = x.ChassisFront,
+                     ChassisRear = x.ChassisRear,
+                     TireRightFront = x.TireRightFront,
+                     TireLeftFront = x.TireLeftFront,
+                     TireRightRear = x.TireRightRear,
+                     TireLeftRear = x.TireLeftRear,
+                     TireSpare = x.TireSpare,
+                     BodyType = x.BodyType,
+                     CarDetailTitle = x.Audit.CarDetail.Title,
+                     CarManufactureTitle = x.Audit.CarManufacturer.Title,
+                     CarModelTitle = x.Audit.CarModel.Title,
+                     CarYearTitle = x.Audit.CarYear.Year
+                 }).ToList();
         }
 
         public IList<AuditViewModel> GetList()
@@ -182,7 +227,6 @@ namespace BICT.Payetakht.Data.Repository
                      CarYearTitle = x.Audit.CarYear.Year
                  }).ToList();
         }
-
 
         public void InsertInspection(int id, InspectionViewModel model)
         {
@@ -342,8 +386,8 @@ namespace BICT.Payetakht.Data.Repository
                          IsDone = x.IsDone,
                          IsRead = x.IsRead,
                          RequestDate = x.RequestDate,
-                         ReferID=x.ReferID,
-                         PaymentDate=x.PaymentDate,
+                         ReferID = x.ReferID,
+                         PaymentDate = x.PaymentDate,
                      }).FirstOrDefault();
             if (a.IsRead == false)
             {
@@ -389,8 +433,7 @@ namespace BICT.Payetakht.Data.Repository
 
         public void DeleteInspection(int ID)
         {
-
-            var a = db.Inspections.FirstOrDefault(x=>x.AuditID==ID);
+            var a = db.Inspections.FirstOrDefault(x => x.AuditID == ID);
             if (a != null)
             {
                 db.Inspections.Remove(a);
