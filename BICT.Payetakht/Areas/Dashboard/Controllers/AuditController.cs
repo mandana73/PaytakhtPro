@@ -65,6 +65,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
                 new SelectListItem { Text = "صافکاری بدون رنگ", Value = "صافکاری بدون رنگ" },
                 new SelectListItem { Text = "صافکاری با رنگ", Value = "صافکاری با رنگ" },
                 new SelectListItem { Text = "ضربه خوردگی جزئی", Value = "ضربه خوردگی جزئی" },
+                new SelectListItem { Text = "تعویض شده", Value = "تعویض شده" },
             };
             return View(inspection);
         }
@@ -149,6 +150,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
                 new SelectListItem { Text = "صافکاری بدون رنگ", Value = "صافکاری بدون رنگ" },
                 new SelectListItem { Text = "صافکاری با رنگ", Value = "صافکاری با رنگ" },
                 new SelectListItem { Text = "ضربه خوردگی جزئی", Value = "ضربه خوردگی جزئی" },
+                new SelectListItem { Text = "تعویض شده", Value = "تعویض شده" },
             };
             return View(new CreateInspectionViewModel());
         }
