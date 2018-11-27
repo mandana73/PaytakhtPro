@@ -27,14 +27,17 @@ namespace BICT.Payetakht.Data.Repository
                 pageNum = 1;
             }
             var Skip = (pageNum - 1) * 10;
-            return db.CarManufacturers
+            return db.CarDetails
                 .OrderByDescending(x => x.ID)
                 .Skip(Skip)
                 .Take(10)
                 .Select(x => new CarDetailViewModel
                 {
                     ID = x.ID,
-                    Title = x.Title
+                    CarModelTitle = x.CarModel.Title,
+                    CarModelID = x.CarModelID,
+                    CarManufactureTitle = x.CarModel.CarManufacturer.Title,
+                    Title = x.Title,
                 }).ToList();
         }
 
