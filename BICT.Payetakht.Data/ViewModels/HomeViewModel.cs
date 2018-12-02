@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BICT.Payetakht.Data.ViewModels
 {
-   public class HomeViewModel
+    public class HomeViewModel
     {
-     public   IList<PictureOfSlideViewModel> Slide { get; set; }
-      public  IList<InspectionViewModel> Inspections { get; set; }
+        public IList<PictureOfSlideViewModel> Slide { get; set; }
+        public IList<InspectionViewModel> Inspections { get; set; }
+        public IList<CommentViewModel> Comments { get; set; }
     }
 }

@@ -1336,6 +1336,7 @@ work Section style
 .main_test .item_text {
     display: inline-block;
     width: 70%;
+    padding-right: 2rem;
 }
 
 .item_img {

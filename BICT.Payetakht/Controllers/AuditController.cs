@@ -39,7 +39,7 @@
                  {
                      Text = x.Title,
                      Value = x.ID.ToString()
-                 }).ToList();
+                 }).OrderBy(x=>x.Text).ToList();
             mlist.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
             ViewBag.CarManufacturerList = mlist;
 
@@ -48,7 +48,7 @@
                             {
                                 Text = x.Title,
                                 Value = x.ID.ToString()
-                            }).ToList();
+                            }).OrderBy(x => x.Text).ToList();
             list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
             ViewBag.CityList = list;
             if (TempData["SuccessAudit"] != null && TempData["SuccessAudit"].ToString() == "Success")
@@ -179,7 +179,7 @@
             {
                 Text = x.Title,
                 Value = x.ID.ToString()
-            }).ToList();
+            }).OrderBy(x => x.Text).ToList();
             list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
 
             return Json(list, JsonRequestBehavior.AllowGet);
@@ -191,7 +191,7 @@
             {
                 Text = x.Year.ToString(),
                 Value = x.ID.ToString()
-            }).ToList();
+            }).OrderBy(x => x.Text).ToList();
             list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
 
             return Json(list, JsonRequestBehavior.AllowGet);
@@ -204,7 +204,7 @@
                 {
                     Text = x.Title.ToString(),
                     Value = x.ID.ToString()
-                }).ToList();
+                }).OrderBy(x => x.Text).ToList();
             list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
 
             return Json(list, JsonRequestBehavior.AllowGet);

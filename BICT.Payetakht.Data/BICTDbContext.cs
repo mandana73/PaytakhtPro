@@ -25,6 +25,7 @@
         public DbSet<FAQ> FAQs { get; set; }
         public DbSet<PictureOfSlide> PictureOfSlides { get; set; }
         public DbSet<Readings> Reads { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         public static BICTDbContext Create()
         {
@@ -143,6 +144,7 @@
                 .WithRequired(x => x.Audit)
                 .HasForeignKey(x => x.AuditID)
                 .WillCascadeOnDelete(false);
+
         }
     }
 }

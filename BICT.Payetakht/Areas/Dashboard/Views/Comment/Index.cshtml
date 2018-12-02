@@ -1,0 +1,50 @@
+﻿
+@model IList<BICT.Payetakht.Data.ViewModels.CommentViewModel>
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="table-responsive">
+    <table class="table table-bordered table-condensed table-hover table-striped">
+        <tr>
+            <th>نام</th>
+            <th>دیدگاه</th>
+            <th>تلفن</th>
+            <th>ایمیل</th>
+            <th>تاریخ ثبت دیدگاه</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Title</td>
+            <td>@item.Phone</td>
+            <td>@item.Email</td>
+            <td>@(new BICT.Payetakht.Helper.PersianDateTime(item.CreateDateTime).ToString(BICT.Payetakht.Helper.PersianDateTimeFormat.Date))</td>
+            <td>
+            <div class="btn-group">
+                @if (!item.IsConfirm)
+                {
+                    <a class="btn btn-danger" href="@Url.Action("Confirm",new { id = item.ID })">تائید شود</a>
+                }
+                <a class="btn btn-danger" href="@Url.Action("Delete",new { id = item.ID })">حذف</a>
+            </div>
+            </td>
+        </tr>
+        }
+    </table>
+    <nav aria-label="...">
+        <ul class="pager">
+            @if (ViewBag.Page > 1)
+            {
+                <li class="previous"><a href="@Url.Action("Index", new { p = ViewBag.Page - 1 })"><span aria-hidden="true">&rarr;</span> قبل</a></li>
+            }
+            @if (Model.Count == 10)
+            {
+                <li class="next"><a href="@Url.Action("Index", new { p = ViewBag.Page + 1 })">بعد <span aria-hidden="true">&larr;</span></a></li>
+            }
+        </ul>
+    </nav>
+</div>
+<a href="@Url.Action("Create")">ثبت دیدگاه</a>

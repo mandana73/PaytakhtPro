@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -154,6 +153,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             };
             return View(new CreateInspectionViewModel());
         }
+
         [HttpPost]
         public ActionResult CreateInspection(CreateInspectionViewModel model, IEnumerable<HttpPostedFileBase> files)
         {

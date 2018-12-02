@@ -93,6 +93,7 @@
     <Compile Include="Models\CarModelYearDetail.cs" />
     <Compile Include="Models\CarYear.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\CreateInspection.cs" />
     <Compile Include="Models\FAQ.cs" />
     <Compile Include="Models\Inspection.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Repository\CarManufactureRepository.cs" />
     <Compile Include="Repository\CarModelRepository.cs" />
     <Compile Include="Repository\CarYearResponsitory.cs" />
+    <Compile Include="Repository\CommentRepository.cs" />
     <Compile Include="Repository\CreateInspectionRepository.cs" />
     <Compile Include="Repository\MetaKeyWordRepository.cs" />
     <Compile Include="Repository\FAQRepository.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="ViewModels\CarManufactureViewModel.cs" />
     <Compile Include="ViewModels\CarModelViewModel.cs" />
     <Compile Include="ViewModels\CarYearsViewModel.cs" />
+    <Compile Include="ViewModels\CommentViewModel.cs" />
     <Compile Include="ViewModels\CreateInspectionViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />

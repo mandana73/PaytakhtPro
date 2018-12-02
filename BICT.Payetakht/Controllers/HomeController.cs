@@ -9,12 +9,13 @@
     {
         private PictureOfSlideRepository repository;
         private AuditRepository auditrepository;
-
+        private CommentRepository commentRepository;
 
         public HomeController()
         {
             repository = new PictureOfSlideRepository();
             auditrepository = new AuditRepository();
+            commentRepository = new CommentRepository();
         }
 
         public ActionResult Index()
@@ -22,6 +23,7 @@
             var x = new HomeViewModel
             {
                 Inspections = auditrepository.GetLatestInspection(4),
+                Comments = commentRepository.GetLatestComment(4),
                 Slide = repository.GetList()
             };
             foreach (var item in x.Inspections)
@@ -36,21 +38,29 @@
                     }
                 }
             }
+
             return View(x);
         }
 
-        public ActionResult About()
+        [HttpGet]
+        public ActionResult Comment()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        [HttpPost]
+        public ActionResult Comment(CommentViewModel comment)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var x = new CommentViewModel()
+            {
+                Name = comment.Name,
+                Title = comment.Title,
+                Phone = comment.Phone,
+                Email = comment.Email,
+                IsConfirm = false,
+            };
+            commentRepository.Create(x);
+            return Redirect("Index");
         }
     }
 }
