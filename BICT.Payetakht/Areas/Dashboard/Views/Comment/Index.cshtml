@@ -1,6 +1,7 @@
 ﻿
 @model IList<BICT.Payetakht.Data.ViewModels.CommentViewModel>
 @{
+    ViewBag.DashboardTitle = "دیدگاه";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
@@ -26,7 +27,7 @@
             <div class="btn-group">
                 @if (!item.IsConfirm)
                 {
-                    <a class="btn btn-danger" href="@Url.Action("Confirm",new { id = item.ID })">تائید شود</a>
+                    <a class="btn btn-info" href="@Url.Action("Confirm",new { id = item.ID })">تائید شود</a>
                 }
                 <a class="btn btn-danger" href="@Url.Action("Delete",new { id = item.ID })">حذف</a>
             </div>

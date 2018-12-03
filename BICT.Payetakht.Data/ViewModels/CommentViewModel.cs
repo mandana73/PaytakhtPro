@@ -22,9 +22,11 @@ namespace BICT.Payetakht.Data.ViewModels
         public string Title { get; set; }
 
         [MaxLength(255)]
+        [Display(Name ="ایمیل")]
         public string Email { get; set; }
 
         [MaxLength(255)]
+        [Display(Name ="موبایل")]
         public string Phone { get; set; }
 
         [Required]
