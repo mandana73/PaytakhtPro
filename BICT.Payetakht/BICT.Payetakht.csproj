@@ -314,6 +314,14 @@
     <Compile Include="Migrations\201812020941310_A022.Designer.cs">
       <DependentUpon>201812020941310_A022.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812101217484_A023.cs" />
+    <Compile Include="Migrations\201812101217484_A023.Designer.cs">
+      <DependentUpon>201812101217484_A023.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901300921333_A024.cs" />
+    <Compile Include="Migrations\201901300921333_A024.Designer.cs">
+      <DependentUpon>201901300921333_A024.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -709,6 +717,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812020941310_A022.resx">
       <DependentUpon>201812020941310_A022.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812101217484_A023.resx">
+      <DependentUpon>201812101217484_A023.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901300921333_A024.resx">
+      <DependentUpon>201901300921333_A024.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
