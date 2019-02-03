@@ -110,6 +110,7 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             ViewBag.ID = id;
             var path = Server.MapPath("~/Content/Audit/" + id);
             var list = Directory.GetFiles(path).Select(x => Path.GetFileName(x));
+            ViewBag.DefaultPicture = auditRepository.GetDefaultPicture(id);
             return View(list);
         }
 
@@ -120,6 +121,17 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             if (System.IO.File.Exists(path))
             {
                 System.IO.File.Delete(path);
+            }
+            return RedirectToAction("Picture", new { id });
+        }
+
+        [HttpGet]
+        public ActionResult DefaultPicture(int id, string name)
+        {
+            var path = Server.MapPath("~/Content/Audit/" + id + "/" + name);
+            if (System.IO.File.Exists(path))
+            {
+                auditRepository.DefaultPicture(id, name);
             }
             return RedirectToAction("Picture", new { id });
         }

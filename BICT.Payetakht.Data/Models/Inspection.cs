@@ -101,5 +101,8 @@ namespace BICT.Payetakht.Data.Models
         public int TireSpare { get; set; }
 
         public virtual Audit Audit { get; set; }
+
+        [StringLength(255)]
+        public string DefaultPicture { get; set; }
     }
 }

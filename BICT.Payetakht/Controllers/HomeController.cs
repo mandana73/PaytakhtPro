@@ -28,13 +28,22 @@
             };
             foreach (var item in x.Inspections)
             {
-                var path = Server.MapPath("~/Content/Audit/" + item.AuditID);
-                if (Directory.Exists(path))
+                var DefaultPic = auditrepository.GetDefaultPicture(item.AuditID);
+                if (!string.IsNullOrWhiteSpace(DefaultPic))
                 {
-                    var files = Directory.GetFiles(path);
-                    if (files.Length > 0)
+                    item.CoverPic = DefaultPic;
+                }
+                else
+                {
+                    var path = Server.MapPath("~/Content/Audit/" + item.AuditID);
+
+                    if (Directory.Exists(path))
                     {
-                        item.CoverPic = Path.GetFileName(files[0]);
+                        var files = Directory.GetFiles(path);
+                        if (files.Length > 0)
+                        {
+                            item.CoverPic = Path.GetFileName(files[0]);
+                        }
                     }
                 }
             }

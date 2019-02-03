@@ -440,5 +440,25 @@ namespace BICT.Payetakht.Data.Repository
                 db.SaveChanges();
             }
         }
+
+        public void DefaultPicture(int id, string name)
+        {
+            var Inspection = db.Inspections.FirstOrDefault(x => x.AuditID == id);
+            if(Inspection!= null)
+            {
+                Inspection.DefaultPicture = name;
+                db.SaveChanges();
+            }
+        }
+
+        public string GetDefaultPicture(int id)
+        {
+            var a = db.Inspections.FirstOrDefault(x=>x.AuditID==id);
+            if(a!=null)
+            {
+                return a.DefaultPicture;
+            }
+            return null;
+        }
     }
 }

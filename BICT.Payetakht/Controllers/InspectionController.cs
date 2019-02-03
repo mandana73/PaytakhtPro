@@ -20,13 +20,21 @@ namespace BICT.Payetakht.Controllers
             var list = auditRepository.GetInspectionList(p);
             foreach (var item in list)
             {
-                var path = Server.MapPath("~/Content/Audit/" + item.AuditID);
-                if (Directory.Exists(path))
+                var defaultPic = auditRepository.GetDefaultPicture(item.AuditID);
+                if (!string.IsNullOrWhiteSpace(defaultPic))
                 {
-                    var files = Directory.GetFiles(path);
-                    if (files.Length > 0)
+                    item.CoverPic = defaultPic;
+                }
+                else
+                {
+                    var path = Server.MapPath("~/Content/Audit/" + item.AuditID);
+                    if (Directory.Exists(path))
                     {
-                        item.CoverPic = Path.GetFileName(files[0]);
+                        var files = Directory.GetFiles(path);
+                        if (files.Length > 0)
+                        {
+                            item.CoverPic = Path.GetFileName(files[0]);
+                        }
                     }
                 }
             }
