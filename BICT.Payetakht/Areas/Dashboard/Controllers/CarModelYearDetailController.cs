@@ -70,33 +70,51 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                var List = carModelRepository.GetList()
-                          .Select(x => new SelectListItem
-                          {
-                              Text = x.CarManufactureTitle + " - " + x.Title,
-                              Value = x.ID.ToString()
-                          }).ToList();
-                List.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
-                ViewBag.CarModelList = List;
-                return View();
-            }
-            var list = carModelRepository.GetList()
+            var item = repository.GetItem(id);
+            ViewBag.ModelList = carModelRepository.GetList()
                 .Select(x => new SelectListItem
                 {
                     Text = x.CarManufactureTitle + " - " + x.Title,
                     Value = x.ID.ToString()
                 }).ToList();
-            list.Insert(0, new SelectListItem { Value = "", Text = "انتخاب نمایید" });
-            ViewBag.ModelList = list;
-            var item = repository.GetItem(id);
+            ViewBag.YearList = carYearRepository.GetList(item.CarModelID).Select(x => new SelectListItem
+            {
+                Text = x.Year.ToString(),
+                Value = x.ID.ToString()
+            }).ToList();
+            ViewBag.DetailList = carDetailRepository.GetList(item.CarModelID)
+                        .Select(x => new SelectListItem
+                        {
+                            Text = x.Title.ToString(),
+                            Value = x.ID.ToString()
+                        }).ToList();
             return View(item);
         }
 
         [HttpPost]
         public ActionResult Edit(CarModelYearDetailViewModel model, int id)
         {
+            if (!ModelState.IsValid || model.CarModelID == 0 || model.CarYearID == 0 || model.CarDetailID == 0)
+            {
+                ViewBag.ModelList = carModelRepository.GetList()
+                 .Select(x => new SelectListItem
+                 {
+                     Text = x.CarManufactureTitle + " - " + x.Title,
+                     Value = x.ID.ToString()
+                 }).ToList();
+                ViewBag.YearList = carYearRepository.GetList(model.CarModelID).Select(x => new SelectListItem
+                {
+                    Text = x.Year.ToString(),
+                    Value = x.ID.ToString()
+                }).ToList();
+                ViewBag.DetailList = carDetailRepository.GetList(model.CarModelID)
+                            .Select(x => new SelectListItem
+                            {
+                                Text = x.Title.ToString(),
+                                Value = x.ID.ToString()
+                            }).ToList();
+                return View(model);
+            }
             var Model = repository.CheckDuplicate(model, id);
             if (Model)
             {
@@ -132,11 +150,33 @@ namespace BICT.Payetakht.Areas.Dashboard.Controllers
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Index(int p = 1)
+        public ActionResult Index(int p = 1, int CarModelID = 0, int CarYearID = 0, int CarDetailID = 0)
         {
+            ViewBag.CarModelID = CarModelID;
+            ViewBag.CarYearID = CarYearID;
+            ViewBag.CarDetailID = CarDetailID;
+            ViewBag.ModelList = carModelRepository.GetList()
+               .Select(x => new SelectListItem
+               {
+                   Text = x.CarManufactureTitle + " - " + x.Title,
+                   Value = x.ID.ToString()
+               }).ToList();
+            if (CarModelID > 0)
+            {
+                ViewBag.YearList = carYearRepository.GetList(CarModelID).Select(x => new SelectListItem
+                {
+                    Text = x.Year.ToString(),
+                    Value = x.ID.ToString()
+                }).ToList();
+                ViewBag.DetailList = carDetailRepository.GetList(CarModelID)
+                            .Select(x => new SelectListItem
+                            {
+                                Text = x.Title.ToString(),
+                                Value = x.ID.ToString()
+                            }).ToList();
+            }
             ViewBag.Page = p;
-            var list = repository.GetPagedList(p);
-            return View(list);
+            return View(repository.GetPagedList(p, CarModelID, CarYearID, CarDetailID));
         }
     }
 }

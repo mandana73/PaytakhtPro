@@ -2,6 +2,8 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     string Path = "Content/Audit" + "/" + ViewBag.AuditID;
+    ViewData["Title"] = $"کارشناسی خودرو {Model.CarManufactureTitle} {Model.CarModelTitle} {Model.CarDetailTitle} {Model.CarYearTitle}";
+
 }
 
 <div class="container layout-container inspection">

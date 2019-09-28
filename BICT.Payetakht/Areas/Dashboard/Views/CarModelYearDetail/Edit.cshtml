@@ -9,19 +9,46 @@
     <div class="form-group">
         @Html.Label("مدل", new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownList("CarModelID", (IEnumerable<SelectListItem>)ViewBag.ModelList, new { @class = "form-control" })
+            <select class="form-control" id="CarModelID" name="CarModelID" >
+                <option value="">انتخاب نمایید</option>
+                @if (ViewBag.ModelList != null)
+                {
+                    foreach (var item in (IEnumerable<SelectListItem>)ViewBag.ModelList)
+                    {
+                        <option value="@item.Value" selected="@(Model.CarModelID.ToString() == item.Value ? true : false)">@item.Text</option>
+                    }
+                }
+            </select>
         </div>
     </div>
     <div class="form-group">
         @Html.Label("سال", new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownList("CarYearID", new List<SelectListItem>(), new { @class = "form-control" })
+            <select class="form-control" id="CarYearID" name="CarYearID">
+                <option value="">انتخاب نمایید</option>
+                @if (ViewBag.YearList != null)
+                {
+                    foreach (var item in (IEnumerable<SelectListItem>)ViewBag.YearList)
+                    {
+                        <option value="@item.Value" selected="@(Model.CarYearID.ToString() == item.Value ? true : false)">@item.Text</option>
+                    }
+                }
+            </select>
         </div>
     </div>
     <div class="form-group">
         @Html.Label("جزئیات", new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownList("CarDetailID", new List<SelectListItem>(), new { @class = "form-control" })
+            <select class="form-control" id="CarDetailID" name="CarDetailID">
+                <option value="">انتخاب نمایید</option>
+                @if (ViewBag.DetailList != null)
+                {
+                    foreach (var item in (IEnumerable<SelectListItem>)ViewBag.DetailList)
+                    {
+                        <option value="@item.Value" selected="@(Model.CarDetailID.ToString() == item.Value ? true : false)">@item.Text</option>
+                    }
+                }
+            </select>
         </div>
     </div>
     <div class="form-group">

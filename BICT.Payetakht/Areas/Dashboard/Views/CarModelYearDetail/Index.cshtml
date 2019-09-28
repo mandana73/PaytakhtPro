@@ -3,6 +3,59 @@
     ViewBag.DashboardTitle = "جزئیات کلی";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            @Html.Label("مدل", new { @class = "col-md-2 control-label" })
+            <select class="form-control" id="CarModelID">
+                <option value="">انتخاب نمایید</option>
+                @if (ViewBag.ModelList != null)
+                {
+                    foreach (var item in (IEnumerable<SelectListItem>)ViewBag.ModelList)
+                    {
+                        <option value="@item.Value" selected="@(ViewBag.CarModelID!=null && ViewBag.CarModelID.ToString() == item.Value ? true : false)">@item.Text</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            @Html.Label("سال", new { @class = "col-md-2 control-label" })
+            <select class="form-control" id="CarYearID">
+                <option value="">انتخاب نمایید</option>
+                @if (ViewBag.YearList != null)
+                {
+                    foreach (var item in (IEnumerable<SelectListItem>)ViewBag.YearList)
+                    {
+                        <option value="@item.Value" selected="@(ViewBag.CarYearID!=null && ViewBag.CarYearID.ToString() == item.Value ? true : false)">@item.Text</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            @Html.Label("جزئیات", new { @class = "col-md-2 control-label" })
+            <select class="form-control" id="CarDetailID">
+                <option value="">انتخاب نمایید</option>
+                @if (ViewBag.DetailList != null)
+                {
+                    foreach (var item in (IEnumerable<SelectListItem>)ViewBag.DetailList)
+                    {
+                        <option value="@item.Value" selected="@(ViewBag.CarDetailID!=null && ViewBag.CarDetailID.ToString() == item.Value ? true : false)">@item.Text</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="btn-group">
+            <button class="btn btn-primary" id="btnSearch">جستجو</button>
+            <a class="btn btn-default" href="@Url.Action("Index")">نمایش همه</a>
+        </div>
+    </div>
+</div>
 <div class="table-responsive">
     <table class="table table-bordered table-condensed table-hover table-striped">
         <tr>
@@ -44,3 +97,34 @@
     </nav>
 </div>
 <a href="@Url.Action("Create")">ایجاد جزئیات کلی</a>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+                 $('#btnSearch').click(function () {
+                     var CarModelID = $('#CarModelID').val();
+                     var CarYearID = $('#CarYearID').val();
+                     var CarDetailID = $('#CarDetailID').val();
+                     window.location.href = "@Url.Action("Index")?p=1&CarModelID=" + CarModelID + "&CarYearID=" + CarYearID + "&CarDetailID=" + CarDetailID;
+                    });
+                $('#CarModelID').change(function () {
+                    var carModelID = $(this).val();
+                    $.get('@Url.Action("GetCarYear")' + '?carModelID=' + carModelID, function (data)
+                    {
+                        $('#CarYearID option').remove();
+                        for (var i = 0; i < data.length; i++) {
+                            $('#CarYearID').append($('<option value="' + data[i].Value + '">' + data[i].Text +'</option>'))
+                        }
+                    });
+                    $.get('@Url.Action("GetCarDetail")' + '?carModelID=' + carModelID, function (data)
+                    {
+                        $('#CarDetailID option').remove();
+                        for (var i = 0; i < data.length; i++) {
+                            $('#CarDetailID').append($('<option value="' + data[i].Value + '">' + data[i].Text +'</option>'))
+                        }
+                    });
+
+                });
+            });
+    </script>
+}

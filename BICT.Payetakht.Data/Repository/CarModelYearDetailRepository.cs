@@ -38,28 +38,39 @@ namespace BICT.Payetakht.Data.Repository
             }
         }
 
-        public IList<CarModelYearDetailViewModel> GetPagedList(int pageNum)
+        public IList<CarModelYearDetailViewModel> GetPagedList(int pageNum, int CarModelID = 0, int CarYearID = 0, int CarDetailID = 0)
         {
             if (pageNum < 1)
             {
                 pageNum = 1;
             }
             var skip = (pageNum - 1) * 10;
-            return db.CarModelYearDetails
-                .OrderByDescending(x => x.ID)
-                .Skip(skip)
-                .Take(10)
-                 .Select(x => new CarModelYearDetailViewModel
-                 {
-                     ID = x.ID,
-                     CarDetailID = x.CarDetailID,
-                     CarDetailTitle = x.CarDetail.Title,
-                     CarModelID = x.CarModelID,
-                     CarModelTitle = x.CarModel.Title,
-                     CarYearID = x.CarYearID,
-                     CarYearTitle = x.CarYear.Year,
-                     Price = x.Price,
-                 }).ToList();
+            var query = db.CarModelYearDetails.AsQueryable();
+            if (CarModelID > 0)
+            {
+                query = query.Where(x => x.CarModelID == CarModelID);
+            }
+            if (CarYearID > 0)
+            {
+                query = query.Where(x => x.CarYearID == CarYearID);
+            }
+            if (CarDetailID > 0)
+            {
+                query = query.Where(x => x.CarDetailID == CarDetailID);
+            }
+            return query.OrderByDescending(x => x.ID).Skip(skip)
+              .Take(10)
+              .Select(x => new CarModelYearDetailViewModel
+              {
+                  ID = x.ID,
+                  CarDetailID = x.CarDetailID,
+                  CarDetailTitle = x.CarDetail.Title,
+                  CarModelID = x.CarModelID,
+                  CarModelTitle = x.CarModel.CarManufacturer.Title + " - " + x.CarModel.Title,
+                  CarYearID = x.CarYearID,
+                  CarYearTitle = x.CarYear.Year,
+                  Price = x.Price,
+              }).ToList();
         }
 
         public CarModelYearDetailViewModel GetItem(int id)
